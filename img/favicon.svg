@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><rect width="400" height="400" fill="#080706"/><g fill="none" stroke="#c9a66b" stroke-width="14" stroke-linecap="round"><circle cx="200" cy="200" r="184"/>
+          <g transform="rotate(45 200 200)">
+            <rect x="182" y="58" width="36" height="284" rx="7"/>
+            <path d="M182 74h-24 M182 83h-24 M182 92h-24 M182 101h-24 M182 110h-24 M182 119h-24 M182 128h-24 M182 137h-24 M182 146h-24 M182 155h-24 M182 164h-24 M182 173h-24 M182 182h-24 M182 191h-24 M182 200h-24 M182 209h-24 M182 218h-24 M182 227h-24 M182 236h-24 M182 245h-24 M182 254h-24 M182 263h-24 M182 272h-24 M182 281h-24 M182 290h-24 M182 299h-24 M182 308h-24 M182 317h-24 M182 326h-24"/>
+          </g>
+          <g transform="rotate(-45 200 200)">
+            <path d="M190 46 H212 Q224 46 224 60 V194 H190 Z"/>
+            <path d="M197 60 V186"/>
+            <circle class="em-pin" cx="207" cy="204" r="6"/>
+            <rect x="195" y="214" width="24" height="140" rx="11"/>
+          </g>
+        </g></svg>

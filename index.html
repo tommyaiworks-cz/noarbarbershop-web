@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="canonical" href="https://noarbarbershop.cz/">
+<title>NØÁR Barbershop, Nekázanka 12, Praha 1</title>
+<meta name="description" content="Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Rezervace online za minutu, Nekázanka 12, pár kroků od Na Příkopě.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BarberShop","name":"NØÁR Barbershop","url":"https://noarbarbershop.cz/","telephone":"+420 737 537 277","description":"Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Nekázanka 12, pár kroků od Na Příkopě.","image":"https://noarbarbershop.cz/img/share.jpg","address":{"@type":"PostalAddress","streetAddress":"Nekázanka 12","addressLocality":"Praha 1","postalCode":"110 00","addressCountry":"CZ"},"priceRange":"480 Kč až 1 100 Kč","acceptsReservations":"https://noar-barber.slotio.cloud/#/booking","currenciesAccepted":"CZK","paymentAccepted":"Cash, Credit Card, Apple Pay, Google Pay","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"09:00","closes":"20:00"}]}
+</script>
+<meta name="theme-color" content="#080706">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NØÁR Barbershop">
+<meta property="og:title" content="NØÁR Barbershop, Nekázanka 12, Praha 1">
+<meta property="og:description" content="Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Rezervace online za minutu.">
+<meta property="og:url" content="https://noarbarbershop.cz/">
+<meta property="og:image" content="https://noarbarbershop.cz/img/share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:locale:alternate" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Roboto+Mono:wght@400;500&display=swap">
+<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&sessionStorage.getItem("noar-intro")!=="1")document.documentElement.classList.add("intro")}catch(e){}</script>
+<script>try{if(localStorage.getItem("noar-mode")==="light")document.documentElement.setAttribute("data-mode","light");}catch(e){}</script>
+<style>
+/* NØÁR. One dark room: espresso and brass, ivory for the things you press.
+   Sentences are set in EB Garamond, numbers (prices, times, dates, codes) in Roboto Mono.
+   No frames: structure comes from space, hairlines and light. */
+:root{
+  --ink:#080706;        /* the shop floor at night */
+  --coal:#110f0d;
+  --bone:#ece4d6;       /* ivory, the wordmark */
+  --sand:#b3a28b;       /* warm stone */
+  --amber:#c9a66b;      /* brushed brass */
+  --muted:#958b7c;
+  --line:rgba(201,166,107,.16);
+  --wash:rgba(236,228,214,.05);
+  --brass:linear-gradient(135deg,#f8f3ea 0%,#ece4d6 55%,#ddd2c0 100%);   /* primary buttons: ivory */
+  --brass-hi:linear-gradient(135deg,#fffdf8 0%,#f4ede2 55%,#e6dccb 100%);
+  --btn-glow:rgba(236,228,214,.28);
+  --on-brass:#1a1208;
+  --danger:#e09a88;
+  --neon:#fff3e2;
+  --veil:rgba(8,7,6,.66);
+  --serif:"EB Garamond",Garamond,"Times New Roman",serif;
+  --mono:"Roboto Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --sat:env(safe-area-inset-top,0px);   /* the notch / status bar on phones */
+  --gutter-l:max(20px,env(safe-area-inset-left,0px));
+  --gutter-r:max(20px,env(safe-area-inset-right,0px));
+  --measure:60ch;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  color-scheme:dark;
+}
+:root[data-mode="light"]{
+  --ink:#f0e9dd; --coal:#e6dccb; --bone:#1a140d; --sand:#6c5a42; --amber:#765727; --muted:#6a5d4f;
+  --brass:linear-gradient(135deg,#30261b 0%,#1a140d 60%,#120d08 100%); --brass-hi:linear-gradient(135deg,#3a2e21 0%,#231a11 60%,#16100a 100%); --on-brass:#f3ece0; --btn-glow:rgba(26,20,13,.35);
+  --line:rgba(140,106,54,.26); --wash:rgba(24,21,15,.05); --neon:#18150f; --danger:#a8432f; --veil:rgba(40,30,20,.4);
+  color-scheme:light;
+}
+/* the hero, the walk-through, the studio photo and the gift card stay dark in light mode */
+:root[data-mode="light"] :is(.hero,.voucher,.walk,.studio-open,.nav:not(.solid)){
+  --ink:#080706; --bone:#ece4d6; --sand:#b3a28b; --amber:#c9a66b; --muted:#958b7c; --neon:#fff3e2;
+  --line:rgba(201,166,107,.16); --wash:rgba(236,228,214,.06);
+  --brass:linear-gradient(135deg,#f8f3ea 0%,#ece4d6 55%,#ddd2c0 100%); --brass-hi:linear-gradient(135deg,#fffdf8 0%,#f4ede2 55%,#e6dccb 100%); --on-brass:#1a1208; --btn-glow:rgba(236,228,214,.28);
+  color:var(--bone);
+}
+
+/* ---------- base ---------- */
+*{box-sizing:border-box}
+html{font-size:112.5%;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (max-width:560px){html{font-size:106.25%}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ink);color:var(--bone);font:400 1rem/1.6 var(--serif);font-variant-numeric:lining-nums;font-kerning:normal;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body::before{content:"";position:fixed;inset:0 0 auto;height:var(--sat);z-index:40;background:var(--ink)}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:4px;border-radius:2px}
+::selection{background:rgba(201,166,107,.35);color:var(--bone)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
+p{margin:0}
+[hidden]{display:none!important}
+.wrap{padding-left:var(--gutter-l);padding-right:var(--gutter-r);max-width:1240px;margin-inline:auto}
+.num{font-family:var(--mono);font-size:.84em;font-weight:400;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.vh{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important}
+/* small italic heading in brass: service groups, opening hours, the collection */
+.kicker{font-style:italic;font-size:1.15rem;color:var(--amber);line-height:1.3}
+
+/* ---------- buttons and links ---------- */
+.btn{position:relative;overflow:hidden;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:.55em;
+  background:var(--brass);color:var(--on-brass);font:500 1.05rem/1.2 var(--serif);letter-spacing:.02em;
+  padding:.95em 1.9em;border-radius:2px;text-decoration:none;white-space:nowrap;
+  box-shadow:0 12px 32px -16px var(--btn-glow),inset 0 1px 0 rgba(255,255,255,.45);
+  transition:background .2s,transform .2s,color .2s}
+.btn:hover{background:var(--brass-hi)}
+.btn:active{transform:translateY(1px)}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.btn::before{content:"";position:absolute;top:-20%;bottom:-20%;left:-40%;width:28%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);rotate:12deg;pointer-events:none;opacity:0}
+@media (hover:hover){.btn:not([disabled]):hover::before{animation:sweep .9s cubic-bezier(.3,.6,.3,1) 1 both}}
+@keyframes sweep{0%{translate:0 0;opacity:0}15%{opacity:1}100%{translate:571% 0;opacity:0}}   /* 571% of its own width = from -40% to 120% of the button */
+.btn .snip{width:1.2em;height:1.2em;flex:none;fill:none;stroke:currentColor;stroke-width:2.6;stroke-linecap:round;transition:rotate .6s var(--ease),scale .4s}
+.btn:hover .snip,.btn:focus-visible .snip,.btn:active .snip{rotate:90deg;scale:1.12}
+/* text link: a faint resting line that fills with the text colour on hover */
+.link{display:inline-flex;align-items:center;gap:.5em;text-decoration:none;padding-bottom:.12em;color:var(--bone);
+  background-image:linear-gradient(var(--line),var(--line)),linear-gradient(currentColor,currentColor);
+  background-repeat:no-repeat;background-position:left bottom,left bottom;background-size:100% 1px,0% 1px;transition:background-size .35s var(--ease),color .25s}
+.link:hover,.link:focus-visible{background-size:100% 1px,100% 1px}
+/* brass text action: opens something in place */
+.act{display:inline;color:var(--amber);text-align:left;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;
+  text-decoration-color:color-mix(in srgb,currentColor 40%,transparent);transition:text-decoration-color .25s,color .25s}
+.act:hover,.act:focus-visible{text-decoration-color:currentColor}
+@media (prefers-reduced-motion:reduce){.btn:hover::before{animation:none}.btn .snip{transition:none}}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:var(--sat);left:0;right:0;z-index:30;padding:0 var(--gutter-r) 0 var(--gutter-l);transition:background .35s,backdrop-filter .35s,opacity .9s ease}
+.nav::before{content:"";position:absolute;inset:0 0 -48px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(8,7,6,.92) 0%,rgba(8,7,6,.7) 55%,rgba(8,7,6,0) 100%);transition:opacity .35s}
+.nav.solid::before{opacity:0}
+.nav.solid{background:rgba(8,7,6,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+:root[data-mode="light"] .nav.solid{background:rgba(239,233,223,.9)}
+:root[data-mode="light"] .nav.solid .brand img,:root[data-mode="light"] footer img{filter:brightness(0);opacity:.85}
+.nav-in{max-width:1240px;margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;height:72px}
+.brand img{height:28px;width:auto}
+.nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-size:1.02rem;color:var(--sand);transition:color .2s}
+.nav-links a:hover,.nav-links a[aria-current]{color:var(--bone)}
+.nav-links a[aria-current]{text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:.5em;text-decoration-thickness:1px}
+.nav:not(.solid) .nav-links a{color:var(--bone);text-shadow:0 1px 10px rgba(0,0,0,.9)}
+.nav-right{--nr:1.3rem;display:flex;align-items:center;gap:var(--nr)}
+.lang{font-size:.95rem;color:var(--sand);white-space:nowrap;letter-spacing:.02em}
+.lang b{color:var(--bone);font-weight:500}
+.mode{width:36px;height:36px;display:grid;place-items:center;border-radius:2px;color:var(--sand);transition:color .2s,background .2s}
+.mode:hover{color:var(--bone);background:var(--wash)}
+.mode svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
+.mode .i-moon{display:none}
+:root[data-mode="light"] .mode .i-sun{display:none}
+:root[data-mode="light"] .mode .i-moon{display:block}
+html.intro .nav{opacity:0;pointer-events:none}
+@media (min-width:821px) and (max-width:1100px){.nav-links{gap:1.4rem}.nav-right{--nr:1rem}}
+@media (max-width:820px){
+  /* sections always visible as a second row under the logo bar, no hidden burger */
+  .nav-in{flex-wrap:wrap;height:auto;column-gap:1rem;row-gap:0}
+  .brand,.nav-right{height:58px;display:flex;align-items:center}
+  .nav-links{order:3;flex:1 0 100%;justify-content:space-between;gap:1rem;padding:0 0 .7rem;overflow-x:auto;scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav .nav-links a{display:block;font-size:1rem;padding:.25rem 0;white-space:nowrap}
+  .nav-right{--nr:.9rem}
+  section[id]{scroll-margin-top:100px}
+}
+@media (max-width:480px){.nav-right{--nr:.45rem}.mode{width:30px;height:30px}.brand img{height:24px}.lang{font-size:.86rem}.nav-in{column-gap:.6rem}}
+@media (max-width:360px){.nav-right{--nr:.3rem}.lang{font-size:.8rem}.brand img{height:21px}.nav .nav-links a{font-size:.92rem}html[lang=vi] .nav-links{gap:.45rem}html[lang=vi] .nav .nav-links a{font-size:.84rem}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;display:flex;align-items:stretch;isolation:isolate;overflow:clip}
+.hero-img{position:absolute;inset:0;z-index:-3;overflow:hidden}
+.hero-img picture{display:contents}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.04);animation:drift 14s ease-out forwards}
+@keyframes drift{to{transform:scale(1)}}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0;transition:opacity .3s ease}
+.hero-video.ready{opacity:1}
+.hero.playing:not(.copy-on) .hero-img img{opacity:0}
+.hero.playing .hero-img img{animation:none;transform:none}
+/* after the video ends: the still underneath breathes very slowly, so the picture keeps a pulse */
+.hero.rest .hero-video{opacity:0;transition:opacity 1.4s ease}
+.hero.rest .hero-img img{opacity:1;transform-origin:50% 50%;animation:breathe 30s ease-in-out infinite alternate}
+@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.05)}}
+.hero .lights{position:absolute;inset:0;z-index:-1;background:var(--ink);opacity:0;pointer-events:none;animation:lightsOn 2s cubic-bezier(.3,.6,.2,1) both}
+.hero.playing .lights{animation:none;opacity:0}
+@keyframes lightsOn{0%{opacity:1}22%{opacity:.62}30%{opacity:.9}55%{opacity:.3}100%{opacity:0}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-2;transition:opacity 1.2s ease}
+/* the copy sits centred in the free space under the sign (desktop); on phones and upright tablets it sits low, over the dark part of the picture */
+.hero .wrap{width:100%;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.hero-copy{max-width:640px;width:100%;margin-inline:auto}
+.hero .lede{color:var(--bone);line-height:1.5;text-wrap:pretty;animation:rise .9s .25s both}
+.hero .cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:1.1rem 2.2rem;animation:rise .9s .4s both}
+.hero .proof{margin:1.2rem 0 0;font-size:1rem;line-height:1.6;color:var(--sand);animation:rise .9s .55s both}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+/* the hero's booking button: larger, lit from behind like the sign above it, and it catches the light once when the copy appears */
+.hero .cta .btn{font-size:1.18rem;padding:1.1em 2.5em;gap:.65em;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 0 0 1px rgba(255,243,226,.35),0 18px 44px -14px rgba(236,228,214,.5),0 0 56px -6px rgba(201,166,107,.55)}
+.hero .cta .btn .snip{width:1.25em;height:1.25em}
+/* the glow pulses on a layer behind the button that only changes opacity, so the film underneath never has to be redrawn for it */
+.hero .cta .btn-lit{position:relative;display:inline-flex;isolation:isolate}
+.hero .cta .btn-lit::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:2px;pointer-events:none;opacity:0;will-change:opacity;
+  box-shadow:0 0 0 1px rgba(255,243,226,.25),0 22px 54px -12px rgba(236,228,214,.3),0 0 90px 4px rgba(201,166,107,.5)}
+.hero.copy-on .cta .btn-lit::before{animation:ctaGlow 3.2s ease-in-out 1.4s 3}
+@keyframes ctaGlow{50%{opacity:1}}
+.hero.copy-on .cta .btn::before{animation:sweep 1.1s cubic-bezier(.3,.6,.3,1) 1s 1 both}
+@media (max-width:560px){.hero .cta .btn-lit{width:min(100%,21rem)}.hero .cta .btn{width:100%}}
+@media (prefers-reduced-motion:reduce){.hero.copy-on .cta .btn-lit::before,.hero.copy-on .cta .btn::before{animation:none}}
+.dot{display:inline-block;width:.45em;height:.45em;border-radius:50%;background:var(--amber);margin-right:.55em;vertical-align:.08em;box-shadow:0 0 12px var(--amber)}
+.dot.off{background:var(--muted);box-shadow:none}
+/* first visit: the lit sign alone on black; menu and copy arrive with the window shot */
+html.intro .hero :is(.lede,.cta,.proof){opacity:0!important;animation-play-state:paused}
+html.intro .hero .hero-img img{opacity:0}
+html.intro .hero::after{opacity:0}
+@media (min-width:821px){
+  .hero{min-height:min(100svh,1080px)}
+  .hero::after{background:
+    radial-gradient(ellipse 70% 60% at 50% 100%,rgba(8,7,6,.94) 0%,rgba(8,7,6,.8) 38%,rgba(8,7,6,.3) 64%,rgba(8,7,6,0) 85%),
+    linear-gradient(180deg,rgba(8,7,6,.55) 0%,rgba(8,7,6,0) 16%,rgba(8,7,6,0) 44%,rgba(8,7,6,.16) 56%,rgba(8,7,6,.4) 68%,rgba(8,7,6,.66) 79%,rgba(8,7,6,.87) 90%,var(--ink) 100%)}
+  .hero .wrap{padding-block:clamp(144px,62svh,670px) clamp(2rem,5svh,3.6rem)}   /* the sign ends about 62% down the picture */
+  .hero .lede{font-size:clamp(1.2rem,1.5vw,1.45rem);text-shadow:0 1px 18px rgba(8,7,6,.8)}
+  .hero .cta{margin-top:1.6rem}
+}
+/* short laptop screens: the buttons sit lower so nothing sits on the sign */
+@media (min-width:821px) and (max-height:760px){
+  .hero .wrap{padding-top:clamp(144px,76svh,670px);padding-bottom:1.4rem}
+  .hero .lede{display:none}
+  .hero .cta{margin-top:0}
+  .hero .proof{margin-top:.8rem}
+}
+/* upright screens (phones, iPad held upright) get their own tall film, shot for that shape. The NØÁR logo sits in
+   the middle of both films, so every screen crops evenly around the centre and the logo stays in the middle */
+/* phones and small tablets: full screen like the desktop, copy over the dark lower part of the picture */
+@media (max-width:820px){
+  .hero{min-height:100vh;min-height:100svh;background:var(--ink)}
+  .hero::after{background:linear-gradient(180deg,rgba(8,7,6,.6) 0,rgba(8,7,6,0) 130px,rgba(8,7,6,0) 42%,rgba(8,7,6,.3) 55%,rgba(8,7,6,.62) 67%,rgba(8,7,6,.84) 78%,rgba(8,7,6,.96) 90%,var(--ink) 100%)}
+  .hero .wrap{justify-content:flex-end;padding-block:calc(var(--sat) + var(--navh,110px) + 1rem) calc(2.4rem + env(safe-area-inset-bottom,0px))}
+  .hero .lede{font-size:1.15rem;line-height:1.5}
+  .hero .cta{margin-top:1.4rem}
+}
+/* the film speaks for itself: over it only the booking button, the prices link and today's hours */
+.hero .lede{display:none}
+.hero .cta{margin-top:0!important}
+/* phones held sideways: a smaller button in one row with the prices link, set low and clear of the lettering in the middle */
+@media (orientation:landscape) and (max-height:500px){
+  .hero .wrap{justify-content:flex-end;padding-top:clamp(144px,83svh,670px);padding-bottom:calc(.7rem + env(safe-area-inset-bottom,0px))}
+  .hero .cta .btn{font-size:1rem;padding:.72em 1.8em;width:auto}
+  .hero .proof{margin-top:.4rem}
+}
+/* leaving the hero: as the page scrolls, the picture sinks a little slower than the page and dims, and the
+   button row fades, so the prices rise out of the dark instead of starting under a hard edge */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .hero-img{animation:heroOut linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+    @keyframes heroOut{to{transform:translateY(22%);opacity:.25}}
+    .hero .wrap{animation:heroCopyOut linear both;animation-timeline:view();animation-range:exit 0% exit 55%}
+    @keyframes heroCopyOut{to{opacity:0;transform:translateY(-4vh)}}
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .hero-img img,.hero.rest .hero-img img{animation:none;transform:none}
+  .hero .lights,.hero .lede,.hero .cta,.hero .proof{animation:none}
+  .hero-video{display:none}
+}
+
+/* ---------- sections ---------- */
+section{padding-block:clamp(4.5rem,8vw,7rem)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem 3rem;align-items:end;margin-bottom:clamp(2.6rem,5vw,4rem)}
+h2{font-size:clamp(2.1rem,1.3rem + 2.6vw,3.3rem);line-height:1.06}
+.sec-head p{max-width:46ch;color:var(--sand);justify-self:end}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}.sec-head p{justify-self:start}}
+/* a brass line under section headings; it draws in once, when the heading comes into view */
+h2.lined{position:relative;padding-bottom:.9rem}
+h2.lined::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:min(100%,20rem);background:linear-gradient(90deg,var(--amber),transparent);transform:scaleX(0);transform-origin:left center;transition:transform .9s var(--ease) .1s}
+h2.lined.in::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){h2.lined::after{transform:none;transition:none}}
+
+/* ---------- price list: every row opens the online booking ---------- */
+#cenik{background:radial-gradient(50% 35% at 85% 0%,rgba(201,166,107,.05),transparent 70%);padding-top:clamp(2.6rem,5vw,4.2rem)}
+.menu-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(3rem,6vw,6rem);align-items:start}
+.mg + .mg{margin-top:2.6rem}
+.mg h3{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem}
+.mg h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.mg ul{list-style:none;margin:0;padding:0}
+.mg li + li{border-top:1px solid var(--line)}
+.mi{text-decoration:none;display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"n t p" "d t p";gap:.15rem 1.6rem;align-items:baseline;width:100%;padding:1rem 0;color:var(--bone)}
+.mi-n{grid-area:n;font-size:1.4rem;line-height:1.2;transition:translate .35s var(--ease),color .25s}
+.mi-d{grid-area:d;font-size:.95rem;color:var(--muted);line-height:1.4}
+.mi-d:empty{display:none}
+.mg.promo .mi-n{color:var(--neon)}
+.mg.promo .mi-d{color:var(--amber)}
+.mi-t{grid-area:t;color:var(--muted);white-space:nowrap;align-self:center}
+.mi-p{grid-area:p;min-width:6.2ch;text-align:right;font-size:.98rem;white-space:nowrap;align-self:center;transition:color .25s}
+@media (hover:hover){.mi:hover .mi-n,.mi:focus-visible .mi-n{translate:.35rem 0}.mi:hover .mi-p,.mi:focus-visible .mi-p{color:var(--amber)}}
+.menu-foot{margin-top:2.8rem;display:flex;flex-wrap:wrap;gap:1rem 2.4rem;align-items:baseline;justify-content:space-between}
+.menu-foot .note{color:var(--muted);font-size:.95rem}
+@media (max-width:820px){.menu-cols{grid-template-columns:1fr}.menu-cols > div + div{margin-top:2.6rem}}
+@media (max-width:480px){.mi{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n p" "d t";column-gap:1rem}.mi-n{font-size:1.28rem}.mi-t{justify-self:end;align-self:start;font-size:.78em}}
+@media (prefers-reduced-motion:reduce){.mi-n{transition:none}}
+
+/* ---------- studio: the quote over the photo opens the walk-through ---------- */
+#studio{padding-block:0}
+.studio-open{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(6rem,11vw,9.5rem) clamp(4rem,7vw,6rem);color:var(--bone)}
+.studio-open::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/walk-2.webp) center 45%/cover no-repeat;opacity:.5}
+.studio-open::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,var(--ink) 0%,rgba(8,7,6,.4) 24%,rgba(8,7,6,.5) 70%,#080706 100%),
+  radial-gradient(70% 70% at 50% 45%,transparent 25%,rgba(8,7,6,.8) 100%)}
+:root[data-mode="light"] .studio-open::after{background:linear-gradient(180deg,#f0e9dd 0%,rgba(8,7,6,.45) 22%,rgba(8,7,6,.5) 70%,#080706 100%),radial-gradient(70% 70% at 50% 45%,transparent 25%,rgba(8,7,6,.8) 100%)}
+.about{display:grid;justify-items:center;text-align:center}
+.emblem{margin:0;width:100%;max-width:150px;aspect-ratio:1}
+.emblem svg{width:100%;height:auto;overflow:visible}
+.emblem :is(rect,path,circle){fill:none;stroke:var(--bone);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.emblem .em-ring{stroke:var(--amber);stroke-width:2;filter:drop-shadow(0 0 6px rgba(201,166,107,.55))}
+.emblem .em-pin{stroke:var(--amber)}
+.emblem g:last-of-type :is(rect,path:first-of-type,circle){fill:var(--ink)}
+.about blockquote{margin:2rem 0 0;font-size:clamp(2.6rem,1.4rem + 5vw,5.4rem);line-height:1;letter-spacing:-.015em;max-width:14ch;text-wrap:balance}
+.motto{margin-top:1rem;font-style:italic;color:var(--sand);font-size:1.15rem;letter-spacing:.01em}
+html[lang=en] .motto{display:none}   /* in English the wall sign already says it */
+.about-p{margin-top:1.6rem;max-width:52ch;color:var(--sand);font-size:1.12rem}
+.tenets{list-style:none;margin:4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.6rem;width:100%;text-align:left}
+.tenets li{padding-top:1.2rem;border-top:1px solid var(--line);display:grid;gap:.45rem;align-content:start}
+.tenets h3{font-size:1.4rem;line-height:1.2}
+.tenets p{color:var(--sand)}
+@media (max-width:820px){.emblem{max-width:110px}.tenets{grid-template-columns:1fr;gap:1.8rem;margin-top:3rem}}
+@media (prefers-reduced-motion:no-preference){
+  @supports ((animation-timeline: view()) and (animation-range: entry)){
+    .about .emblem{view-timeline:--pic}
+    .emblem :is(rect,path,circle){animation:drawLine linear both;animation-timeline:--pic;animation-range:entry 10% cover 50%}
+    @keyframes drawLine{from{stroke-dashoffset:1}}
+    .about blockquote.fill-text{color:transparent;-webkit-background-clip:text;background-clip:text;
+      background-image:linear-gradient(90deg,var(--neon) 0 50%,rgba(236,228,214,.18) 50% 100%);background-size:200% 100%;background-position:100% 0;
+      animation:fillText linear both;animation-timeline:view();animation-range:cover 10% cover 45%}
+    @keyframes fillText{to{background-position:0 0}}
+  }
+}
+
+/* salon walk-through: the page pins, scrolling steps through the rooms; a dot on the hand-drawn plan shows where you are */
+.walk{position:relative;height:300vh;background:#080706;color:var(--bone)}
+.walk-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:72px}
+.walk-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:center;width:100%}
+.walk-side h2{margin:0 0 .9rem;font-size:clamp(1.8rem,1.2rem + 1.8vw,2.6rem)}
+.walk-lede{color:var(--sand);margin:0 0 2rem;max-width:34ch}
+.walk-plan{width:100%;max-width:300px;height:auto;display:block;overflow:visible}
+.pl-walls path{fill:none;stroke:var(--sand);stroke-width:3;opacity:.55;stroke-linejoin:round;stroke-linecap:round}
+.pl-dash{fill:none;stroke:var(--sand);stroke-width:2;stroke-dasharray:10 10;opacity:.4}
+.pl-door{fill:none;stroke:var(--sand);stroke-width:2;opacity:.45}
+.pl-route{fill:none;stroke:var(--amber);stroke-width:2;stroke-dasharray:3 9;stroke-linecap:round;opacity:.45}
+.pl-done{fill:none;stroke:var(--amber);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.pl-dot{fill:var(--amber);filter:drop-shadow(0 0 10px rgba(201,166,107,.8))}
+.pl-stops a{cursor:pointer;text-decoration:none}
+.pl-stops circle{fill:#080706;stroke:var(--amber);stroke-width:2.5}
+.pl-stops text{fill:var(--sand);font:400 32px var(--serif)}
+.pl-stops a[aria-current] text{fill:var(--bone)}
+.pl-stops a:focus-visible circle{stroke-width:5}
+.walk-frame{position:relative;aspect-ratio:5/4;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(180deg,transparent,#000 9%,#000 91%,transparent);
+  mask-composite:intersect}
+.walk-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;transform-origin:50% 50%;will-change:opacity,transform}
+.walk-frame img.on{opacity:1}
+/* the salon is not finished yet: every room photo is grey under a dark veil with a quiet "in progress" over it */
+.walk-frame img{filter:grayscale(1) brightness(.8)}
+.walk-wip{position:absolute;inset:0;margin:0;display:grid;place-items:center;background:rgba(14,13,12,.6);pointer-events:none}
+.walk-wip span{font-style:italic;font-size:clamp(1.6rem,1.1rem + 2vw,2.6rem);color:var(--bone);letter-spacing:.02em;padding-bottom:.5rem;
+  background:linear-gradient(90deg,transparent,var(--amber),transparent) center bottom/100% 1px no-repeat;text-shadow:0 2px 24px rgba(0,0,0,.6)}
+.walk-cap{text-align:center;margin-top:-.4rem;min-height:4.4em}
+.walk-cap h3{margin:0 0 .2rem;font-size:1.45rem}
+.walk-cap p{color:var(--sand)}
+.walk-cta{margin-top:.6rem;animation:fadeDown .5s var(--ease) both}
+@media (max-width:820px){.walk-cap .walk-cta{display:block}}
+@media (max-width:820px){
+  .walk-stage{padding-top:calc(var(--sat) + var(--navh,150px) + .6rem);align-items:flex-start}
+  .walk-grid{grid-template-columns:1fr;gap:.4rem}
+  .walk-side{display:grid;grid-template-columns:minmax(0,1fr) 140px;column-gap:1rem;align-items:start}
+  .walk-side h2{grid-column:1;margin-bottom:.4rem;font-size:clamp(1.5rem,6.4vw,1.9rem)}
+  .walk-lede{grid-column:1;margin:0;font-size:.95rem}
+  .walk-plan{grid-column:2;grid-row:1 / span 2;max-width:140px}
+  .pl-stops text{font-size:40px}
+  .walk-frame{aspect-ratio:auto;height:min(100vw,56svh,calc(100svh - var(--sat) - var(--navh,150px) - 14rem));margin-inline:calc(-1 * var(--gutter-l))}
+  .walk-cap{min-height:0}
+  .walk-cap p{display:none}
+}
+@media (max-width:820px) and (max-height:700px){.walk-lede{display:none}}
+@media (max-width:820px) and (max-height:600px){.walk-side{grid-template-columns:minmax(0,1fr) 116px}.walk-plan{max-width:116px}.walk-frame{height:calc(100svh - var(--sat) - var(--navh,150px) - 12rem)}}
+@media (max-height:620px) and (min-width:821px){.walk-frame{aspect-ratio:16/10}}
+@media (prefers-reduced-motion:reduce){.walk-frame img{transition:none}}
+
+/* ---------- team ---------- */
+#tym{background:radial-gradient(50% 40% at 90% 30%,rgba(201,166,107,.06),transparent 70%)}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem;max-width:820px}
+.member{display:grid;gap:.2rem;align-content:start}
+.m-photo{width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:1rem;filter:brightness(.95)}
+.m-mono{height:9.5rem;display:flex;align-items:flex-end;margin-bottom:.8rem;font-size:6.5rem;line-height:.8;color:var(--amber);letter-spacing:-.02em;
+  text-shadow:0 0 34px rgba(201,166,107,.35)}
+.member .mn{font-size:clamp(1.6rem,2.2vw,2rem);line-height:1.15}
+.member .mt{color:var(--sand)}
+.member .link{margin-top:1rem;justify-self:start}
+@media (max-width:560px){.team{grid-template-columns:1fr 1fr;gap:1.6rem 1rem}.m-mono{height:7rem;font-size:5rem}.member .mn{font-size:1.45rem}.member .mt{font-size:.92rem}.member .link{font-size:.95rem}}
+
+#darky{background:radial-gradient(45% 45% at 25% 45%,rgba(201,166,107,.06),transparent 70%)}
+.gifts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem clamp(3rem,6vw,6rem);align-items:center}
+.g-stage{perspective:1200px;display:grid;justify-items:center}
+.g-copy p{margin-top:1.2rem;color:var(--sand);max-width:44ch}
+.g-copy .btn{margin-top:2rem}
+.g-merch{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:1.6rem clamp(3rem,6vw,6rem);margin-top:clamp(4rem,7vw,5.5rem);padding-top:2.2rem;border-top:1px solid var(--line)}
+.g-merch p{margin-top:.5rem;color:var(--muted);max-width:32ch}
+.g-items{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
+.g-item{display:grid;gap:.2rem;align-content:start;color:var(--bone)}
+.g-item img{width:100%;aspect-ratio:2/1;object-fit:cover;margin-bottom:.7rem;filter:brightness(.92);transition:filter .35s}
+.g-item:hover img,.g-item:focus-visible img{filter:brightness(1.05)}
+.g-item .gi-row{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;font-size:1.12rem}
+.g-item .gi-row .num{color:var(--sand)}
+.g-item .act{justify-self:start;font-size:.95rem}
+@media (max-width:900px){.gifts,.g-merch{grid-template-columns:1fr}.g-stage{order:-1}}
+@media (max-width:480px){.g-items{grid-template-columns:1fr;gap:1.8rem}}
+
+/* the gift card (teaser on the page, live preview in the panel) */
+.voucher{position:relative;width:100%;max-width:540px;aspect-ratio:1.6/1;border-radius:14px;overflow:hidden;padding:clamp(1.1rem,3vw,1.9rem);
+  display:grid;grid-template-rows:auto 1fr auto;gap:.5rem;color:var(--bone);
+  background:radial-gradient(130% 150% at 0% 0%,#2a2119 0%,#120f0c 52%,#080706 100%);
+  box-shadow:0 50px 90px rgba(0,0,0,.6),0 0 60px rgba(201,166,107,.08);
+  transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .5s var(--ease)}
+:root[data-mode="light"] .voucher{box-shadow:0 40px 70px rgba(40,28,14,.35)}
+.voucher::after{content:"";position:absolute;width:115%;aspect-ratio:1;right:-62%;bottom:-88%;border-radius:50%;
+  border:1.5px solid rgba(255,226,186,.55);box-shadow:0 0 18px rgba(201,166,107,.55),inset 0 0 18px rgba(201,166,107,.35);pointer-events:none}
+.v-glare{position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px circle at var(--gx,30%) var(--gy,20%),rgba(255,236,210,.10),transparent 60%)}
+.v-top{display:flex;justify-content:space-between;align-items:center;gap:1rem;position:relative}
+.v-top img{height:24px;width:auto}
+.v-kind{font-style:italic;color:var(--sand);font-size:.95rem}
+.v-mid{align-self:center;position:relative;min-width:0}
+.v-value{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.02;overflow-wrap:anywhere}
+.v-value.num{font-size:clamp(1.5rem,3.3vw,2.3rem)}
+.v-for{margin-top:.4rem;color:var(--sand)}
+.v-for b{color:var(--bone);font-weight:400}
+.v-msg{margin-top:.35rem;font-style:italic;color:var(--bone);opacity:.85;max-width:34ch;overflow-wrap:anywhere}
+.v-foot{display:flex;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap;font-size:.85rem;color:var(--muted);position:relative}
+@media (prefers-reduced-motion:reduce){.voucher{transition:none}}
+
+/* ---------- visit: address, hours, sketch and questions in one place ---------- */
+#navsteva{background:radial-gradient(50% 40% at 15% 10%,rgba(201,166,107,.06),transparent 70%)}
+.visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.4rem clamp(3rem,6vw,6rem)}
+.visit > *{min-width:0}
+.addr{font-size:1.35rem;margin-top:1.8rem;line-height:1.45}
+.ways{display:grid;gap:.9rem;margin-top:1.8rem}
+.way{display:grid;grid-template-columns:7.5rem minmax(0,1fr) auto;gap:.3rem 1.2rem;align-items:baseline}
+.way .k{color:var(--sand)}
+.way .v{text-decoration:none;overflow-wrap:anywhere}
+.copy{color:var(--sand);font-size:.95rem;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3em;text-decoration-color:color-mix(in srgb,currentColor 35%,transparent);transition:color .25s,text-decoration-color .25s}
+.copy:hover,.copy:focus-visible{color:var(--amber);text-decoration-color:currentColor}
+.hours-h{margin-top:2.6rem}
+.hours{margin-top:.5rem}
+.hours .row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--line);align-items:baseline}
+.hours .row.today{color:var(--amber)}
+.v-note{margin-top:1rem;color:var(--muted);font-size:.95rem;max-width:48ch}
+.sketch{margin:0;max-width:520px}
+.sk{width:100%;height:auto;display:block;overflow:visible}
+.sk-main path{fill:none;stroke:var(--sand);stroke-width:3;opacity:.55;stroke-linecap:round}
+.sk-wide{fill:none;stroke:var(--sand);stroke-width:9;opacity:.18;stroke-linecap:round}
+.sk-side path{fill:none;stroke:var(--sand);stroke-width:2;opacity:.45;stroke-linecap:round}
+.sk-labels text{fill:var(--sand);font:400 16px var(--serif)}
+.sk-labels text{opacity:.9}
+.sk-no{fill:var(--amber);font:500 13px var(--mono)}
+.sk-marks circle{fill:none;stroke:var(--sand);stroke-width:1.5;opacity:.7}
+.sk-marks text{fill:var(--muted);font:italic 400 14px var(--serif)}
+.sk-route{fill:none;stroke:var(--amber);stroke-width:2.2;stroke-dasharray:1 7;stroke-linecap:round;opacity:.85}
+.sk-m circle{fill:var(--ink);stroke:var(--bone);stroke-width:1.6}
+.sk-m text{fill:var(--bone);font:500 12px var(--serif)}
+.sk-m .sk-tram{stroke:var(--sand)}
+.sk-stop text{fill:var(--bone);font:400 17px var(--serif)}
+.sk-line{fill:var(--amber);font-size:14px}
+.sk-halo{fill:none;stroke:var(--amber);stroke-width:1.2;opacity:.45}
+.sk-name{fill:var(--neon);font:500 21px var(--serif);letter-spacing:.06em}
+.sk-addr{fill:var(--bone);font:400 16px var(--serif)}
+.sk-home .sk-no{font:500 14px var(--mono);fill:var(--amber)}
+.sketch figcaption{margin-top:1rem;font-size:.95rem;color:var(--muted);max-width:52ch}
+.visit .map{margin-top:1.2rem}
+.faq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem clamp(3rem,6vw,6rem);margin-top:clamp(4rem,8vw,6rem);padding-top:clamp(2.4rem,4vw,3.4rem);border-top:1px solid var(--line)}
+.faq-wrap h3{font-size:clamp(1.7rem,1.2rem + 1.4vw,2.3rem)}
+.faq-wrap .faq-p{margin-top:.8rem;color:var(--sand);max-width:36ch}
+.faq details{border-top:1px solid var(--line)}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.5rem;align-items:baseline;padding:1rem 0;font-size:1.15rem;transition:color .25s}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.5rem;line-height:1;color:var(--amber);transition:rotate .35s var(--ease)}
+.faq details[open] summary::after{rotate:45deg}
+.faq summary:hover,.faq details[open] summary{color:var(--amber)}
+.faq details p{padding:0 2.5rem 1.3rem 0;color:var(--sand);max-width:var(--measure)}
+.faq details[open] p{animation:faqIn .35s ease both}
+@keyframes faqIn{from{opacity:0;translate:0 -4px}to{opacity:1;translate:0}}
+@media (prefers-reduced-motion:reduce){.faq details[open] p{animation:none}.faq summary::after{transition:none}}
+@media (max-width:820px){.visit,.faq-wrap{grid-template-columns:1fr}.sketch{max-width:none}}
+@media (max-width:420px){.way{grid-template-columns:minmax(0,1fr) auto}.way .k{grid-column:1/-1;font-size:.9rem}}
+
+/* ---------- footer and the floating booking button ---------- */
+footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem 3rem}
+.foot img{height:32px;width:auto}
+.foot small{color:var(--muted);font-size:.9rem;max-width:52ch;line-height:1.5}
+.foot .social{display:flex;gap:1.8rem}
+/* at the end of the page, under the questions, the floating button lands in place and stops floating */
+.end-book{display:flex;justify-content:center;margin-top:clamp(3rem,6vw,4.5rem)}
+.end-book .btn{font-size:1.1rem;padding:1em 2.3em;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 0 0 1px rgba(255,243,226,.25),0 0 40px -8px rgba(201,166,107,.45)}
+@media (max-width:560px){.end-book .btn{width:min(100%,21rem)}}
+/* the booking button floats at the bottom of the screen once the hero's own button has scrolled away */
+.dock{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:35;
+  translate:-50% calc(100% + 24px + env(safe-area-inset-bottom,0px));opacity:0;visibility:hidden;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 14px 36px rgba(0,0,0,.55),0 0 40px -8px rgba(201,166,107,.45);
+  transition:background .2s,translate .45s var(--ease),opacity .3s,visibility 0s linear .45s}
+.dock.show{translate:-50% 0;opacity:1;visibility:visible;transition:background .2s,translate .45s var(--ease),opacity .3s,visibility 0s}
+@media (min-width:821px){.dock{bottom:28px;font-size:1.1rem;padding:1em 2.3em}}
+@media (prefers-reduced-motion:reduce){.dock{transition:none}}
+
+/* ---------- the panel: gift card and merch open over the page ---------- */
+.sheet{position:fixed;inset:0 0 0 auto;margin:0;padding:0;border:0;width:min(760px,100vw);max-width:100vw;height:100vh;height:100dvh;max-height:none;
+  background:var(--ink);color:var(--bone);overflow:auto;overscroll-behavior:contain;box-shadow:-40px 0 90px rgba(0,0,0,.45);
+  translate:100% 0;transition-property:translate,display,overlay;transition-duration:.5s;transition-timing-function:var(--ease);transition-behavior:allow-discrete}
+.sheet:is([open]):where(:not([data-closing])){translate:0 0}
+@starting-style{.sheet[open]{translate:100% 0}}
+.sheet::backdrop{background-color:rgba(8,7,6,0);overflow:hidden;overscroll-behavior:contain;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+  transition-property:background-color,display,overlay;transition-duration:.4s;transition-behavior:allow-discrete}
+.sheet:is([open]):where(:not([data-closing]))::backdrop{background-color:var(--veil)}
+@starting-style{.sheet[open]::backdrop{background-color:rgba(8,7,6,0)}}
+@media (prefers-reduced-motion:reduce){
+  .sheet{translate:none;opacity:0;transition-property:opacity,display,overlay;transition-duration:.15s}
+  .sheet:is([open]):where(:not([data-closing])){opacity:1}
+  @starting-style{.sheet[open]{translate:none;opacity:0}}
+}
+.sheet-head{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  padding:calc(1.1rem + var(--sat)) clamp(20px,5vw,52px) 1rem;background:var(--ink)}
+.sheet-head h2{font-size:clamp(1.7rem,1.3rem + 1.2vw,2.2rem)}
+.sheet-x{display:inline-flex;align-items:center;gap:.6rem;color:var(--sand);font-size:1rem;padding:.4rem 0;transition:color .2s}
+.sheet-x:hover,.sheet-x:focus-visible{color:var(--bone)}
+.sheet-x svg{width:20px;height:20px;stroke:currentColor;stroke-width:1.4;fill:none}
+.sheet-body{padding:.4rem clamp(20px,5vw,52px) calc(3.5rem + env(safe-area-inset-bottom,0px))}
+
+.finder-p{margin:.5rem 0 1.6rem;color:var(--sand);max-width:var(--measure)}
+@keyframes fadeDown{from{opacity:0;translate:0 -6px}to{opacity:1;translate:0}}
+
+/* choices set as text: a line draws under the hovered one and stays under the chosen one */
+.chips{display:flex;flex-wrap:wrap;gap:.2rem 1.7rem}
+.q-label{display:block;color:var(--sand);margin-bottom:.5rem}
+.q-label b{color:var(--amber);font-weight:400;margin-right:.6em}
+.chip{position:relative;padding:.45rem 0;color:var(--bone);font-size:1.08rem;transition:color .25s}
+.chip::after{content:"";position:absolute;left:0;right:0;bottom:.2rem;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left center;opacity:.4;transition:transform .35s var(--ease),opacity .25s}
+.chip:hover::after,.chip:focus-visible::after{transform:scaleX(1)}
+.chip[aria-pressed="true"]{color:var(--amber)}
+.chip[aria-pressed="true"]::after{transform:scaleX(1);opacity:1}
+@media (prefers-reduced-motion:reduce){.chip::after,.mi-n{transition:none}}
+.chip small{color:var(--muted);margin-left:.5em}
+.chip[aria-pressed="true"] small{color:var(--amber)}
+
+.form{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.2rem}
+.field{display:grid;gap:.25rem;align-content:start}
+.field.full{grid-column:1/-1}
+.field label{color:var(--sand);font-size:.95rem}
+.field input,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid var(--line);color:var(--bone);font:400 1.12rem/1.4 var(--serif);padding:.45rem 0;border-radius:0;transition:border-color .2s}
+.field input[type=tel]{font-family:var(--mono);font-size:.98rem}
+.field textarea{resize:vertical;min-height:2.6rem}
+.field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--bone)}
+.field input::placeholder,.field textarea::placeholder{color:#6a6152}
+:root[data-mode="light"] .field input::placeholder{color:#a39684}
+.field .err{display:none;font-size:.92rem;color:var(--danger)}
+.field.invalid .err{display:block}
+.field.invalid input{border-bottom-color:var(--danger)}
+@media (max-width:560px){.form{grid-template-columns:1fr}}
+.summary{margin-top:2.2rem;padding-top:1.5rem;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:1.2rem 2rem;align-items:center}
+.summary .lines{display:grid;gap:.15rem;color:var(--sand)}
+.summary .lines b{color:var(--bone);font-weight:400}
+.summary .total{font-family:var(--mono);font-size:1.45rem;margin-top:.4rem;font-variant-numeric:tabular-nums}
+.summary .cta-col{display:grid;gap:.6rem;justify-items:end}
+.summary .fine{font-size:.9rem;color:var(--muted);text-align:right;max-width:28ch;line-height:1.45}
+@media (max-width:560px){.summary{grid-template-columns:1fr}.summary .cta-col{justify-items:stretch}.summary .fine{text-align:left}.summary .btn{white-space:normal}}
+
+/* gift card form in the panel */
+.v-stage{perspective:1200px;display:grid;justify-items:center;gap:.7rem;margin:.6rem 0 2.2rem}
+.v-stage .voucher{max-width:440px}
+.v-hint{font-size:.92rem;color:var(--muted)}
+.v-form{display:grid;gap:1.8rem}
+.v-count{font-size:.85rem;color:var(--muted);text-align:right;font-family:var(--mono)}
+.v-done{padding-top:1rem}
+.v-done h3{font-size:clamp(1.7rem,1.3rem + 1.4vw,2.3rem);margin-top:.4rem}
+.v-done p{margin-top:1rem;color:var(--sand);max-width:48ch}
+.v-done .actions{margin-top:1.6rem}
+
+/* merch in the panel */
+.m-view{display:grid;gap:1.8rem}
+.m-hero img{width:100%;aspect-ratio:2/1;object-fit:cover}
+.m-hero p{color:var(--sand);margin-top:1rem;max-width:52ch}
+.m-sizes .chip{font-family:var(--mono);font-size:.95rem;min-width:1.8em;text-align:center}
+.m-done{color:var(--sand);max-width:52ch}
+</style>
+
+</head>
+<body>
+<nav class="nav" id="nav" aria-label="Hlavní navigace">
+  <div class="nav-in">
+    <a class="brand" href="#top" aria-label="NØÁR Barbershop"><img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435"></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#cenik" data-t="nav.services">Ceník</a></li>
+      <li><a href="#studio" data-t="nav.studio">Studio</a></li>
+      <li><a href="#tym" data-t="nav.team">Tým</a></li>
+      <li><a href="#darky" data-t="nav.gift">Dárky</a></li>
+      <li><a href="#navsteva" data-t="nav.visit">Návštěva</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="mode" id="modeBtn" type="button" aria-label="Světlý režim"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><b>CZ</b> / EN / VI</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="lights" aria-hidden="true"></div>
+  <div class="hero-img">
+    <picture>
+      <source media="(orientation: portrait)" srcset="img/film-start-p.jpg">
+      <img src="img/film-start.jpg" alt="NØÁR Barbershop, Nekázanka 12" width="1920" height="1080" fetchpriority="high" decoding="async">
+    </picture>
+    <video class="hero-video" id="heroVideo" muted playsinline preload="none" aria-hidden="true"></video>
+  </div>
+  <div class="wrap">
+    <div class="hero-copy">
+      <h1 class="vh" data-t="hero.h1">NØÁR Barbershop, pánské holičství v Praze 1</h1>
+      <p class="lede" data-t="hero.lede">Přesný střih, ostrá břitva a termín, který platí. Hodinu nemusíte na nic myslet.</p>
+      <div class="cta">
+        <span class="btn-lit"><a class="btn" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><svg class="snip" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 15l17 21M31 15L14 36"/><circle cx="14" cy="38" r="4"/><circle cx="34" cy="38" r="4"/></svg><span data-t="hero.cta">Rezervovat termín</span></a></span>
+        <a class="link" href="#cenik"><span data-t="hero.cta2">Ceník a služby</span></a>
+      </div>
+      <p class="proof"><span id="openToday"><span class="dot"></span>…</span></p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="cenik">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-t="menu.h2">Služby a ceny.</h2>
+      <p data-t="menu.p">Vyberte si službu a rezervujte termín online. Rezervace se otevře v novém okně.</p>
+    </div>
+    <div class="menu-cols" id="menuList"><!-- written out so the prices show even where scripts do not run; the script redraws it from SERVICES --><!--static--><div><div class="mg promo"><h3 class="kicker">Otevírací akce</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Otevírací akce: střih a vousy</span><span class="mi-d">2. až 30. 11. 2026</span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">600&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div><div class="mg"><h3 class="kicker">Střihy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pánský střih</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">650&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Dlouhé vlasy jen nůžkami</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">700&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pravidelný střih každé 2 týdny</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">560&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Studentský střih</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">550&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><div><div class="mg"><h3 class="kicker">Vousy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a zarovnání vousů</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">800&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a úprava vousů</span><span class="mi-d"></span><span class="mi-t num">60&nbsp;min</span><span class="mi-p num">950&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Do hola a úprava vousů</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">650&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Vousy</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">480&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Premium servis, vlasy a vousy</span><span class="mi-d"></span><span class="mi-t num">60&nbsp;min</span><span class="mi-p num">1&nbsp;100&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><!--/static--></div>
+    <div class="menu-foot">
+      <p class="note" data-t="menu.note">Platíte až u nás. Rezervaci můžete zdarma zrušit nejpozději 2 hodiny předem.</p>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="studio-open">
+    <div class="wrap about">
+      <figure class="emblem" aria-hidden="true">
+        <svg viewBox="0 0 400 400">
+          <circle class="em-ring" cx="200" cy="200" r="184" pathLength="1"/>
+          <g transform="rotate(45 200 200)">
+            <rect x="182" y="58" width="36" height="284" rx="7" pathLength="1"/>
+            <path d="M182 74h-24 M182 83h-24 M182 92h-24 M182 101h-24 M182 110h-24 M182 119h-24 M182 128h-24 M182 137h-24 M182 146h-24 M182 155h-24 M182 164h-24 M182 173h-24 M182 182h-24 M182 191h-24 M182 200h-24 M182 209h-24 M182 218h-24 M182 227h-24 M182 236h-24 M182 245h-24 M182 254h-24 M182 263h-24 M182 272h-24 M182 281h-24 M182 290h-24 M182 299h-24 M182 308h-24 M182 317h-24 M182 326h-24" pathLength="1"/>
+          </g>
+          <g transform="rotate(-45 200 200)">
+            <path d="M190 46 H212 Q224 46 224 60 V194 H190 Z" pathLength="1"/>
+            <path d="M197 60 V186" pathLength="1"/>
+            <circle class="em-pin" cx="207" cy="204" r="6" pathLength="1"/>
+            <rect x="195" y="214" width="24" height="140" rx="11" pathLength="1"/>
+          </g>
+        </svg>
+      </figure>
+      <blockquote class="fill-text" lang="en">Discipline creates freedom.</blockquote>
+      <p class="motto" data-t="ab.motto">Disciplína dává svobodu.</p>
+      <p class="about-p" data-t="ab.body">Disciplína je naše část dohody. Svoboda je ta vaše: sednete si, a o zbytek se postaráme my.</p>
+      <ul class="tenets">
+        <li><h3 data-t="ab.t1">Žádné čekání</h3><p data-t="ab.s1">Termín platí na minutu. Přijdete, sednete si, začínáme.</p></li>
+        <li><h3 data-t="ab.t2">Nejdřív rozhovor, pak nůžky</h3><p data-t="ab.s2">Pět minut o vašich vlasech a o tom, kolik času jim ráno dáváte.</p></li>
+        <li><h3 data-t="ab.t3">Rituál, ne rychlovka</h3><p data-t="ab.s3">Horký ručník, břitva, tonikum a balzám. Všechno v ceně.</p></li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="salon" class="walk" aria-labelledby="walkH">
+    <div class="walk-stage">
+      <div class="wrap walk-grid">
+        <div class="walk-side">
+          <h2 id="walkH" data-t="walk.h2">Jak to u nás vypadá.</h2>
+          <p class="walk-lede" data-t="walk.p">Posouvejte stránku a projděte si salon od dveří až dozadu.</p>
+          <svg class="walk-plan" viewBox="-12 -12 669 694" role="img" aria-labelledby="walkPlanT">
+            <title id="walkPlanT" data-t="walk.plan">Půdorys salonu</title>
+            <g class="pl-walls">
+              <path d="M0 135H245V0H645V670H0Z"/>
+              <path d="M30 155H330M30 280H330M330 225V395M425 200V395M440 335H645M440 495V655M245 135V0M425 135V0M245 135H345M410 135H425"/>
+            </g>
+            <path class="pl-dash" d="M30 405H330"/>
+            <path class="pl-door" d="M500 670a40 40 0 0 1 40 -40M360 135a45 45 0 0 1 45 -45"/>
+            <polyline class="pl-route" points="520,670 525,560 220,525 180,345 378,330 378,165 545,175 378,165 335,75"/>
+            <polyline class="pl-done" id="walkDone" points="520,670"/>
+            <g class="pl-stops" id="walkStops"></g>
+            <circle class="pl-dot" id="walkDot" r="11" cx="520" cy="670"/>
+          </svg>
+        </div>
+        <div class="walk-view">
+          <div class="walk-frame" id="walkFrame">
+            <img src="img/walk-1.webp" alt="" width="1400" height="1235" loading="lazy" decoding="async">
+            <img src="img/walk-2.webp" alt="" width="1400" height="1255" loading="lazy" decoding="async">
+            <img src="img/walk-4.webp" alt="" width="1400" height="1479" loading="lazy" decoding="async">
+            <img src="img/walk-3.webp" alt="" width="1400" height="1487" loading="lazy" decoding="async">
+            <img src="img/walk-5.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
+            <img src="img/walk-6.webp" alt="" width="1600" height="1411" loading="lazy" decoding="async">
+            <p class="walk-wip"><span data-t="walk.wip">Připravujeme</span></p>
+          </div>
+          <div class="walk-cap" aria-live="polite"><h3 id="walkName"></h3><p id="walkText"></p><p class="walk-cta" id="walkCta" hidden><a class="link" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener" data-t="hero.cta">Rezervovat termín</a></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tym">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 data-t="team.h2">Kdo vás bude stříhat.</h2>
+      <p data-t="team.p">Rezervovat můžete u konkrétního holiče, nebo u toho, kdo má zrovna volno.</p>
+    </div>
+    <div class="team" id="teamList"><!--static--><div class="member"><img class="m-photo" src="img/team-ben.webp" alt="Ben" width="600" height="600" loading="lazy" decoding="async"><div class="mn">Ben</div><div class="mt">Viet Anh</div><a class="link" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener">Rezervovat u Bena<span class="vh">, otevře se v novém okně</span></a></div><div class="member"><img class="m-photo" src="img/team-honza.webp" alt="Honza" width="600" height="600" loading="lazy" decoding="async"><div class="mn">Honza</div><div class="mt">Hoan Anh Nguyen</div><a class="link" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener">Rezervovat u Honzy<span class="vh">, otevře se v novém okně</span></a></div><!--/static--></div>
+  </div>
+</section>
+
+<section id="darky">
+  <div class="wrap gifts">
+    <div class="g-stage" id="gStage">
+      <div class="voucher" id="gCard">
+        <div class="v-glare"></div>
+        <div class="v-top"><img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
+        <div class="v-mid"><div class="v-value" data-t="v.teaser">Hodina v křesle</div></div>
+        <div class="v-foot"><span data-t="v.valid12">Platí 12 měsíců</span></div>
+      </div>
+    </div>
+    <div class="g-copy">
+      <h2 data-t="v.h2">Darujte hodinu v křesle.</h2>
+      <p data-t="v.p">Poukaz na částku nebo na konkrétní službu, platí 12 měsíců. Pošleme ho e-mailem, nebo si ho vyzvednete u nás v dárkové obálce.</p>
+      <button class="btn" type="button" data-panel="gift" data-t="v.buy">Koupit poukaz</button>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="g-merch">
+      <div>
+        <h3 class="kicker" data-t="m.h3">Kolekce NØÁR</h3>
+        <p data-t="m.short">Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.</p>
+      </div>
+      <div class="g-items">
+          <button class="g-item" type="button" data-merch="tee"><img src="img/tee.jpg" alt="" width="1600" height="725" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.tee">Tričko NØÁR</span><span class="num">890&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
+          <button class="g-item" type="button" data-merch="hoodie"><img src="img/hoodie.jpg" alt="" width="1600" height="916" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.hoodie">Mikina NØÁR</span><span class="num">1&nbsp;690&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="navsteva">
+  <div class="wrap">
+    <div class="visit">
+      <div>
+        <h2 data-t="k.h2">Najdete nás v Nekázance.</h2>
+        <p class="addr">NØÁR Barbershop<br>Nekázanka 12<br>110 00 Praha 1</p>
+        <div class="ways">
+          <div class="way"><span class="k" data-t="k.phone">Telefon</span><a class="v num" id="phoneVal" href="tel:+420737537277">+420 737 537 277</a><button class="copy" type="button" data-copy="phoneVal" data-t="k.copy">Kopírovat</button></div>
+          <!-- e-mail follows once the shop has one: <div class="way"><span class="k">E-mail</span><a class="v" id="mailVal" href="mailto:…">…</a><button class="copy" type="button" data-copy="mailVal" data-t="k.copy">Kopírovat</button></div> -->
+          <div class="way"><span class="k">Instagram</span><a class="v" href="https://www.instagram.com/" target="_blank" rel="noopener">@noar.barbershop</a><span></span></div>
+        </div>
+        <h3 class="kicker hours-h" data-t="k.hours">Otevírací doba</h3>
+        <div class="hours" id="hoursList"><!--static--><div class="row"><span>Každý den</span><span><span class="num">9:00</span> až <span class="num">20:00</span></span></div><!--/static--></div>
+        <p class="v-note" data-t="k.note">Bez objednání vás vezmeme, kdykoli je volné křeslo.</p>
+      </div>
+      <div>
+        <figure class="sketch" aria-label="Orientační náčrt okolí: Nekázanka spojuje Na Příkopě a Jindřišskou, hned vedle Panské s Muchovým muzeem; metro Můstek u paláce Koruna a Náměstí Republiky u ČNB, tramvaj Jindřišská, Slovanský dům a Jindřišská věž poblíž">
+          <svg class="sk" viewBox="0 0 520 300" role="img" aria-hidden="true">
+            <path class="sk-wide" d="M40 110 L92 272"/>
+            <g class="sk-main">
+              <path d="M40 110 L480 50"/>
+              <path d="M70 259 L430 209"/>
+            </g>
+            <g class="sk-side">
+              <path d="M170 92 L185 239"/>
+              <path d="M270 78 L285 225"/>
+            </g>
+            <!-- walking routes: from both metro stations along Na Příkopě, and from the tram up Nekázanka -->
+            <path class="sk-route" d="M40 110 L270 79 L277 151 M480 50 L270 79 M150 248 L285 229 L277 151"/>
+            <g class="sk-labels">
+              <text transform="translate(380 56) rotate(-7.8)" text-anchor="middle">Na Příkopě</text>
+              <text transform="translate(345 241) rotate(-7.9)" text-anchor="middle">Jindřišská</text>
+              <text transform="translate(162 172) rotate(84.2)" text-anchor="middle">Panská</text>
+              <text transform="translate(252 190) rotate(84.1)" text-anchor="middle">Nekázanka</text>
+              <text transform="translate(60 196) rotate(71.7)" text-anchor="middle">Václavské nám.</text>
+            </g>
+            <g class="sk-marks">
+              <circle cx="174" cy="128" r="3.5"/><text x="164" y="133" text-anchor="end">Muchovo muzeum</text>
+              <circle cx="430" cy="209" r="3.5"/><text x="430" y="233" text-anchor="middle">Jindřišská věž</text>
+            </g>
+            <g class="sk-m">
+              <circle cx="40" cy="110" r="10"/><text x="40" y="114" text-anchor="middle">M</text>
+              <circle cx="480" cy="50" r="10"/><text x="480" y="54" text-anchor="middle">M</text>
+              <circle class="sk-tram" cx="150" cy="248" r="7"/>
+            </g>
+            <g class="sk-stop">
+              <text x="28" y="88">Můstek <tspan class="sk-line">A B</tspan></text>
+              <text x="505" y="28" text-anchor="end">Nám. Republiky <tspan class="sk-line">B</tspan></text>
+              <text x="150" y="278" text-anchor="middle">tram Jindřišská</text>
+            </g>
+            <g class="sk-home">
+              <circle class="sk-halo" cx="277" cy="151" r="15"/>
+              <circle class="pl-dot" cx="277" cy="151" r="7"/>
+              <text class="sk-name" x="298" y="149">NØÁR</text>
+              <text class="sk-addr" x="298" y="170">Nekázanka <tspan class="sk-no">12</tspan></text>
+            </g>
+          </svg>
+          <figcaption data-t="k.sketch">Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.</figcaption>
+        </figure>
+        <p class="map"><a class="link" href="https://www.google.com/maps/search/?api=1&amp;query=Nek%C3%A1zanka+12%2C+110+00+Praha+1" target="_blank" rel="noopener"><span data-t="k.map">Otevřít v mapách</span></a></p>
+      </div>
+    </div>
+
+    <div class="faq-wrap" id="faq">
+      <div>
+        <h3 data-t="faq.h2">Než přijdete.</h3>
+        <p class="faq-p" data-t="faq.p">Na co se nás ptáte nejčastěji. Cokoli dalšího vám rádi řekneme po telefonu.</p>
+      </div>
+      <div class="faq" id="faqList">
+        <details><summary><span data-t="faq.q1">Musím se objednat předem?</span></summary><p data-t="faq.a1">Doporučujeme to, večery a soboty bývají plné. Bez objednání vás ale vezmeme vždy, když je volné křeslo. Stačí zavolat nebo se zastavit.</p></details>
+        <details><summary><span data-t="faq.q2">Jak se u vás platí?</span></summary><p data-t="faq.a2">Kartou, Apple Pay, Google Pay nebo hotově. Dárkové poukazy platí 12 měsíců.</p></details>
+        <details><summary><span data-t="faq.q3">Co když se nemůžu dostavit?</span></summary><p data-t="faq.a3">Termín přesunete nebo zrušíte zdarma nejpozději 2 hodiny předem, v rezervačním systému nebo telefonicky. Kdo nepřijde a nedá vědět, blokuje křeslo někomu dalšímu.</p></details>
+        <details><summary><span data-t="faq.q4">Kde zaparkuju?</span></summary><p data-t="faq.a4">Nekázanka je v zóně placeného stání. Nejblíž jsou garáže v Panské a na Můstku, odkud je to k nám pár minut pěšky. Metrem vystupte na Můstku (linky A a B).</p></details>
+        <details><summary><span data-t="faq.q5">Máte studentskou cenu?</span></summary><p data-t="faq.a5">Ano, studentský střih stojí 550 Kč a trvá 30 minut.</p></details>
+        <details><summary><span data-t="faq.q6">Kdy mám přijít a jak dlouho to trvá?</span></summary><p data-t="faq.a6">Stačí přijít pár minut před termínem, na recepci na vás čeká káva nebo voda. Jak dlouho která služba trvá, vidíte v ceníku. Při zpoždění nad 15 minut nemusíme stihnout celou službu.</p></details>
+        <details><summary><span data-t="faq.q7">Mluvíte anglicky?</span></summary><p data-t="faq.a7">Ano, všichni holiči se domluví anglicky a web máte i v angličtině.</p></details>
+      </div>
+    </div>
+    <!-- the end of the page: the floating booking button lands here -->
+    <div class="end-book" id="endBook">
+      <a class="btn" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><svg class="snip" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 15l17 21M31 15L14 36"/><circle cx="14" cy="38" r="4"/><circle cx="34" cy="38" r="4"/></svg><span data-t="hero.cta">Rezervovat termín</span></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<a class="btn dock" id="dock" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><svg class="snip" viewBox="0 0 48 48" aria-hidden="true"><path d="M17 15l17 21M31 15L14 36"/><circle cx="14" cy="38" r="4"/><circle cx="34" cy="38" r="4"/></svg><span data-t="hero.cta">Rezervovat termín</span></a>
+
+<footer>
+  <div class="wrap foot">
+    <img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435">
+    <div class="social">
+      <a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</footer>
+
+<!-- the panel: gift card and merch open over the page and close back to where you were -->
+<dialog class="sheet" id="panel" aria-labelledby="panelH" closedby="any">
+  <header class="sheet-head">
+    <h2 id="panelH" tabindex="-1">Dárkový poukaz</h2>
+    <button class="sheet-x" type="button" id="panelClose"><span data-t="sf.close">Zavřít</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
+  </header>
+  <div class="sheet-body">
+
+    <div data-view="gift">
+      <div class="v-stage" id="vStage">
+        <div class="voucher" id="voucher" role="img" aria-label="Náhled poukazu">
+          <div class="v-glare"></div>
+          <div class="v-top"><img src="img/logo.png" alt="" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
+          <div class="v-mid"><div class="v-value" id="vcValue"></div><div class="v-for" id="vcFor"></div><p class="v-msg" id="vcMsg"></p></div>
+          <div class="v-foot"><span id="vcFrom"></span><span id="vcValid"></span><span id="vcCode" class="num"></span></div>
+        </div>
+        <p class="v-hint" data-t="v.hint">Náhled se mění podle toho, co vyplníte.</p>
+      </div>
+      <form class="v-form" id="vForm" novalidate>
+        <div><span class="q-label" data-t="v.type">Typ poukazu</span><div class="chips" id="vType"></div></div>
+        <div><span class="q-label" id="vValLabel">Hodnota</span><div class="chips" id="vVal"></div></div>
+        <div class="form">
+          <div class="field"><label for="vTo" data-t="v.to">Pro koho</label><input id="vTo" autocomplete="off" maxlength="40"><span class="err" data-t="v.toErr">Napište jméno obdarovaného.</span></div>
+          <div class="field"><label for="vFrom" data-t="v.from">Od koho</label><input id="vFrom" autocomplete="name" maxlength="40"><span class="err" data-t="v.fromErr">Napište, od koho poukaz je.</span></div>
+          <div class="field full"><label for="vMsg" data-t="v.msg">Věnování (nepovinné)</label><textarea id="vMsg" rows="2" maxlength="140"></textarea><span class="v-count" id="vCount">0 / 140</span></div>
+        </div>
+        <div><span class="q-label" data-t="v.del">Doručení</span><div class="chips" id="vDel"></div></div>
+        <div class="field" id="vMailWrap"><label for="vMail" data-t="v.mail">E-mail, kam poukaz pošleme</label><input id="vMail" type="email" inputmode="email" autocomplete="email"><span class="err" data-t="v.mailErr">Zkontrolujte prosím e-mail.</span></div>
+        <div class="summary" style="margin-top:0">
+          <div><div class="lines" id="vLines"></div><div class="total" id="vTotal"></div></div>
+          <div class="cta-col"><button class="btn" type="button" id="vSubmit" data-t="v.submit">Zaplatit kartou</button><p class="fine" data-t="v.fine">Karta, Apple Pay nebo Google Pay. Platnost 12 měsíců.</p></div>
+        </div>
+      </form>
+      <div class="v-done" id="vDone" hidden>
+        <span class="kicker" data-t="v.doneEyebrow">Ukázka platby</span>
+        <h3 data-t="v.doneH">Tady se otevře platební brána.</h3>
+        <p id="vDoneText"></p>
+        <div class="actions"><button class="link" type="button" id="vAgain" data-t="v.again">Objednat další poukaz</button></div>
+      </div>
+    </div>
+
+    <div data-view="merch" hidden>
+      <div class="m-view">
+        <div><span class="q-label" data-t="m.item">Kousek</span><div class="chips" id="mItems"></div></div>
+        <div class="m-hero"><img id="mImg" src="img/tee.jpg" alt="" width="1600" height="725"><div><p data-t="m.p">Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.</p></div></div>
+        <div><span class="q-label" id="mSizeLabel" data-t="m.size">Velikost</span><div class="chips m-sizes" id="mSizes"></div></div>
+        <div id="mFormWrap">
+          <p class="finder-p" data-t="m.formP">Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.</p>
+          <form class="form" id="mFields" novalidate>
+            <div class="field"><label for="mName" data-t="f.name">Jméno a příjmení</label><input id="mName" name="name" autocomplete="name" required><span class="err" data-t="f.nameErr">Doplňte prosím jméno.</span></div>
+            <div class="field"><label for="mPhone" data-t="f.phone">Telefon</label><input id="mPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+420" required><span class="err" data-t="f.phoneErr">Zadejte platné telefonní číslo.</span></div>
+          </form>
+          <div class="summary">
+            <div><div class="lines" id="mLines"></div><div class="total" id="mTotal"></div></div>
+            <div class="cta-col"><button class="btn" type="button" id="mSubmit" data-t="m.submit">Odložit k vyzvednutí</button></div>
+          </div>
+        </div>
+        <div id="mDoneWrap" hidden>
+          <span class="kicker" data-t="m.doneH">Odloženo</span>
+          <p class="m-done" id="mDone" style="margin-top:.6rem"></p>
+          <div class="actions" style="margin-top:1.4rem"><button class="link" type="button" id="mAgain" data-t="m.again">Odložit další kousek</button></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</dialog>
+
+<script>
+(function(){
+  'use strict';
+  /* ---------- data ---------- */
+  var HOURS = {1:[9,20],2:[9,20],3:[9,20],4:[9,20],5:[9,20],6:[9,20],0:[9,20]}; /* day of week: [open, close]; every day 9 to 20 */
+  var SLOTIO = 'https://noar-barber.slotio.cloud/#/booking';   /* the shop's online booking (opens in a new tab; it cannot be embedded) */
+  /* services and prices as they are in the booking system (Slotio, checked 27 Oct 2026).
+     The Czech price list, team and hours are also written into the markup (between the static comments) for viewers
+     that run no scripts: after changing SERVICES, BARBERS or HOURS, regenerate them with tests/static.js */
+  var SERVICES = [
+    {g:'promo', id:'open',    cs:'Otevírací akce: střih a vousy', en:'Opening offer: haircut and beard', vi:'Ưu đãi khai trương: cắt tóc và râu', min:30, price:600,
+      sub:{cs:'2. až 30. 11. 2026', en:'2 to 30 November 2026', vi:'2 đến 30/11/2026'}, until:'2026-11-30'},
+    {g:'cut',   id:'cut',     cs:'Pánský střih', en:'Men’s haircut', vi:'Cắt tóc nam', min:30, price:650},
+    {g:'cut',   id:'long',    cs:'Dlouhé vlasy jen nůžkami', en:'Long hair, scissors only', vi:'Tóc dài, chỉ cắt bằng kéo', min:30, price:700},
+    {g:'cut',   id:'regular', cs:'Pravidelný střih každé 2 týdny', en:'Regular cut every 2 weeks', vi:'Cắt định kỳ mỗi 2 tuần', min:30, price:560},
+    {g:'cut',   id:'student', cs:'Studentský střih', en:'Student haircut', vi:'Cắt tóc sinh viên', min:30, price:550},
+    {g:'beard', id:'contour', cs:'Střih a zarovnání vousů', en:'Haircut and beard outline', vi:'Cắt tóc và tỉa viền râu', min:30, price:800},
+    {g:'beard', id:'beard',   cs:'Střih a úprava vousů', en:'Haircut and full beard trim', vi:'Cắt tóc và tỉa toàn bộ râu', min:60, price:950},
+    {g:'beard', id:'shave',   cs:'Do hola a úprava vousů', en:'Head shave and beard outline', vi:'Cạo trọc và tỉa viền râu', min:30, price:650},
+    {g:'beard', id:'beardonly', cs:'Vousy', en:'Beard', vi:'Râu', min:30, price:480},
+    {g:'beard', id:'premium', cs:'Premium servis, vlasy a vousy', en:'Premium service, hair and beard', vi:'Dịch vụ cao cấp, tóc và râu', min:60, price:1100}
+  ];
+  var GROUPS = [
+    {id:'promo', cs:'Otevírací akce', en:'Opening offer', vi:'Khai trương'},
+    {id:'cut',   cs:'Střihy', en:'Haircuts', vi:'Cắt tóc'},
+    {id:'beard', cs:'Vousy', en:'Beard', vi:'Râu'}
+  ];
+  /* the barbers as Slotio lists them, with their Slotio portraits */
+  var BARBERS = [
+    {id:'ben',   nick:'Ben',   gen:'Bena',  full:'Viet Anh',        mono:'B', photo:'img/team-ben.webp'},
+    {id:'honza', nick:'Honza', gen:'Honzy', full:'Hoan Anh Nguyen', mono:'H', photo:'img/team-honza.webp'}   /* gen: the Czech form after "u" (Rezervovat u Honzy) */
+  ];
+  var MERCH = {tee:{key:'m.tee', price:890, img:'img/tee.jpg'}, hoodie:{key:'m.hoodie', price:1690, img:'img/hoodie.jpg'}};
+  var T = {
+    cs:{
+      'k.everyDay':'Každý den',
+      'book.newTab':', otevře se v novém okně',
+      'nav.services':'Ceník','nav.studio':'Studio','nav.team':'Tým','nav.gift':'Dárky','nav.visit':'Návštěva','nav.book':'Rezervovat',
+      'hero.h1':'NØÁR Barbershop, pánské holičství v Praze 1','hero.nextLow':'nejbližší volný termín','hero.lede':'Přesný střih, ostrá břitva a termín, který platí. Hodinu nemusíte na nic myslet.','hero.cta':'Rezervovat termín','hero.cta2':'Ceník a služby',
+      'menu.h2':'Služby a ceny.','menu.p':'Vyberte si službu a rezervujte termín online. Rezervace se otevře v novém okně.','menu.note':'Platíte až u nás. Rezervaci můžete zdarma zrušit nejpozději 2 hodiny předem.',
+      'book.title':'Rezervace','step.service':'Služba','step.barber':'Holič','step.time':'Termín','step.you':'Vaše údaje','step.youShort':'Údaje',
+      'f.name':'Jméno a příjmení','f.phone':'Telefon','f.email':'E-mail (nepovinné)','f.note':'Poznámka pro holiče (nepovinné)','f.nameErr':'Doplňte prosím jméno.','f.phoneErr':'Zadejte platné telefonní číslo.','f.emailErr':'Zkontrolujte prosím e-mail.','f.submit':'Potvrdit rezervaci','f.fine':'Platíte až u nás. Zrušit můžete zdarma do 24 hodin předem.',
+      'c.eyebrow':'Rezervace přijata','c.h3':'Těšíme se na vás.','c.code':'Číslo rezervace','c.map':'Trasa do salonu','c.again':'Nová rezervace','c.cal':'Přidat do kalendáře','sf.close':'Zavřít','cal.note':'Přijďte prosím o pár minut dřív. Změna termínu: odpovězte na potvrzovací SMS.',
+      'sf.h2':'Nevíte, co si vybrat?','sf.p':'Tři rychlé otázky. Doporučíme vám službu a holiče, který ji dělá nejlíp, a rovnou ji připravíme do rezervace.','sf.link':'Nevíte, co si vybrat? Tři otázky a poradíme.',
+      'v.h2':'Darujte hodinu v křesle.','v.p':'Poukaz na částku nebo na konkrétní službu, platí 12 měsíců. Pošleme ho e-mailem, nebo si ho vyzvednete u nás v dárkové obálce.','v.buy':'Koupit poukaz','v.teaser':'Hodina v křesle','v.valid12':'Platí 12 měsíců',
+      'v.type':'Typ poukazu','v.to':'Pro koho','v.toErr':'Napište jméno obdarovaného.','v.from':'Od koho','v.fromErr':'Napište, od koho poukaz je.','v.msg':'Věnování (nepovinné)','v.del':'Doručení','v.mail':'E-mail, kam poukaz pošleme','v.mailErr':'Zkontrolujte prosím e-mail.','v.submit':'Zaplatit kartou','v.fine':'Karta, Apple Pay nebo Google Pay. Platnost 12 měsíců.','v.doneEyebrow':'Ukázka platby','v.doneH':'Tady se otevře platební brána.','v.again':'Objednat další poukaz','v.kind':'Dárkový poukaz','v.hint':'Náhled se mění podle toho, co vyplníte.',
+      'ab.motto':'Disciplína dává svobodu.','ab.body':'Disciplína je naše část dohody. Svoboda je ta vaše: sednete si, a o zbytek se postaráme my.',
+      'ab.t1':'Žádné čekání','ab.s1':'Termín platí na minutu. Přijdete, sednete si, začínáme.','ab.t2':'Nejdřív rozhovor, pak nůžky','ab.s2':'Pět minut o vašich vlasech a o tom, kolik času jim ráno dáváte.','ab.t3':'Rituál, ne rychlovka','ab.s3':'Horký ručník, břitva, tonikum a balzám. Všechno v ceně.',
+      'walk.h2':'Jak to u nás vypadá.','walk.p':'Posouvejte stránku a projděte si salon od dveří až dozadu.','walk.plan':'Půdorys salonu','walk.wip':'Připravujeme',
+      'team.h2':'Kdo vás bude stříhat.','team.p':'Rezervovat můžete u konkrétního holiče, nebo u toho, kdo má zrovna volno.','team.book':'Rezervovat u','team.today':'Dnes volno','team.tomorrow':'Zítra volno','team.dayFree':'{day} volno',
+      'm.h3':'Kolekce NØÁR','m.short':'Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.','m.panel':'Kolekce NØÁR','m.item':'Kousek','m.p':'Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.','m.tee':'Tričko NØÁR','m.hoodie':'Mikina NØÁR','m.size':'Velikost','m.reserve':'Odložit k vyzvednutí','m.formP':'Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.','m.submit':'Odložit k vyzvednutí','m.pickSize':'Nejdřív vyberte velikost.','m.doneH':'Odloženo','m.again':'Odložit další kousek','m.done':'{item} ve velikosti {size} na vás čeká na recepci do {date}. Potvrzení jsme poslali na {phone}.','m.title':'{item}, velikost {size}',
+      'k.h2':'Najdete nás v Nekázance.','k.phone':'Telefon','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
+      'faq.h2':'Než přijdete.','faq.p':'Na co se nás ptáte nejčastěji. Cokoli dalšího vám rádi řekneme po telefonu.',
+      'faq.q1':'Musím se objednat předem?','faq.a1':'Doporučujeme to, večery a soboty bývají plné. Bez objednání vás ale vezmeme vždy, když je volné křeslo. Stačí zavolat nebo se zastavit.',
+      'faq.q2':'Jak se u vás platí?','faq.a2':'Kartou, Apple Pay, Google Pay nebo hotově. Dárkové poukazy platí 12 měsíců.',
+      'faq.q3':'Co když se nemůžu dostavit?','faq.a3':'Termín přesunete nebo zrušíte zdarma nejpozději 2 hodiny předem, v rezervačním systému nebo telefonicky. Kdo nepřijde a nedá vědět, blokuje křeslo někomu dalšímu.',
+      'faq.q4':'Kde zaparkuju?','faq.a4':'Nekázanka je v zóně placeného stání. Nejblíž jsou garáže v Panské a na Můstku, odkud je to k nám pár minut pěšky. Metrem vystupte na Můstku (linky A a B).',
+      'faq.q5':'Máte studentskou cenu?','faq.a5':'Ano, studentský střih stojí 550 Kč a trvá 30 minut.',
+      'faq.q6':'Kdy mám přijít a jak dlouho to trvá?','faq.a6':'Stačí přijít pár minut před termínem, na recepci na vás čeká káva nebo voda. Jak dlouho která služba trvá, vidíte v ceníku. Při zpoždění nad 15 minut nemusíme stihnout celou službu.',
+      'faq.q7':'Mluvíte anglicky?','faq.a7':'Ano, všichni holiči se domluví anglicky a web máte i v angličtině.',
+      picked:'Vybráno', 'two.link':'Přijdete dva? Přidat druhou osobu', 'two.p':'Vyberte službu pro druhou osobu. Oba termíny jdou po sobě u stejného holiče.', 'two.off':'Bez druhé osoby', 'two.sum':'Druhá osoba', 'two.for':'pro dva', open:'Otevřeno', closed:'Zavřeno', closedToday:'Dnes zavřeno', opens:'Otevíráme', today:'dnes', tomorrow:'zítra', min:'min', at:'v', to:'až', until:'do',
+      noSlots:'Tento den už nemáme volno. Zkuste jiný den.', closedDay:'V tento den je zavřeno.', slotsFor:'Volné časy pro', anyBarber:'kohokoli', morning:'Dopoledne', afternoon:'Odpoledne', evening:'Večer',
+      confirmNote:'Potvrzení posíláme SMS na {phone}. Dorazte prosím o pět minut dřív, na recepci na vás čeká káva nebo voda.',
+      sumService:'Služba', sumBarber:'Holič', sumWhen:'Termín', sumName:'Jméno', sumPhone:'Telefon', sumTotal:'Celkem',
+      days:['Ne','Po','Út','St','Čt','Pá','So'], daysLong:['neděle','pondělí','úterý','středa','čtvrtek','pátek','sobota'],
+      months:['led','úno','bře','dub','kvě','čvn','čvc','srp','zář','říj','lis','pro'], monthsLong:['ledna','února','března','dubna','května','června','července','srpna','září','října','listopadu','prosince'],
+      hoursRows:['Pondělí až pátek','Sobota','Neděle']
+    },
+    en:{
+      'k.everyDay':'Every day',
+      'book.newTab':', opens in a new window',
+      'nav.services':'Prices','nav.studio':'Studio','nav.team':'Team','nav.gift':'Gifts','nav.visit':'Visit','nav.book':'Book now',
+      'hero.h1':'NØÁR Barbershop, a gentlemen’s barbershop in Prague 1','hero.nextLow':'next free slot','hero.lede':'A precise cut, a sharp blade and an appointment that holds. An hour with nothing to think about.','hero.cta':'Book an appointment','hero.cta2':'Services and prices',
+      'menu.h2':'Services and prices.','menu.p':'Pick a service and book online. Booking opens in a new window.','menu.note':'You pay at the shop. Cancel for free up to 2 hours ahead.',
+      'book.title':'Booking','step.service':'Service','step.barber':'Barber','step.time':'Time','step.you':'Your details','step.youShort':'Details',
+      'f.name':'Full name','f.phone':'Phone','f.email':'Email (optional)','f.note':'Note for your barber (optional)','f.nameErr':'Please add your name.','f.phoneErr':'Enter a valid phone number.','f.emailErr':'Please check the email address.','f.submit':'Confirm booking','f.fine':'You pay at the shop. Cancel for free up to 24 hours ahead.',
+      'c.eyebrow':'Booking received','c.h3':'See you soon.','c.code':'Booking number','c.map':'Directions','c.again':'New booking','c.cal':'Add to calendar','sf.close':'Close','cal.note':'Please arrive a few minutes early. To reschedule, reply to the confirmation text.',
+      'sf.h2':'Not sure what to book?','sf.p':'Three quick questions. We suggest a service and the barber who does it best, and set it up in your booking.','sf.link':'Not sure what to book? Three questions and we will tell you.',
+      'v.h2':'Give an hour in the chair.','v.p':'A card for an amount or for a specific service, valid for 12 months. We email it, or you collect it from us in a gift envelope.','v.buy':'Buy a gift card','v.teaser':'An hour in the chair','v.valid12':'Valid for 12 months',
+      'v.type':'Card type','v.to':'For','v.toErr':'Add the recipient’s name.','v.from':'From','v.fromErr':'Add who the card is from.','v.msg':'Message (optional)','v.del':'Delivery','v.mail':'Email to send the card to','v.mailErr':'Please check the email address.','v.submit':'Pay by card','v.fine':'Card, Apple Pay or Google Pay. Valid for 12 months.','v.doneEyebrow':'Payment preview','v.doneH':'This is where checkout opens.','v.again':'Order another card','v.kind':'Gift card','v.hint':'The preview updates as you type.',
+      'ab.motto':'Discipline creates freedom.','ab.body':'Discipline is our side of the deal. Freedom is yours: you sit down, and we take care of the rest.',
+      'ab.t1':'No waiting','ab.s1':'Your appointment starts on the minute. You arrive, you sit down, we begin.','ab.t2':'Talk first, then scissors','ab.s2':'Five minutes about your hair and how much time you give it in the morning.','ab.t3':'A ritual, not a rush','ab.s3':'Hot towel, straight razor, tonic and balm. All included.',
+      'walk.h2':'Have a look around.','walk.p':'Scroll to walk through the shop, from the door to the back room.','walk.plan':'Floor plan of the shop','walk.wip':'In progress',
+      'team.h2':'Who will cut your hair.','team.p':'Book with a specific barber, or with whoever is free first.','team.book':'Book with','team.today':'Free today','team.tomorrow':'Free tomorrow','team.dayFree':'Free {day}',
+      'm.h3':'The NØÁR collection','m.short':'Only at the shop. Pick a size and we will hold it for you for three days.','m.panel':'NØÁR collection','m.item':'Piece','m.p':'A small run, only at the shop. Heavy cotton and an embroidered logo.','m.tee':'NØÁR T-shirt','m.hoodie':'NØÁR hoodie','m.size':'Size','m.reserve':'Hold for pickup','m.formP':'We hold it for three days. You pay at the shop, by card or cash, and we text you a confirmation.','m.submit':'Hold for pickup','m.pickSize':'Choose a size first.','m.doneH':'Held for you','m.again':'Hold another piece','m.done':'{item} in size {size} is waiting for you at reception until {date}. We sent a confirmation to {phone}.','m.title':'{item}, size {size}',
+      'k.h2':'Find us on Nekázanka.','k.phone':'Phone','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
+      'faq.h2':'Before you come.','faq.p':'What we get asked most. For anything else, call us.',
+      'faq.q1':'Do I need to book?','faq.a1':'We recommend it: evenings and Saturdays fill up fast. Walk-ins are welcome whenever a chair is free. Just call or drop by.',
+      'faq.q2':'How can I pay?','faq.a2':'Card, Apple Pay, Google Pay or cash. Gift cards are valid for 12 months.',
+      'faq.q3':'What if I cannot make it?','faq.a3':'Reschedule or cancel for free up to 2 hours ahead, in the booking system or by phone. A no-show keeps a chair empty that someone else could have had.',
+      'faq.q4':'Where can I park?','faq.a4':'Nekázanka is in a paid parking zone. The nearest garages are on Panská and at Můstek, a few minutes on foot. By metro, get off at Můstek (lines A and B).',
+      'faq.q5':'Is there a student price?','faq.a5':'Yes, a student haircut is 550 Kč and takes 30 minutes.',
+      'faq.q6':'When should I arrive and how long does it take?','faq.a6':'A few minutes before your time is plenty, and there is coffee or water at reception. The price list shows how long each service takes. If you are more than 15 minutes late we may not fit the whole service in.',
+      'faq.q7':'Do you speak English?','faq.a7':'Yes. All our barbers do, and the site is in English too.',
+      picked:'Selected', 'two.link':'Coming as two? Add a second person', 'two.p':'Pick a service for the second person. The two appointments run back to back with the same barber.', 'two.off':'No second person', 'two.sum':'Second person', 'two.for':'for two', open:'Open', closed:'Closed', closedToday:'Closed today', opens:'Opens', today:'today', tomorrow:'tomorrow', min:'min', at:'at', to:'to', until:'until',
+      noSlots:'Nothing left on this day. Try another one.', closedDay:'We are closed on this day.', slotsFor:'Free times for', anyBarber:'any barber', morning:'Morning', afternoon:'Afternoon', evening:'Evening',
+      confirmNote:'Your confirmation is on its way to {phone}. Come five minutes early; there is coffee or water at reception.',
+      sumService:'Service', sumBarber:'Barber', sumWhen:'When', sumName:'Name', sumPhone:'Phone', sumTotal:'Total',
+      days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], daysLong:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+      months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], monthsLong:['January','February','March','April','May','June','July','August','September','October','November','December'],
+      hoursRows:['Monday to Friday','Saturday','Sunday']
+    },
+    vi:{
+      'k.everyDay':'Hằng ngày',
+      'book.newTab':', mở trong cửa sổ mới',
+      'nav.services':'Bảng giá','nav.studio':'Studio','nav.team':'Đội ngũ','nav.gift':'Quà tặng','nav.visit':'Ghé tiệm','nav.book':'Đặt lịch',
+      'hero.h1':'NØÁR Barbershop, tiệm cắt tóc nam tại Praha 1','hero.nextLow':'lịch trống gần nhất','hero.lede':'Đường cắt chính xác, lưỡi dao sắc và giờ hẹn luôn đúng. Một giờ không phải nghĩ gì cả.','hero.cta':'Đặt lịch','hero.cta2':'Dịch vụ và giá',
+      'menu.h2':'Dịch vụ và giá.','menu.p':'Chọn dịch vụ và đặt lịch online. Trang đặt lịch mở trong cửa sổ mới.','menu.note':'Thanh toán tại tiệm. Hủy miễn phí trước ít nhất 2 giờ.',
+      'book.title':'Đặt lịch','step.service':'Dịch vụ','step.barber':'Thợ cắt','step.time':'Thời gian','step.you':'Thông tin của bạn','step.youShort':'Thông tin',
+      'f.name':'Họ và tên','f.phone':'Số điện thoại','f.email':'E-mail (không bắt buộc)','f.note':'Ghi chú cho thợ (không bắt buộc)','f.nameErr':'Vui lòng nhập tên.','f.phoneErr':'Vui lòng nhập số điện thoại hợp lệ.','f.emailErr':'Vui lòng kiểm tra lại e-mail.','f.submit':'Xác nhận đặt lịch','f.fine':'Thanh toán tại tiệm. Hủy miễn phí trước 24 giờ.',
+      'c.eyebrow':'Đã nhận đặt lịch','c.h3':'Hẹn gặp bạn.','c.code':'Mã đặt lịch','c.map':'Chỉ đường đến tiệm','c.again':'Đặt lịch mới','c.cal':'Thêm vào lịch','sf.close':'Đóng','cal.note':'Vui lòng đến sớm vài phút. Đổi lịch: trả lời tin nhắn SMS xác nhận.',
+      'sf.h2':'Chưa biết chọn gì?','sf.p':'Ba câu hỏi nhanh. Chúng tôi gợi ý dịch vụ và người thợ phù hợp nhất, rồi điền sẵn cho bạn.','sf.link':'Chưa biết chọn gì? Ba câu hỏi, chúng tôi gợi ý.',
+      'v.h2':'Tặng một giờ trên ghế.','v.p':'Phiếu theo số tiền hoặc theo dịch vụ, giá trị 12 tháng. Gửi qua e-mail hoặc nhận tại tiệm trong phong bì quà tặng.','v.buy':'Mua phiếu quà tặng','v.teaser':'Một giờ trên ghế','v.valid12':'Giá trị 12 tháng',
+      'v.type':'Loại phiếu','v.to':'Tặng cho','v.toErr':'Nhập tên người nhận.','v.from':'Từ','v.fromErr':'Nhập tên người tặng.','v.msg':'Lời nhắn (không bắt buộc)','v.del':'Giao nhận','v.mail':'E-mail nhận phiếu','v.mailErr':'Vui lòng kiểm tra lại e-mail.','v.submit':'Thanh toán bằng thẻ','v.fine':'Thẻ, Apple Pay hoặc Google Pay. Giá trị 12 tháng.','v.doneEyebrow':'Thanh toán mẫu','v.doneH':'Cổng thanh toán sẽ mở tại đây.','v.again':'Đặt thêm phiếu khác','v.kind':'Phiếu quà tặng','v.hint':'Bản xem trước thay đổi theo thông tin bạn điền.',
+      'ab.motto':'Kỷ luật tạo nên tự do.','ab.body':'Kỷ luật là phần việc của chúng tôi. Tự do là phần của bạn: bạn ngồi xuống, phần còn lại để chúng tôi lo.',
+      'ab.t1':'Không phải chờ','ab.s1':'Giờ hẹn đúng đến từng phút. Bạn đến, ngồi xuống, chúng tôi bắt đầu.','ab.t2':'Trò chuyện trước, rồi mới cắt','ab.s2':'Năm phút về mái tóc và thời gian bạn dành cho nó mỗi sáng.','ab.t3':'Một nghi thức, không vội vàng','ab.s3':'Khăn nóng, dao cạo, toner và dưỡng. Tất cả đã bao gồm.',
+      'walk.h2':'Tiệm trông như thế nào.','walk.p':'Cuộn trang để đi một vòng tiệm, từ cửa vào đến cuối.','walk.plan':'Sơ đồ tiệm','walk.wip':'Đang hoàn thiện',
+      'team.h2':'Ai sẽ cắt tóc cho bạn.','team.p':'Bạn có thể đặt lịch với một thợ cụ thể, hoặc với người đang rảnh.','team.book':'Đặt lịch với','team.today':'Hôm nay còn trống','team.tomorrow':'Ngày mai còn trống','team.dayFree':'{day} còn trống',
+      'm.h3':'Bộ sưu tập NØÁR','m.short':'Chỉ bán tại tiệm. Chọn kích cỡ, chúng tôi giữ hàng cho bạn ba ngày.','m.panel':'Bộ sưu tập NØÁR','m.item':'Sản phẩm','m.p':'Bộ sưu tập giới hạn, chỉ bán tại tiệm. Vải cotton dày, logo thêu.','m.tee':'Áo thun NØÁR','m.hoodie':'Áo hoodie NØÁR','m.size':'Kích cỡ','m.reserve':'Giữ hàng đến lấy','m.formP':'Chúng tôi giữ hàng cho bạn trong ba ngày. Thanh toán tại tiệm, bằng thẻ hoặc tiền mặt. Xác nhận qua SMS.','m.submit':'Giữ hàng','m.pickSize':'Vui lòng chọn kích cỡ trước.','m.doneH':'Đã giữ hàng','m.again':'Giữ thêm sản phẩm khác','m.done':'{item} cỡ {size} đang chờ bạn ở quầy lễ tân đến {date}. Chúng tôi đã gửi xác nhận đến {phone}.','m.title':'{item}, cỡ {size}',
+      'k.h2':'Tìm chúng tôi trên phố Nekázanka.','k.phone':'Điện thoại','k.copy':'Sao chép','k.copied':'Đã sao chép','k.map':'Mở bản đồ','k.sketch':'Sơ đồ định hướng, không phải bản đồ. Đường chấm dẫn từ metro và tram đến tận cửa tiệm. Tiệm ở Nekázanka 12, ngay cạnh phố Panská có Bảo tàng Mucha, giữa Můstek và Náměstí Republiky. Trạm tram gần nhất là Jindřišská, đi bộ ba phút.','k.hours':'Giờ mở cửa','k.note':'Không đặt trước vẫn được phục vụ khi có ghế trống.',
+      'faq.h2':'Trước khi bạn đến.','faq.p':'Những câu hỏi chúng tôi hay gặp nhất. Còn gì khác, cứ gọi cho chúng tôi.',
+      'faq.q1':'Có cần đặt lịch trước không?','faq.a1':'Nên đặt trước, buổi tối và thứ bảy thường kín. Không đặt trước, chúng tôi vẫn phục vụ khi có ghế trống. Chỉ cần gọi hoặc ghé qua.',
+      'faq.q2':'Thanh toán bằng cách nào?','faq.a2':'Thẻ, Apple Pay, Google Pay hoặc tiền mặt. Phiếu quà tặng có giá trị 12 tháng.',
+      'faq.q3':'Nếu tôi không đến được thì sao?','faq.a3':'Đổi hoặc hủy lịch miễn phí trước ít nhất 2 giờ, trong hệ thống đặt lịch hoặc qua điện thoại. Không đến mà không báo sẽ để trống một chiếc ghế mà người khác có thể đã dùng.',
+      'faq.q4':'Đỗ xe ở đâu?','faq.a4':'Phố Nekázanka nằm trong khu đỗ xe trả phí. Gần nhất là bãi đỗ ở Panská và Můstek, đi bộ vài phút là tới. Đi metro thì xuống ga Můstek (tuyến A và B).',
+      'faq.q5':'Có giá cho sinh viên không?','faq.a5':'Có, cắt tóc sinh viên giá 550 Kč, mất 30 phút.',
+      'faq.q6':'Nên đến lúc nào và mất bao lâu?','faq.a6':'Đến trước giờ hẹn vài phút là đủ, ở quầy lễ tân có cà phê hoặc nước chờ bạn. Thời gian từng dịch vụ có trong bảng giá. Đến muộn hơn 15 phút, chúng tôi có thể không kịp làm trọn dịch vụ.',
+      'faq.q7':'Có nói tiếng Việt không?','faq.a7':'Có. Thợ của chúng tôi nói được tiếng Việt, tiếng Séc và tiếng Anh.',
+      picked:'Đã chọn', 'two.link':'Đi hai người? Thêm người thứ hai', 'two.p':'Chọn dịch vụ cho người thứ hai. Hai lịch sẽ nối tiếp nhau với cùng một người thợ.', 'two.off':'Không có người thứ hai', 'two.sum':'Người thứ hai', 'two.for':'cho hai người', open:'Đang mở cửa', closed:'Đã đóng cửa', closedToday:'Hôm nay đóng cửa', opens:'Mở cửa', today:'hôm nay', tomorrow:'ngày mai', min:'phút', at:'lúc', to:'đến', until:'đến',
+      noSlots:'Ngày này đã kín lịch. Vui lòng chọn ngày khác.', closedDay:'Ngày này tiệm đóng cửa.', slotsFor:'Giờ trống cho', anyBarber:'bất kỳ thợ nào', morning:'Buổi sáng', afternoon:'Buổi chiều', evening:'Buổi tối',
+      confirmNote:'Chúng tôi gửi xác nhận qua SMS đến {phone}. Vui lòng đến sớm năm phút, ở quầy lễ tân có cà phê hoặc nước chờ bạn.',
+      sumService:'Dịch vụ', sumBarber:'Thợ cắt', sumWhen:'Thời gian', sumName:'Tên', sumPhone:'Điện thoại', sumTotal:'Tổng cộng',
+      days:['CN','T2','T3','T4','T5','T6','T7'], daysLong:['chủ nhật','thứ hai','thứ ba','thứ tư','thứ năm','thứ sáu','thứ bảy'],
+      months:['thg 1','thg 2','thg 3','thg 4','thg 5','thg 6','thg 7','thg 8','thg 9','thg 10','thg 11','thg 12'], monthsLong:['tháng 1','tháng 2','tháng 3','tháng 4','tháng 5','tháng 6','tháng 7','tháng 8','tháng 9','tháng 10','tháng 11','tháng 12'],
+      hoursRows:['Thứ hai đến thứ sáu','Thứ bảy','Chủ nhật']
+    }
+  };
+
+  /* ---------- state and helpers ---------- */
+  var lang = 'cs', saved = null;
+  var walkLang=function(){};   /* the walk-through replaces this once it is set up */
+  try{ saved = localStorage.getItem('noar-lang'); }catch(e){}
+  if(saved==='en'||saved==='cs'||saved==='vi') lang = saved;
+  else { var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'cs').toLowerCase(); lang = /^(cs|sk)/.test(nl) ? 'cs' : /^vi/.test(nl) ? 'vi' : 'en'; }
+  var $ = function(id){ return document.getElementById(id); };
+  var LANGS=['cs','en','vi'], LANG_LABEL={cs:'CZ',en:'EN',vi:'VI'};
+  var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var FINE = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  function t(k){ var v=T[lang][k]; return v!=null ? v : T.cs[k]; }
+  function esc(s){ return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]}); }
+  function name(o){ return o[lang]!=null ? o[lang] : o.cs; }
+  function kc(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'\u00a0')+'\u00a0Kč'; }
+  function pad(n){ return (n<10?'0':'')+n; }
+  function hm(mins){ return Math.floor(mins/60)+':'+pad(mins%60); }
+  function svcOf(id){ return SERVICES.filter(function(s){ return s.id===id; })[0]; }
+  function addDays(d,n){ var x=new Date(d); x.setDate(x.getDate()+n); return x; }
+  function fmtDateLong(d){ return lang==='cs' ? t('daysLong')[d.getDay()]+' '+d.getDate()+'. '+t('monthsLong')[d.getMonth()] : t('daysLong')[d.getDay()]+' '+d.getDate()+' '+t('monthsLong')[d.getMonth()]; }
+  function focusSoon(el, ms){ setTimeout(function(){ try{ el.focus({preventScroll:true}); }catch(e){} }, ms||60); }
+
+  /* ---------- language ---------- */
+  function applyLang(){
+    document.documentElement.lang = lang;
+    var els = document.querySelectorAll('[data-t]');
+    for(var i=0;i<els.length;i++){ var v=t(els[i].getAttribute('data-t')); if(v!=null) els[i].textContent = v; }
+    $('langBtn').innerHTML = LANGS.map(function(l){ return l===lang ? '<b>'+LANG_LABEL[l]+'</b>' : LANG_LABEL[l]; }).join(' / ');
+    document.title = lang==='en' ? 'NØÁR Barbershop, Nekázanka 12, Prague 1' : 'NØÁR Barbershop, Nekázanka 12, Praha 1';
+    var md=document.querySelector('meta[name=description]');
+    if(md) md.content = lang==='cs' ? 'Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Rezervace online za minutu, Nekázanka 12, pár kroků od Na Příkopě.' : lang==='vi' ? 'Tiệm cắt tóc nam ở trung tâm Praha. Cắt tóc, râu, cạo mặt bằng dao cạo và chăm sóc da. Đặt lịch online trong một phút, Nekázanka 12, cách Na Příkopě vài bước.' : 'A gentlemen\'s barbershop in the centre of Prague. Cuts, beards, razor shaves and skin care. Book online in a minute, Nekázanka 12, steps from Na Příkopě.';
+    [renderHero, renderMenu, renderTeam, renderHours, renderVoucher, renderMerch, function(){ setView(view); }, setModeLabel, function(){ walkLang(); }]
+      .forEach(function(f){ try{ f(); }catch(e){ if(window.console) console.error(e); } });
+  }
+
+  function renderHero(){
+    var now=new Date(), h=HOURS[now.getDay()], el=$('openToday'), nowMin=now.getHours()*60+now.getMinutes();
+    var dot='<span class="dot'+((h && nowMin>=h[0]*60 && nowMin<h[1]*60)?'':' off')+'"></span>';
+    if(h && nowMin<h[0]*60){ el.innerHTML = dot+esc(t('opens'))+' '+esc(t('at'))+' <span class="num">'+hm(h[0]*60)+'</span>, '+esc(t('until'))+' <span class="num">'+hm(h[1]*60)+'</span>'; }
+    else if(h && nowMin<h[1]*60){ el.innerHTML = dot+esc(t('open'))+' '+esc(t('until'))+' <span class="num">'+hm(h[1]*60)+'</span>'; }
+    else {
+      var tm=HOURS[(now.getDay()+1)%7];
+      el.innerHTML = dot+esc(h?t('closed'):t('closedToday'))+(tm ? '. '+esc(t('opens'))+' '+esc(t('tomorrow'))+' '+esc(t('at'))+' <span class="num">'+hm(tm[0]*60)+'</span>' : '');
+    }
+  }
+
+  /* ---------- price list: every row opens the online booking ---------- */
+  function promoOn(s){ if(!s.until) return true; var e=new Date(s.until+'T23:59:59'); return new Date()<=e; }
+  function menuGroup(gid){
+    var g=GROUPS.filter(function(x){ return x.id===gid; })[0], list=SERVICES.filter(function(s){ return s.g===gid && promoOn(s); });
+    if(!list.length) return '';
+    var html='<div class="mg'+(gid==='promo'?' promo':'')+'"><h3 class="kicker">'+esc(name(g))+'</h3><ul>';
+    list.forEach(function(s){
+      var sub = s.sub ? (s.sub[lang]!=null ? s.sub[lang] : s.sub.cs) : '';
+      html+='<li><a class="mi" href="'+SLOTIO+'" target="_blank" rel="noopener"><span class="mi-n">'+esc(name(s))+'</span><span class="mi-d">'+esc(sub)+'</span>'+
+        '<span class="mi-t num">'+s.min+'\u00a0'+esc(t('min'))+'</span><span class="mi-p num">'+kc(s.price)+'</span><span class="vh">, '+esc(t('nav.book'))+esc(t('book.newTab'))+'</span></a></li>';
+    });
+    return html+'</ul></div>';
+  }
+  function renderMenu(){
+    $('menuList').innerHTML = [['promo','cut'],['beard']].map(function(col){ return '<div>'+col.map(menuGroup).join('')+'</div>'; }).join('');
+  }
+
+  /* ---------- team and hours ---------- */
+  function renderTeam(){
+    $('teamList').innerHTML = BARBERS.map(function(b){
+      var pic = b.photo ? '<img class="m-photo" src="'+b.photo+'" alt="'+esc(b.nick)+'" width="600" height="600" loading="lazy" decoding="async">'
+                        : '<div class="m-mono" aria-hidden="true">'+esc(b.mono)+'</div>';
+      return '<div class="member">'+pic+
+        '<div class="mn">'+esc(b.nick)+'</div><div class="mt">'+esc(b.full)+'</div>'+
+        '<a class="link" href="'+SLOTIO+'" target="_blank" rel="noopener">'+esc(t('team.book'))+' '+esc(lang==='cs' && b.gen ? b.gen : b.nick)+'<span class="vh">'+esc(t('book.newTab'))+'</span></a></div>';
+    }).join('');
+  }
+  function renderHours(){
+    $('hoursList').innerHTML = '<div class="row"><span>'+esc(t('k.everyDay'))+'</span><span><span class="num">'+hm(HOURS[1][0]*60)+'</span> '+esc(t('to'))+' <span class="num">'+hm(HOURS[1][1]*60)+'</span></span></div>';
+  }
+
+  /* ---------- the panel ---------- */
+  var panel=$('panel'), view='gift';
+  function setView(v){
+    view=v;
+    panel.querySelectorAll('[data-view]').forEach(function(el){ el.hidden = el.getAttribute('data-view')!==v; });
+    $('panelH').textContent = t(v==='merch' ? 'm.panel' : 'v.kind');
+  }
+  function openPanel(v){
+    setView(v);
+    panel.removeAttribute('data-closing');
+    if(!panel.open){ if(typeof panel.showModal==='function') panel.showModal(); else panel.setAttribute('open',''); window.addEventListener('wheel', holdPage, {passive:false}); window.addEventListener('touchmove', holdTouch, {passive:false}); }
+    panel.scrollTop=0;
+    dockState();
+  }
+  /* exit animation: native where the browser can animate out of the top layer, otherwise hold the dialog open until the slide finishes */
+  var canDisplayTransition;
+  function supportsTopLayerExit(){
+    if(canDisplayTransition===undefined){
+      canDisplayTransition=false;
+      if(window.CSS && CSS.supports && CSS.supports('transition-behavior','allow-discrete') && CSS.supports('overlay','auto')){
+        var probe=document.createElement('div'); probe.style.cssText='transition: display 1s allow-discrete !important; display: block;';
+        document.body.appendChild(probe); getComputedStyle(probe).display; probe.style.display='none';
+        canDisplayTransition = getComputedStyle(probe).display==='block'; probe.remove();
+      }
+    }
+    return canDisplayTransition;
+  }
+  function closePanel(){
+    if(!panel.open) return;
+    function finish(){ panel.removeAttribute('data-closing'); if(panel.open) panel.close(); }
+    if(REDUCED || supportsTopLayerExit()){ finish(); return; }
+    panel.setAttribute('data-closing','');
+    var an = panel.getAnimations ? panel.getAnimations({subtree:false}) : [];
+    if(!an.length){ finish(); return; }
+    var settled=false, done=function(){ if(settled) return; settled=true; if(panel.hasAttribute('data-closing')) finish(); };
+    Promise.all(an.map(function(a){ return a.finished.catch(function(){}); })).then(done); setTimeout(done, 800);
+  }
+  panel.addEventListener('cancel', function(e){ e.preventDefault(); closePanel(); });
+  panel.addEventListener('close', function(){ panel.removeAttribute('data-closing'); window.removeEventListener('wheel', holdPage, {passive:false}); window.removeEventListener('touchmove', holdTouch, {passive:false}); dockState(); });
+  $('panelClose').addEventListener('click', closePanel);
+  /* the page underneath stays put while the panel is open. CSS overscroll containment does this in new browsers;
+     for the rest, wheel and touch scrolling that would leak past the panel's ends (or over the dimmed page) is stopped here */
+  function overBackdrop(x, y){ var r=panel.getBoundingClientRect(); return x<r.left || x>r.right || y<r.top || y>r.bottom; }
+  /* registered on the window only while the panel is open: the dimmed backdrop is not part of the dialog's own hit area */
+  function holdPage(e){
+    if(!panel.open) return;
+    if(e.target===panel && overBackdrop(e.clientX, e.clientY)){ e.preventDefault(); return; }
+    if(!panel.contains(e.target) || e.target.closest('textarea') || Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;
+    var max=panel.scrollHeight-panel.clientHeight;
+    if((e.deltaY<0 && panel.scrollTop<=0) || (e.deltaY>0 && panel.scrollTop>=max-1)) e.preventDefault();
+  }
+  function holdTouch(e){
+    var p0=e.touches && e.touches[0]; if(!panel.open || !p0) return;
+    if(!panel.contains(e.target) || (e.target===panel && overBackdrop(p0.clientX, p0.clientY))){ e.preventDefault(); return; }
+    if(e.target.closest('textarea')) return;
+    if(panel.scrollHeight<=panel.clientHeight+1) e.preventDefault();
+  }
+  /* light dismiss where the closedby attribute is not supported yet */
+  if(!(window.HTMLDialogElement && 'closedBy' in HTMLDialogElement.prototype)){
+    panel.addEventListener('click', function(e){
+      if(e.target!==panel) return;
+      var r=panel.getBoundingClientRect();
+      if(e.clientX>=r.left && e.clientX<=r.right && e.clientY>=r.top && e.clientY<=r.bottom) return;
+      closePanel();
+    });
+  }
+
+  /* gift cards and merch open the panel; booking links go straight to the booking system */
+  document.addEventListener('click', function(e){
+    var el;
+    if(e.target.closest('#panel')) return;
+    if((el=e.target.closest('[data-merch]'))){
+      e.preventDefault(); M.item=el.getAttribute('data-merch');
+      $('mDoneWrap').hidden=true; $('mFormWrap').hidden=false; renderMerch(); openPanel('merch'); return;
+    }
+    if((el=e.target.closest('[data-panel]'))){
+      e.preventDefault(); openPanel(el.getAttribute('data-panel')); return;
+    }
+  });
+
+  /* ---------- form checks shared by the gift card and merch forms ---------- */
+  function validPhone(v){ var d=v.replace(/[^\d+]/g,''); return /^\+?\d{9,15}$/.test(d); }
+  function check(id, ok){ $(id).closest('.field').classList.toggle('invalid', !ok); return ok; }
+  ['mName','mPhone'].forEach(function(id){ $(id).addEventListener('input', function(){ $(id).closest('.field').classList.remove('invalid'); }); });
+
+  /* ---------- merch: hold for pickup (demo) ---------- */
+  var M = {item:'tee', size:{}};
+  function renderMerch(){
+    var it=MERCH[M.item], sz=M.size[M.item];
+    $('mItems').innerHTML = ['tee','hoodie'].map(function(id){
+      return '<button type="button" class="chip" data-mi="'+id+'" aria-pressed="'+(M.item===id)+'">'+esc(t(MERCH[id].key))+'<small class="num">'+kc(MERCH[id].price)+'</small></button>';
+    }).join('');
+    $('mImg').src=it.img; $('mImg').alt=t(it.key);
+    $('mSizes').innerHTML = ['S','M','L','XL'].map(function(s){ return '<button type="button" class="chip" data-size="'+s+'" aria-pressed="'+(sz===s)+'">'+s+'</button>'; }).join('');
+    $('mLines').innerHTML = '<span><b>'+esc(sz ? t('m.title').replace('{item}', t(it.key)).replace('{size}', sz) : t(it.key))+'</b></span>';
+    $('mTotal').textContent = kc(it.price);
+  }
+  $('mItems').addEventListener('click', function(e){ var b=e.target.closest('[data-mi]'); if(!b) return; M.item=b.getAttribute('data-mi'); renderMerch(); });
+  $('mSizes').addEventListener('click', function(e){ var b=e.target.closest('[data-size]'); if(!b) return; M.size[M.item]=b.getAttribute('data-size'); $('mSizeLabel').textContent=t('m.size'); $('mSizeLabel').style.color=''; renderMerch(); });
+  $('mSubmit').addEventListener('click', function(){
+    if(!M.size[M.item]){ var lbl=$('mSizeLabel'); lbl.textContent=t('m.pickSize'); lbl.style.color='var(--amber)'; var c=$('mSizes').querySelector('.chip'); if(c) c.focus(); return; }
+    var okN=check('mName', $('mName').value.trim().length>1), okP=check('mPhone', validPhone($('mPhone').value));
+    if(!(okN&&okP)){ var bad=document.querySelector('#mFields .field.invalid input'); if(bad) bad.focus(); return; }
+    $('mDone').textContent = t('m.done').replace('{item}', t(MERCH[M.item].key)).replace('{size}', M.size[M.item]).replace('{date}', fmtDateLong(addDays(new Date(),3))).replace('{phone}', $('mPhone').value.trim());
+    $('mFormWrap').hidden=true; $('mDoneWrap').hidden=false; panel.scrollTo({top:0}); focusSoon($('panelH'));
+  });
+  $('mAgain').addEventListener('click', function(){ $('mDoneWrap').hidden=true; $('mFormWrap').hidden=false; M.size={}; renderMerch(); });
+
+  /* ---------- gift vouchers ---------- */
+  var V = {type:'amount', amount:1000, svc:'premium', del:'mail'};
+  var V_AMOUNTS=[500,1000,1500,2500], V_SVCS=['cut','beard','premium'];
+  var V_CODE='NV-'+(1000+Math.floor(Math.random()*9000));
+  var VT = {
+    cs:{amount:'Částka',service:'Služba',val:'Hodnota',svcLabel:'Služba',mail:'E-mailem',pickup:'Dárková obálka na recepci',forW:'Pro',fromW:'Od',valid:'Platí do',
+        lines:{type:'Poukaz',del:'Doručení'},doneMail:'V ostré verzi tady zaplatíte {total} kartou, Apple Pay nebo Google Pay. Hned po zaplacení přijde poukaz {code} v PDF na {mail}, připravený k přeposlání.',
+        donePick:'V ostré verzi tady zaplatíte {total} kartou, Apple Pay nebo Google Pay. Poukaz {code} pak bude od zítřka 9:00 připravený na recepci v dárkové obálce.',placeholder:'jméno obdarovaného'},
+    en:{amount:'Amount',service:'Service',val:'Value',svcLabel:'Service',mail:'By email',pickup:'Gift envelope at reception',forW:'For',fromW:'From',valid:'Valid until',
+        lines:{type:'Card',del:'Delivery'},doneMail:'On the live site you pay {total} here by card, Apple Pay or Google Pay. Card {code} then arrives as a PDF at {mail}, ready to forward.',
+        donePick:'On the live site you pay {total} here by card, Apple Pay or Google Pay. Card {code} is then ready at reception in a gift envelope from tomorrow at 9:00.',placeholder:'recipient’s name'},
+    vi:{amount:'Số tiền',service:'Dịch vụ',val:'Giá trị',svcLabel:'Dịch vụ',mail:'Qua e-mail',pickup:'Phong bì quà tặng tại quầy',forW:'Tặng',fromW:'Từ',valid:'Có giá trị đến',
+        lines:{type:'Phiếu',del:'Giao nhận'},doneMail:'Ở phiên bản chính thức, bạn thanh toán {total} tại đây bằng thẻ, Apple Pay hoặc Google Pay. Ngay sau khi thanh toán, phiếu {code} dạng PDF sẽ được gửi đến {mail}, sẵn sàng để chuyển tiếp.',
+        donePick:'Ở phiên bản chính thức, bạn thanh toán {total} tại đây bằng thẻ, Apple Pay hoặc Google Pay. Phiếu {code} sẽ sẵn sàng tại quầy lễ tân trong phong bì quà tặng từ 9:00 sáng mai.',placeholder:'tên người nhận'}
+  };
+  function vValue(){ return V.type==='amount' ? V.amount : svcOf(V.svc).price; }
+  function vValidDate(){ var d=new Date(); d.setFullYear(d.getFullYear()+1);
+    return lang==='cs' ? d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullYear() : lang==='vi' ? d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear() : d.getDate()+' '+T.en.monthsLong[d.getMonth()]+' '+d.getFullYear(); }
+  function renderVoucher(){
+    var L=VT[lang];
+    $('vType').innerHTML=[['amount',L.amount],['service',L.service]].map(function(o){ return '<button type="button" class="chip" data-vt="'+o[0]+'" aria-pressed="'+(V.type===o[0])+'">'+esc(o[1])+'</button>'; }).join('');
+    $('vValLabel').textContent = V.type==='amount' ? L.val : L.svcLabel;
+    $('vVal').innerHTML = V.type==='amount'
+      ? V_AMOUNTS.map(function(a){ return '<button type="button" class="chip num" data-va="'+a+'" aria-pressed="'+(V.amount===a)+'">'+kc(a)+'</button>'; }).join('')
+      : V_SVCS.map(function(id){ return '<button type="button" class="chip" data-vs="'+id+'" aria-pressed="'+(V.svc===id)+'">'+esc(name(svcOf(id)))+'</button>'; }).join('');
+    $('vDel').innerHTML=[['mail',L.mail],['pickup',L.pickup]].map(function(o){ return '<button type="button" class="chip" data-vd="'+o[0]+'" aria-pressed="'+(V.del===o[0])+'">'+esc(o[1])+'</button>'; }).join('');
+    $('vMailWrap').hidden = V.del!=='mail';
+    vPreview();
+  }
+  function vPreview(){
+    var L=VT[lang], to=$('vTo').value.trim(), from=$('vFrom').value.trim(), msg=$('vMsg').value.trim();
+    $('vcValue').textContent = V.type==='amount' ? kc(V.amount) : name(svcOf(V.svc));
+    $('vcValue').classList.toggle('num', V.type==='amount');
+    $('vcFor').innerHTML = esc(L.forW)+' <b>'+esc(to||L.placeholder)+'</b>';
+    $('vcMsg').textContent = msg ? '„'+msg+'“' : '';
+    $('vcFrom').textContent = from ? L.fromW+' '+from : '';
+    $('vcValid').textContent = L.valid+' '+vValidDate();
+    $('vcCode').textContent = V_CODE;
+    $('vCount').textContent = $('vMsg').value.length+' / 140';
+    $('vLines').innerHTML = '<span>'+esc(L.lines.type)+': <b>'+esc(V.type==='amount' ? kc(V.amount) : name(svcOf(V.svc)))+'</b></span><span>'+esc(L.lines.del)+': <b>'+esc(V.del==='mail'?L.mail:L.pickup)+'</b></span>';
+    $('vTotal').textContent = kc(vValue());
+    $('vSubmit').textContent = t('v.submit')+' '+kc(vValue());
+  }
+  $('vForm').addEventListener('click', function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    if(b.dataset.vt) V.type=b.dataset.vt;
+    if(b.dataset.va) V.amount=+b.dataset.va;
+    if(b.dataset.vs) V.svc=b.dataset.vs;
+    if(b.dataset.vd) V.del=b.dataset.vd;
+    renderVoucher();
+  });
+  ['vTo','vFrom','vMsg','vMail'].forEach(function(id){ $(id).addEventListener('input', function(){ $(id).closest('.field').classList.remove('invalid'); vPreview(); }); });
+  $('vSubmit').addEventListener('click', function(){
+    var ok1=check('vTo',$('vTo').value.trim().length>1), ok2=check('vFrom',$('vFrom').value.trim().length>1);
+    var ok3 = V.del!=='mail' || check('vMail', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test($('vMail').value.trim()));
+    if(!(ok1&&ok2&&ok3)){ var bad=document.querySelector('#vForm .field.invalid input'); if(bad) bad.focus(); return; }
+    var L=VT[lang];
+    $('vDoneText').textContent = (V.del==='mail' ? L.doneMail.replace('{mail}', $('vMail').value.trim()) : L.donePick).replace('{total}', kc(vValue())).replace('{code}', V_CODE);
+    $('vForm').hidden=true; $('vDone').hidden=false; panel.scrollTo({top:0}); focusSoon($('panelH'));
+  });
+  $('vAgain').addEventListener('click', function(){
+    $('vForm').reset(); V_CODE='NV-'+(1000+Math.floor(Math.random()*9000));
+    $('vDone').hidden=true; $('vForm').hidden=false; renderVoucher();
+  });
+  /* tilt and glare on the gift cards */
+  function tilt(stage, card){
+    if(!FINE || REDUCED) return;
+    stage.addEventListener('pointermove', function(e){
+      var r=card.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
+      card.style.setProperty('--ry', ((x-.5)*14).toFixed(2)+'deg'); card.style.setProperty('--rx', ((.5-y)*10).toFixed(2)+'deg');
+      card.style.setProperty('--gx', (x*100).toFixed(1)+'%'); card.style.setProperty('--gy', (y*100).toFixed(1)+'%');
+    });
+    stage.addEventListener('pointerleave', function(){ card.style.setProperty('--rx','0deg'); card.style.setProperty('--ry','0deg'); });
+  }
+  tilt($('gStage'), $('gCard')); tilt($('vStage'), $('voucher'));
+
+  /* ---------- nav, language, mode, copy ---------- */
+  var nav=$('nav');
+  function navH(){ document.documentElement.style.setProperty('--navh', nav.offsetHeight+'px'); }
+  navH(); window.addEventListener('resize', navH); if('ResizeObserver' in window) new ResizeObserver(navH).observe(nav);
+  function onScroll(){ nav.classList.toggle('solid', window.pageYOffset>40); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  $('langBtn').addEventListener('click', function(){ lang = LANGS[(LANGS.indexOf(lang)+1)%LANGS.length]; try{ localStorage.setItem('noar-lang',lang); }catch(e){} applyLang(); });
+  function setModeLabel(){
+    var light=document.documentElement.getAttribute('data-mode')==='light';
+    $('modeBtn').setAttribute('aria-label', lang==='cs' ? (light?'Tmavý režim':'Světlý režim') : lang==='vi' ? (light?'Chế độ tối':'Chế độ sáng') : (light?'Dark mode':'Light mode'));
+  }
+  $('modeBtn').addEventListener('click', function(){
+    var light=document.documentElement.getAttribute('data-mode')==='light';
+    if(light) document.documentElement.removeAttribute('data-mode'); else document.documentElement.setAttribute('data-mode','light');
+    try{ localStorage.setItem('noar-mode', light?'dark':'light'); }catch(e){}
+    setModeLabel();
+  });
+  document.querySelectorAll('[data-copy]').forEach(function(b){
+    b.addEventListener('click', function(){
+      var src=$(b.getAttribute('data-copy')), txt=src.textContent;
+      function selectText(){ var r=document.createRange(); r.selectNodeContents(src); var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+      function done(){ b.textContent=t('k.copied'); setTimeout(function(){ b.textContent=t('k.copy'); },1600); }
+      try{ navigator.clipboard.writeText(txt).then(done, selectText); }catch(e){ selectText(); }
+    });
+  });
+
+  /* section headings: the brass line draws in once */
+  (function(){
+    var hs=[].slice.call(document.querySelectorAll('.sec-head h2, .visit h2, .walk-side h2, .g-copy h2'));
+    hs.forEach(function(h){ h.classList.add('lined'); });
+    if(REDUCED || !('IntersectionObserver' in window)){ hs.forEach(function(h){ h.classList.add('in'); }); return; }
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); },{rootMargin:'0px 0px -18% 0px'});
+    hs.forEach(function(h){ io.observe(h); });
+  })();
+
+  /* ---------- hero: in the dark the lettering on the front glass lights first, then the room behind it;
+     a glint runs across the letters, the glass slowly dissolves into the salon,
+     and the camera comes to rest with the NØÁR ring in the centre.
+     The intro plays once per visit; a scroll, tap or key skips to the lit window. ---------- */
+  /* prices, team, hours and texts are drawn first, so nothing below can leave them empty */
+  applyLang();
+  var hero=$('top'), hv=$('heroVideo'), root=document.documentElement, INTRO_END=2.4;
+  function copyOn(){ hero.classList.add('copy-on'); root.classList.remove('intro'); }
+  try{
+  if(hv && !REDUCED){
+    var seen=false; try{ seen = sessionStorage.getItem('noar-intro')==='1'; sessionStorage.setItem('noar-intro','1'); }catch(e){}
+    if(seen) copyOn(); else root.classList.add('intro');
+    var vdone=false, started=false, guard=0, stageTimer=0, stillReady=false, hasSrc=false, blobUrl=null;
+    var mqPortrait = window.matchMedia('(orientation: portrait)');
+    var base = mqPortrait.matches ? 'img/film-p' : 'img/film';   /* tall film for upright screens, wide film for the rest */
+    /* Sources are tried in order until one plays:
+       1. AV1, only where the device decodes it in hardware (about half the size)
+       2. H.264, streamed the normal way
+       3. H.264 downloaded whole and played from memory. Safari will not play a video whose server ignores
+          byte-range requests; a file held in memory needs no ranges, so this always works if the download does. */
+    var stages=[], stage=-1;
+    /* 0. a true 4K film, only for wide screens of at least 2560 real pixels whose hardware decodes 4K AV1 smoothly */
+    function pickStages(cb){
+      var h264={url:base+'.mp4'}, mem={url:base+'.mp4', mem:true};
+      var mc=navigator.mediaCapabilities, av='video/mp4; codecs="av01.0.09M.08"';
+      var cfg={type:'file', video:{contentType:av, width:1920, height:1080, bitrate:2700000, framerate:60}};
+      var cfg4={type:'file', video:{contentType:'video/mp4; codecs="av01.0.13M.08"', width:3840, height:2160, bitrate:14000000, framerate:60}};
+      var big = !mqPortrait.matches && Math.max(screen.width, screen.height) * (window.devicePixelRatio||1) >= 2560;
+      var ok=function(r){ return !!(r && r.supported && r.smooth && r.powerEfficient); };
+      var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'}]:[]).concat(av1?[{url:base+'-av1.mp4'}]:[]).concat([h264, mem])); };
+      if(mc && mc.decodingInfo){
+        mc.decodingInfo(cfg).then(function(r){
+          var a=ok(r); if(!a || !big){ done(a,false); return; }
+          mc.decodingInfo(cfg4).then(function(r4){ done(true, ok(r4)); }, function(){ done(true,false); });
+        }, function(){ done(false,false); });
+      }
+      else done(false,false);
+    }
+    function startStage(i){
+      if(started || i>=stages.length){ if(!started) showStill(); return; }
+      stage=i; clearTimeout(stageTimer); var st=stages[i];
+      if(st.mem){
+        if(!window.fetch || !window.URL || !URL.createObjectURL){ nextStage(); return; }
+        fetch(st.url).then(function(r){ if(!r.ok) throw new Error(r.status); return r.blob(); }).then(function(b){
+          if(started || stage!==i) return;
+          if(blobUrl) URL.revokeObjectURL(blobUrl);
+          blobUrl=URL.createObjectURL(b.type ? b : new Blob([b],{type:'video/mp4'}));
+          hasSrc=true; hv.src=blobUrl; hv.load(); tryPlay();
+        }).catch(function(){ if(stage===i) nextStage(); });
+        stageTimer=setTimeout(function(){ if(!started && stage===i) showStill(); }, 20000);
+      } else {
+        hasSrc=true; hv.src = st.url + (seen ? '#t='+INTRO_END : ''); hv.preload='auto'; hv.load(); tryPlay();
+        /* nothing decoded after 8 s: move on to the next source */
+        stageTimer=setTimeout(function(){ if(!started && stage===i && hv.readyState<2) nextStage(); }, 8000);
+      }
+    }
+    function nextStage(){ if(!started) startStage(stage+1); }
+    /* the room still and the copy show whenever the film is late; the film fades in over them once it runs */
+    function showStill(){ if(started) return; clearTimeout(guard); hero.classList.remove('playing'); copyOn(); }
+    /* autoplay refused (iOS Low Power Mode, data saver): the room shows, and the film starts on the first touch */
+    function waitForTouch(){
+      var once=function(){ ['touchstart','pointerdown','keydown'].forEach(function(ev){ window.removeEventListener(ev, once); }); tryPlay(); };
+      ['touchstart','pointerdown','keydown'].forEach(function(ev){ window.addEventListener(ev, once, {passive:true}); });
+    }
+    /* the end of the video: the room still takes over underneath and keeps breathing */
+    function armStill(){
+      if(stillReady) return; stillReady=true;
+      var hs=hero.querySelector('.hero-img source'), hi=hero.querySelector('.hero-img img');
+      var pre=new Image(); pre.onload=function(){ if(hs) hs.srcset='img/film-end-p.jpg'; if(hi) hi.src='img/film-end.jpg'; }; pre.src = mqPortrait.matches ? 'img/film-end-p.jpg' : 'img/film-end.jpg';
+    }
+    /* a film that arrives after the copy is already showing skips the intro and starts at the window */
+    hv.addEventListener('loadedmetadata', function(){ try{ if(!root.classList.contains('intro') && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){} });
+    hv.addEventListener('playing', function(){ started=true; clearTimeout(guard); clearTimeout(stageTimer); hv.classList.add('ready'); hero.classList.add('playing'); });
+    hv.addEventListener('timeupdate', function(){ if(hv.currentTime >= INTRO_END-0.05) copyOn(); if(hv.duration && hv.currentTime > hv.duration-2.5) armStill(); });
+    hv.addEventListener('ended', function(){ vdone=true; copyOn(); armStill(); hero.classList.add('rest'); });
+    hv.addEventListener('error', function(){ if(!started && hasSrc && stage>=0) nextStage(); });
+    var skip=function(){
+      if(!root.classList.contains('intro')) return;
+      try{ if(hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
+      copyOn();
+    };
+    ['wheel','touchstart','pointerdown','keydown','scroll'].forEach(function(ev){ window.addEventListener(ev, skip, {passive:true}); });
+    var tryPlay=function(){
+      if(vdone || !hasSrc) return;
+      if(!started){
+        hero.classList.add('playing'); clearTimeout(guard); guard=setTimeout(showStill, 2500);
+        try{ if(!root.classList.contains('intro') && hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
+      }
+      var q=hv.play();
+      if(q && q.catch) q.catch(function(err){ if(err && err.name==='NotAllowedError'){ showStill(); waitForTouch(); } });
+    };
+    pickStages(function(list){ stages=list; startStage(0); });
+    /* turning a phone or iPad: switch to the cut made for the new shape and carry on from the same moment */
+    var onTurn=function(){
+      var nb = mqPortrait.matches ? 'img/film-p' : 'img/film';
+      if(nb===base) return;
+      base=nb;
+      /* the 4K cut exists only for the wide film: an upright screen takes the tall film instead */
+      stages = stages.map(function(x){ return {url:x.url.replace(/img\/film(-p)?(-4k)?/, function(m,p,k){ return nb + (k && nb==='img/film' ? '-4k' : ''); }), mem:x.mem}; });
+      if(vdone || !hasSrc || stage<0 || stages[stage].mem) return;   /* the end still, or a film held in memory, stays as it is */
+      var at=hv.currentTime, wasPlaying=!hv.paused;
+      var resume=function(){ hv.removeEventListener('loadedmetadata', resume); try{ hv.currentTime=at; }catch(e){} if(wasPlaying){ var q=hv.play(); if(q&&q.catch) q.catch(function(){}); } };
+      hv.addEventListener('loadedmetadata', resume);
+      hv.src = stages[stage].url; hv.load();
+    };
+    if(mqPortrait.addEventListener) mqPortrait.addEventListener('change', onTurn); else if(mqPortrait.addListener) mqPortrait.addListener(onTurn);
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ if(es[0].isIntersecting) tryPlay(); else if(!vdone) hv.pause(); }).observe(hv); }
+  } else {
+    /* reduced motion or no video: the still the film ends on */
+    if(hv){ hv.remove(); hv=null; }
+    var hs0=hero.querySelector('.hero-img source'), hi0=hero.querySelector('.hero-img img');
+    if(hs0) hs0.srcset='img/film-end-p.jpg'; if(hi0) hi0.src='img/film-end.jpg';
+    copyOn();
+  }
+  }catch(e){ if(window.console) console.error(e); copyOn(); }   /* the film failed to set up: the still and the buttons show */
+
+  /* ---------- salon walk-through ---------- */
+  try{ (function(){
+    var sec=$('salon'); if(!sec) return;
+    var imgs=[].slice.call(sec.querySelectorAll('.walk-frame img')), dot=$('walkDot'), doneLine=$('walkDone'), stopsG=$('walkStops');
+    var ROOMS={cs:[['Recepce','Hned za dveřmi. Tady vás přivítáme.'],['Hlavní sál','Tři křesla u velkých oken.'],['Mycí kout','Dvě mycí křesla hned za sálem.'],['Péče o pleť','Klidná místnost vpravo od chodby.'],['Toaleta','Na konci chodby.'],['Vaše křeslo','Zbytek je na nás.']],
+               en:[['Reception','Right inside the door. This is where we welcome you.'],['Main floor','Three chairs by the tall windows.'],['Wash area','Two wash chairs just behind the main floor.'],['Skin-care room','A quiet room off the corridor, on the right.'],['Restroom','At the end of the corridor.'],['Your chair','The rest is on us.']],
+               vi:[['Quầy lễ tân','Ngay sau cửa. Chúng tôi đón bạn ở đây.'],['Sảnh chính','Ba chiếc ghế bên những ô cửa sổ lớn.'],['Khu gội','Hai ghế gội ngay sau sảnh chính.'],['Phòng chăm sóc da','Căn phòng yên tĩnh bên phải hành lang.'],['Nhà vệ sinh','Ở cuối hành lang.'],['Ghế của bạn','Phần còn lại để chúng tôi lo.']]};
+    var PTS=[[520,670],[525,560],[220,525],[180,345],[378,330],[378,165],[545,175],[378,165],[335,75],[378,165],[378,330],[180,345],[220,525]], STOP=[1,2,3,6,8,12], MARKS=5, N=STOP.length;
+    var LBL=[[565,575],[150,575],[90,330],[560,110],[270,55]];
+    var segLen=[],cum=[0]; for(var i=1;i<PTS.length;i++){ var l=Math.hypot(PTS[i][0]-PTS[i-1][0],PTS[i][1]-PTS[i-1][1]); segLen.push(l); cum.push(cum[i-1]+l); }
+    function at(d){ for(var i=1;i<PTS.length;i++){ if(d<=cum[i]){ var k=(d-cum[i-1])/segLen[i-1]; return {x:PTS[i-1][0]+(PTS[i][0]-PTS[i-1][0])*k,y:PTS[i-1][1]+(PTS[i][1]-PTS[i-1][1])*k,i:i}; } } var L=PTS[PTS.length-1]; return {x:L[0],y:L[1],i:PTS.length}; }
+    var NS='http://www.w3.org/2000/svg', links=[], cur=-1;
+    STOP.slice(0,MARKS).forEach(function(si,n){
+      var a=document.createElementNS(NS,'a'); a.setAttribute('href','#salon');
+      var c=document.createElementNS(NS,'circle'); c.setAttribute('cx',PTS[si][0]); c.setAttribute('cy',PTS[si][1]); c.setAttribute('r',7);
+      var tx=document.createElementNS(NS,'text'); tx.setAttribute('x',LBL[n][0]); tx.setAttribute('y',LBL[n][1]); tx.textContent=String(n+1);
+      var ti=document.createElementNS(NS,'title');
+      a.appendChild(ti); a.appendChild(c); a.appendChild(tx); stopsG.appendChild(a); links.push(a);
+      a.addEventListener('click',function(e){ e.preventDefault(); var r=sec.getBoundingClientRect(), span=sec.offsetHeight-innerHeight; scrollTo({top:scrollY+r.top+span*((n+.55)/N),behavior:REDUCED?'auto':'smooth'}); });
+    });
+    function setCap(n){
+      var R=ROOMS[lang]||ROOMS.cs; $('walkName').textContent=R[n][0]; $('walkText').textContent=R[n][1];
+      links.forEach(function(a,j){ if(j===n || (n===N-1 && j===1)) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); a.querySelector('title').textContent=R[j][0]; });
+      $('walkCta').hidden = n!==N-1;
+    }
+    walkLang=function(){ setCap(Math.max(cur,0)); };
+    function update(){
+      var r=sec.getBoundingClientRect(), span=sec.offsetHeight-innerHeight; if(r.bottom<0||r.top>innerHeight) return;
+      var p=Math.min(1,Math.max(0,-r.top/span)), seg=Math.min(N-1,Math.floor(p*N)), local=Math.min(1,p*N-seg);
+      if(seg!==cur){ cur=seg; imgs.forEach(function(im,j){ im.classList.toggle('on',j===seg); }); setCap(seg); }
+      /* the dot walks to this room during the first 45% of its scroll share, then rests */
+      var from=seg?cum[STOP[seg-1]]:0, to=cum[STOP[seg]], k=Math.min(1,local/.45); k=k*k*(3-2*k);
+      var q=at(from+(to-from)*k); dot.setAttribute('cx',q.x.toFixed(1)); dot.setAttribute('cy',q.y.toFixed(1));
+      var pts=PTS.slice(0,Math.min(q.i,9)).map(function(a){ return a.join(','); }); if(q.i<=9) pts.push(q.x.toFixed(1)+','+q.y.toFixed(1)); doneLine.setAttribute('points',pts.join(' '));
+      if(!REDUCED) imgs[seg].style.transform='scale('+(1.07-.07*local).toFixed(4)+')';
+    }
+    var ticking=false; function onScrollW(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ ticking=false; update(); }); } }
+    addEventListener('scroll',onScrollW,{passive:true}); addEventListener('resize',onScrollW); update();
+    if(cur<0){ cur=0; imgs[0].classList.add('on'); setCap(0); }
+  })(); }catch(e){ if(window.console) console.error(e); }
+
+  /* quick menu: mark the section in view */
+  try{ (function(){ var links=[].slice.call(document.querySelectorAll('#navLinks a')); if(!('IntersectionObserver' in window)) return;
+    var io=new IntersectionObserver(function(es){ es.forEach(function(e){ if(!e.isIntersecting) return; links.forEach(function(a){ if(a.getAttribute('href')==='#'+e.target.id) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); }); }); },{rootMargin:'-45% 0px -50% 0px'});
+    links.forEach(function(a){ var s=document.querySelector(a.getAttribute('href')); if(s) io.observe(s); });
+    new IntersectionObserver(function(es){ if(es[0].isIntersecting) links.forEach(function(a){ a.removeAttribute('aria-current'); }); },{rootMargin:'-45% 0px -50% 0px'}).observe(hero);
+  })(); }catch(e){ if(window.console) console.error(e); }
+
+  /* floating booking button: shown once the hero (with its own button) is gone; out of the way over the walk-through's captions and at the end of the page */
+  var dock=$('dock'), heroIn=true, walkIn=false, footIn=false;
+  function dockState(){ dock.classList.toggle('show', !heroIn && !walkIn && !footIn && !panel.open); }
+  if('IntersectionObserver' in window) try{
+    new IntersectionObserver(function(es){ heroIn=es[0].isIntersecting; dockState(); }).observe(hero);
+    new IntersectionObserver(function(es){ walkIn=es[0].isIntersecting; dockState(); },{rootMargin:'-40% 0px -40% 0px'}).observe($('salon'));
+    /* the page ends with its own booking button: the floating one steps aside as soon as that comes into view, and stays away below it */
+    new IntersectionObserver(function(es){ var e=es[0]; footIn = e.isIntersecting || e.boundingClientRect.top < 0; dockState(); }).observe($('endBook'));
+  }catch(e){ if(window.console) console.error(e); }
+
+  walkLang();
+})();
+</script>
+
+</body>
+</html>
