@@ -164,7 +164,7 @@ html.intro .nav{opacity:0;pointer-events:none}
   section[id]{scroll-margin-top:100px}
 }
 @media (max-width:480px){.nav-right{--nr:.45rem}.mode{width:30px;height:30px}.brand img{height:24px}.lang{font-size:.86rem}.nav-in{column-gap:.6rem}}
-@media (max-width:360px){.nav-right{--nr:.3rem}.lang{font-size:.8rem}.brand img{height:21px}.nav .nav-links a{font-size:.92rem}html[lang=vi] .nav-links{gap:.45rem}html[lang=vi] .nav .nav-links a{font-size:.84rem}}
+@media (max-width:360px){.nav-right{--nr:.3rem}.lang{font-size:.8rem}.brand img{height:21px}.nav .nav-links a{font-size:.92rem}}
 
 /* ---------- hero ---------- */
 .hero{position:relative;display:flex;align-items:stretch;isolation:isolate;overflow:clip}
@@ -647,7 +647,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     </ul>
     <div class="nav-right">
       <button class="mode" id="modeBtn" type="button" aria-label="Světlý režim"><svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
-      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><b>CZ</b> / EN / VI</button>
+      <button class="lang" id="langBtn" type="button" aria-label="Switch language"><b>CZ</b> / EN</button>
     </div>
   </div>
 </nav>
@@ -981,22 +981,22 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
      The Czech price list, team and hours are also written into the markup (between the static comments) for viewers
      that run no scripts: after changing SERVICES, BARBERS or HOURS, regenerate them with tests/static.js */
   var SERVICES = [
-    {g:'promo', id:'open',    cs:'Otevírací akce: střih a vousy', en:'Opening offer: haircut and beard', vi:'Ưu đãi khai trương: cắt tóc và râu', min:30, price:600,
-      sub:{cs:'2. až 30. 11. 2026', en:'2 to 30 November 2026', vi:'2 đến 30/11/2026'}, until:'2026-11-30'},
-    {g:'cut',   id:'cut',     cs:'Pánský střih', en:'Men’s haircut', vi:'Cắt tóc nam', min:30, price:650},
-    {g:'cut',   id:'long',    cs:'Dlouhé vlasy jen nůžkami', en:'Long hair, scissors only', vi:'Tóc dài, chỉ cắt bằng kéo', min:30, price:700},
-    {g:'cut',   id:'regular', cs:'Pravidelný střih každé 2 týdny', en:'Regular cut every 2 weeks', vi:'Cắt định kỳ mỗi 2 tuần', min:30, price:560},
-    {g:'cut',   id:'student', cs:'Studentský střih', en:'Student haircut', vi:'Cắt tóc sinh viên', min:30, price:550},
-    {g:'beard', id:'contour', cs:'Střih a zarovnání vousů', en:'Haircut and beard outline', vi:'Cắt tóc và tỉa viền râu', min:30, price:800},
-    {g:'beard', id:'beard',   cs:'Střih a úprava vousů', en:'Haircut and full beard trim', vi:'Cắt tóc và tỉa toàn bộ râu', min:60, price:950},
-    {g:'beard', id:'shave',   cs:'Do hola a úprava vousů', en:'Head shave and beard outline', vi:'Cạo trọc và tỉa viền râu', min:30, price:650},
-    {g:'beard', id:'beardonly', cs:'Vousy', en:'Beard', vi:'Râu', min:30, price:480},
-    {g:'beard', id:'premium', cs:'Premium servis, vlasy a vousy', en:'Premium service, hair and beard', vi:'Dịch vụ cao cấp, tóc và râu', min:60, price:1100}
+    {g:'promo', id:'open',    cs:'Otevírací akce: střih a vousy', en:'Opening offer: haircut and beard', min:30, price:600,
+      sub:{cs:'2. až 30. 11. 2026', en:'2 to 30 November 2026'}, until:'2026-11-30'},
+    {g:'cut',   id:'cut',     cs:'Pánský střih', en:'Men’s haircut', min:30, price:650},
+    {g:'cut',   id:'long',    cs:'Dlouhé vlasy jen nůžkami', en:'Long hair, scissors only', min:30, price:700},
+    {g:'cut',   id:'regular', cs:'Pravidelný střih každé 2 týdny', en:'Regular cut every 2 weeks', min:30, price:560},
+    {g:'cut',   id:'student', cs:'Studentský střih', en:'Student haircut', min:30, price:550},
+    {g:'beard', id:'contour', cs:'Střih a zarovnání vousů', en:'Haircut and beard outline', min:30, price:800},
+    {g:'beard', id:'beard',   cs:'Střih a úprava vousů', en:'Haircut and full beard trim', min:60, price:950},
+    {g:'beard', id:'shave',   cs:'Do hola a úprava vousů', en:'Head shave and beard outline', min:30, price:650},
+    {g:'beard', id:'beardonly', cs:'Vousy', en:'Beard', min:30, price:480},
+    {g:'beard', id:'premium', cs:'Premium servis, vlasy a vousy', en:'Premium service, hair and beard', min:60, price:1100}
   ];
   var GROUPS = [
-    {id:'promo', cs:'Otevírací akce', en:'Opening offer', vi:'Khai trương'},
-    {id:'cut',   cs:'Střihy', en:'Haircuts', vi:'Cắt tóc'},
-    {id:'beard', cs:'Vousy', en:'Beard', vi:'Râu'}
+    {id:'promo', cs:'Otevírací akce', en:'Opening offer'},
+    {id:'cut',   cs:'Střihy', en:'Haircuts'},
+    {id:'beard', cs:'Vousy', en:'Beard'}
   ];
   /* the barbers as Slotio lists them, with their Slotio portraits */
   var BARBERS = [
@@ -1072,40 +1072,6 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       days:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'], daysLong:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
       months:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], monthsLong:['January','February','March','April','May','June','July','August','September','October','November','December'],
       hoursRows:['Monday to Friday','Saturday','Sunday']
-    },
-    vi:{
-      'k.everyDay':'Hằng ngày',
-      'book.newTab':', mở trong cửa sổ mới',
-      'nav.services':'Bảng giá','nav.studio':'Studio','nav.team':'Đội ngũ','nav.gift':'Quà tặng','nav.visit':'Ghé tiệm','nav.book':'Đặt lịch',
-      'hero.h1':'NØÁR Barbershop, tiệm cắt tóc nam tại Praha 1','hero.nextLow':'lịch trống gần nhất','hero.lede':'Đường cắt chính xác, lưỡi dao sắc và giờ hẹn luôn đúng. Một giờ không phải nghĩ gì cả.','hero.cta':'Đặt lịch','hero.cta2':'Dịch vụ và giá',
-      'menu.h2':'Dịch vụ và giá.','menu.p':'Chọn dịch vụ và đặt lịch online. Trang đặt lịch mở trong cửa sổ mới.','menu.note':'Thanh toán tại tiệm. Hủy miễn phí trước ít nhất 2 giờ.',
-      'book.title':'Đặt lịch','step.service':'Dịch vụ','step.barber':'Thợ cắt','step.time':'Thời gian','step.you':'Thông tin của bạn','step.youShort':'Thông tin',
-      'f.name':'Họ và tên','f.phone':'Số điện thoại','f.email':'E-mail (không bắt buộc)','f.note':'Ghi chú cho thợ (không bắt buộc)','f.nameErr':'Vui lòng nhập tên.','f.phoneErr':'Vui lòng nhập số điện thoại hợp lệ.','f.emailErr':'Vui lòng kiểm tra lại e-mail.','f.submit':'Xác nhận đặt lịch','f.fine':'Thanh toán tại tiệm. Hủy miễn phí trước 24 giờ.',
-      'c.eyebrow':'Đã nhận đặt lịch','c.h3':'Hẹn gặp bạn.','c.code':'Mã đặt lịch','c.map':'Chỉ đường đến tiệm','c.again':'Đặt lịch mới','c.cal':'Thêm vào lịch','sf.close':'Đóng','cal.note':'Vui lòng đến sớm vài phút. Đổi lịch: trả lời tin nhắn SMS xác nhận.',
-      'sf.h2':'Chưa biết chọn gì?','sf.p':'Ba câu hỏi nhanh. Chúng tôi gợi ý dịch vụ và người thợ phù hợp nhất, rồi điền sẵn cho bạn.','sf.link':'Chưa biết chọn gì? Ba câu hỏi, chúng tôi gợi ý.',
-      'v.h2':'Tặng một giờ trên ghế.','v.p':'Phiếu theo số tiền hoặc theo dịch vụ, giá trị 12 tháng. Gửi qua e-mail hoặc nhận tại tiệm trong phong bì quà tặng.','v.buy':'Mua phiếu quà tặng','v.teaser':'Một giờ trên ghế','v.valid12':'Giá trị 12 tháng',
-      'v.type':'Loại phiếu','v.to':'Tặng cho','v.toErr':'Nhập tên người nhận.','v.from':'Từ','v.fromErr':'Nhập tên người tặng.','v.msg':'Lời nhắn (không bắt buộc)','v.del':'Giao nhận','v.mail':'E-mail nhận phiếu','v.mailErr':'Vui lòng kiểm tra lại e-mail.','v.submit':'Thanh toán bằng thẻ','v.fine':'Thẻ, Apple Pay hoặc Google Pay. Giá trị 12 tháng.','v.doneEyebrow':'Thanh toán mẫu','v.doneH':'Cổng thanh toán sẽ mở tại đây.','v.again':'Đặt thêm phiếu khác','v.kind':'Phiếu quà tặng','v.hint':'Bản xem trước thay đổi theo thông tin bạn điền.',
-      'ab.motto':'Kỷ luật tạo nên tự do.','ab.body':'Kỷ luật là phần việc của chúng tôi. Tự do là phần của bạn: bạn ngồi xuống, phần còn lại để chúng tôi lo.',
-      'ab.t1':'Không phải chờ','ab.s1':'Giờ hẹn đúng đến từng phút. Bạn đến, ngồi xuống, chúng tôi bắt đầu.','ab.t2':'Trò chuyện trước, rồi mới cắt','ab.s2':'Năm phút về mái tóc và thời gian bạn dành cho nó mỗi sáng.','ab.t3':'Một nghi thức, không vội vàng','ab.s3':'Khăn nóng, dao cạo, toner và dưỡng. Tất cả đã bao gồm.',
-      'walk.h2':'Tiệm trông như thế nào.','walk.p':'Cuộn trang để đi một vòng tiệm, từ cửa vào đến cuối.','walk.plan':'Sơ đồ tiệm','walk.wip':'Đang hoàn thiện',
-      'team.h2':'Ai sẽ cắt tóc cho bạn.','team.p':'Bạn có thể đặt lịch với một thợ cụ thể, hoặc với người đang rảnh.','team.book':'Đặt lịch với','team.today':'Hôm nay còn trống','team.tomorrow':'Ngày mai còn trống','team.dayFree':'{day} còn trống',
-      'm.h3':'Bộ sưu tập NØÁR','m.short':'Chỉ bán tại tiệm. Chọn kích cỡ, chúng tôi giữ hàng cho bạn ba ngày.','m.panel':'Bộ sưu tập NØÁR','m.item':'Sản phẩm','m.p':'Bộ sưu tập giới hạn, chỉ bán tại tiệm. Vải cotton dày, logo thêu.','m.tee':'Áo thun NØÁR','m.hoodie':'Áo hoodie NØÁR','m.size':'Kích cỡ','m.reserve':'Giữ hàng đến lấy','m.formP':'Chúng tôi giữ hàng cho bạn trong ba ngày. Thanh toán tại tiệm, bằng thẻ hoặc tiền mặt. Xác nhận qua SMS.','m.submit':'Giữ hàng','m.pickSize':'Vui lòng chọn kích cỡ trước.','m.doneH':'Đã giữ hàng','m.again':'Giữ thêm sản phẩm khác','m.done':'{item} cỡ {size} đang chờ bạn ở quầy lễ tân đến {date}. Chúng tôi đã gửi xác nhận đến {phone}.','m.title':'{item}, cỡ {size}',
-      'k.h2':'Tìm chúng tôi trên phố Nekázanka.','k.phone':'Điện thoại','k.mail':'E-mail','lg.privacy':'Bảo vệ dữ liệu cá nhân','lg.terms':'Điều kiện phiếu quà tặng','lg.cookies':'Cài đặt cookie','lg.ico':'Mã số doanh nghiệp','lg.reg':'Đăng ký tại Tòa án thành phố Praha, mục C, số hồ sơ','cc.text':'Chúng tôi có thể đo lượt truy cập bằng Google Analytics không? Chúng tôi không dùng cookie quảng cáo.','cc.more':'Tìm hiểu về cookie','cc.yes':'Cho phép','cc.no':'Từ chối','v.agree1':'Khi thanh toán, quý khách đồng ý với','v.agreeT':'điều kiện phiếu quà tặng','v.agree2':'. Dữ liệu được xử lý theo','v.agreeP':'chính sách bảo vệ dữ liệu cá nhân','k.copy':'Sao chép','k.copied':'Đã sao chép','k.map':'Mở bản đồ','k.sketch':'Sơ đồ định hướng, không phải bản đồ. Đường chấm dẫn từ metro và tram đến tận cửa tiệm. Tiệm ở Nekázanka 12, ngay cạnh phố Panská có Bảo tàng Mucha, giữa Můstek và Náměstí Republiky. Trạm tram gần nhất là Jindřišská, đi bộ ba phút.','k.hours':'Giờ mở cửa','k.note':'Không đặt trước vẫn được phục vụ khi có ghế trống.',
-      'faq.h2':'Trước khi bạn đến.','faq.p':'Những câu hỏi chúng tôi hay gặp nhất. Còn gì khác, cứ gọi cho chúng tôi.',
-      'faq.q1':'Có cần đặt lịch trước không?','faq.a1':'Nên đặt trước, buổi tối và thứ bảy thường kín. Không đặt trước, chúng tôi vẫn phục vụ khi có ghế trống. Chỉ cần gọi hoặc ghé qua.',
-      'faq.q2':'Thanh toán bằng cách nào?','faq.a2':'Thẻ, Apple Pay, Google Pay hoặc tiền mặt. Phiếu quà tặng có giá trị 12 tháng.',
-      'faq.q3':'Nếu tôi không đến được thì sao?','faq.a3':'Đổi hoặc hủy lịch miễn phí trước ít nhất 2 giờ, trong hệ thống đặt lịch hoặc qua điện thoại. Không đến mà không báo sẽ để trống một chiếc ghế mà người khác có thể đã dùng.',
-      'faq.q4':'Đỗ xe ở đâu?','faq.a4':'Phố Nekázanka nằm trong khu đỗ xe trả phí. Gần nhất là bãi đỗ ở Panská và Můstek, đi bộ vài phút là tới. Đi metro thì xuống ga Můstek (tuyến A và B).',
-      'faq.q5':'Có giá cho sinh viên không?','faq.a5':'Có, cắt tóc sinh viên giá 550 Kč, mất 30 phút.',
-      'faq.q6':'Nên đến lúc nào và mất bao lâu?','faq.a6':'Đến trước giờ hẹn vài phút là đủ, ở quầy lễ tân có cà phê hoặc nước chờ bạn. Thời gian từng dịch vụ có trong bảng giá. Đến muộn hơn 15 phút, chúng tôi có thể không kịp làm trọn dịch vụ.',
-      'faq.q7':'Có nói tiếng Việt không?','faq.a7':'Có. Thợ của chúng tôi nói được tiếng Việt, tiếng Séc và tiếng Anh.',
-      picked:'Đã chọn', 'two.link':'Đi hai người? Thêm người thứ hai', 'two.p':'Chọn dịch vụ cho người thứ hai. Hai lịch sẽ nối tiếp nhau với cùng một người thợ.', 'two.off':'Không có người thứ hai', 'two.sum':'Người thứ hai', 'two.for':'cho hai người', open:'Đang mở cửa', closed:'Đã đóng cửa', closedToday:'Hôm nay đóng cửa', opens:'Mở cửa', today:'hôm nay', tomorrow:'ngày mai', min:'phút', at:'lúc', to:'đến', until:'đến',
-      noSlots:'Ngày này đã kín lịch. Vui lòng chọn ngày khác.', closedDay:'Ngày này tiệm đóng cửa.', slotsFor:'Giờ trống cho', anyBarber:'bất kỳ thợ nào', morning:'Buổi sáng', afternoon:'Buổi chiều', evening:'Buổi tối',
-      confirmNote:'Chúng tôi gửi xác nhận qua SMS đến {phone}. Vui lòng đến sớm năm phút, ở quầy lễ tân có cà phê hoặc nước chờ bạn.',
-      sumService:'Dịch vụ', sumBarber:'Thợ cắt', sumWhen:'Thời gian', sumName:'Tên', sumPhone:'Điện thoại', sumTotal:'Tổng cộng',
-      days:['CN','T2','T3','T4','T5','T6','T7'], daysLong:['chủ nhật','thứ hai','thứ ba','thứ tư','thứ năm','thứ sáu','thứ bảy'],
-      months:['thg 1','thg 2','thg 3','thg 4','thg 5','thg 6','thg 7','thg 8','thg 9','thg 10','thg 11','thg 12'], monthsLong:['tháng 1','tháng 2','tháng 3','tháng 4','tháng 5','tháng 6','tháng 7','tháng 8','tháng 9','tháng 10','tháng 11','tháng 12'],
-      hoursRows:['Thứ hai đến thứ sáu','Thứ bảy','Chủ nhật']
     }
   };
 
@@ -1113,10 +1079,11 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   var lang = 'cs', saved = null;
   var walkLang=function(){};   /* the walk-through replaces this once it is set up */
   try{ saved = localStorage.getItem('noar-lang'); }catch(e){}
-  if(saved==='en'||saved==='cs'||saved==='vi') lang = saved;
-  else { var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'cs').toLowerCase(); lang = /^(cs|sk)/.test(nl) ? 'cs' : /^vi/.test(nl) ? 'vi' : 'en'; }
+  /* a visitor's own choice wins; otherwise Czech for Czech and Slovak browsers, English for everyone else */
+  if(saved==='en'||saved==='cs') lang = saved;
+  else { var nl=((navigator.languages&&navigator.languages[0])||navigator.language||'cs').toLowerCase(); lang = /^(cs|sk)/.test(nl) ? 'cs' : 'en'; }
   var $ = function(id){ return document.getElementById(id); };
-  var LANGS=['cs','en','vi'], LANG_LABEL={cs:'CZ',en:'EN',vi:'VI'};
+  var LANGS=['cs','en'], LANG_LABEL={cs:'CZ',en:'EN'};
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var FINE = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   function t(k){ var v=T[lang][k]; return v!=null ? v : T.cs[k]; }
@@ -1138,7 +1105,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     $('langBtn').innerHTML = LANGS.map(function(l){ return l===lang ? '<b>'+LANG_LABEL[l]+'</b>' : LANG_LABEL[l]; }).join(' / ');
     document.title = lang==='en' ? 'NØÁR Barbershop, Nekázanka 12, Prague 1' : 'NØÁR Barbershop, Nekázanka 12, Praha 1';
     var md=document.querySelector('meta[name=description]');
-    if(md) md.content = lang==='cs' ? 'Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Rezervace online za minutu, Nekázanka 12, pár kroků od Na Příkopě.' : lang==='vi' ? 'Tiệm cắt tóc nam ở trung tâm Praha. Cắt tóc, râu, cạo mặt bằng dao cạo và chăm sóc da. Đặt lịch online trong một phút, Nekázanka 12, cách Na Příkopě vài bước.' : 'A gentlemen\'s barbershop in the centre of Prague. Cuts, beards, razor shaves and skin care. Book online in a minute, Nekázanka 12, steps from Na Příkopě.';
+    if(md) md.content = lang==='cs' ? 'Pánské holičství v centru Prahy. Střih, vousy, holení břitvou a péče o pleť. Rezervace online za minutu, Nekázanka 12, pár kroků od Na Příkopě.' : 'A gentlemen\'s barbershop in the centre of Prague. Cuts, beards, razor shaves and skin care. Book online in a minute, Nekázanka 12, steps from Na Příkopě.';
     [renderHero, renderMenu, renderTeam, renderHours, renderVoucher, renderMerch, function(){ setView(view); }, setModeLabel, function(){ walkLang(); }]
       .forEach(function(f){ try{ f(); }catch(e){ if(window.console) console.error(e); } });
   }
@@ -1303,14 +1270,11 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
         donePick:'V ostré verzi tady zaplatíte {total} kartou, Apple Pay nebo Google Pay. Poukaz {code} pak bude od zítřka 9:00 připravený na recepci v dárkové obálce.',placeholder:'jméno obdarovaného'},
     en:{amount:'Amount',service:'Service',val:'Value',svcLabel:'Service',mail:'By email',pickup:'Gift envelope at reception',forW:'For',fromW:'From',valid:'Valid until',
         lines:{type:'Card',del:'Delivery'},doneMail:'On the live site you pay {total} here by card, Apple Pay or Google Pay. Card {code} then arrives as a PDF at {mail}, ready to forward.',
-        donePick:'On the live site you pay {total} here by card, Apple Pay or Google Pay. Card {code} is then ready at reception in a gift envelope from tomorrow at 9:00.',placeholder:'recipient’s name'},
-    vi:{amount:'Số tiền',service:'Dịch vụ',val:'Giá trị',svcLabel:'Dịch vụ',mail:'Qua e-mail',pickup:'Phong bì quà tặng tại quầy',forW:'Tặng',fromW:'Từ',valid:'Có giá trị đến',
-        lines:{type:'Phiếu',del:'Giao nhận'},doneMail:'Ở phiên bản chính thức, bạn thanh toán {total} tại đây bằng thẻ, Apple Pay hoặc Google Pay. Ngay sau khi thanh toán, phiếu {code} dạng PDF sẽ được gửi đến {mail}, sẵn sàng để chuyển tiếp.',
-        donePick:'Ở phiên bản chính thức, bạn thanh toán {total} tại đây bằng thẻ, Apple Pay hoặc Google Pay. Phiếu {code} sẽ sẵn sàng tại quầy lễ tân trong phong bì quà tặng từ 9:00 sáng mai.',placeholder:'tên người nhận'}
+        donePick:'On the live site you pay {total} here by card, Apple Pay or Google Pay. Card {code} is then ready at reception in a gift envelope from tomorrow at 9:00.',placeholder:'recipient’s name'}
   };
   function vValue(){ return V.type==='amount' ? V.amount : svcOf(V.svc).price; }
   function vValidDate(){ var d=new Date(); d.setFullYear(d.getFullYear()+1);
-    return lang==='cs' ? d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullYear() : lang==='vi' ? d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear() : d.getDate()+' '+T.en.monthsLong[d.getMonth()]+' '+d.getFullYear(); }
+    return lang==='cs' ? d.getDate()+'. '+(d.getMonth()+1)+'. '+d.getFullYear() : d.getDate()+' '+T.en.monthsLong[d.getMonth()]+' '+d.getFullYear(); }
   function renderVoucher(){
     var L=VT[lang];
     $('vType').innerHTML=[['amount',L.amount],['service',L.service]].map(function(o){ return '<button type="button" class="chip" data-vt="'+o[0]+'" aria-pressed="'+(V.type===o[0])+'">'+esc(o[1])+'</button>'; }).join('');
@@ -1378,7 +1342,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   $('langBtn').addEventListener('click', function(){ lang = LANGS[(LANGS.indexOf(lang)+1)%LANGS.length]; try{ localStorage.setItem('noar-lang',lang); }catch(e){} applyLang(); });
   function setModeLabel(){
     var light=document.documentElement.getAttribute('data-mode')==='light';
-    $('modeBtn').setAttribute('aria-label', lang==='cs' ? (light?'Tmavý režim':'Světlý režim') : lang==='vi' ? (light?'Chế độ tối':'Chế độ sáng') : (light?'Dark mode':'Light mode'));
+    $('modeBtn').setAttribute('aria-label', lang==='cs' ? (light?'Tmavý režim':'Světlý režim') : (light?'Dark mode':'Light mode'));
   }
   $('modeBtn').addEventListener('click', function(){
     var light=document.documentElement.getAttribute('data-mode')==='light';
@@ -1525,8 +1489,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var sec=$('salon'); if(!sec) return;
     var imgs=[].slice.call(sec.querySelectorAll('.walk-frame img')), dot=$('walkDot'), doneLine=$('walkDone'), stopsG=$('walkStops');
     var ROOMS={cs:[['Recepce','Hned za dveřmi. Tady vás přivítáme.'],['Hlavní sál','Tři křesla u velkých oken.'],['Mycí kout','Dvě mycí křesla hned za sálem.'],['Péče o pleť','Klidná místnost vpravo od chodby.'],['Toaleta','Na konci chodby.'],['Vaše křeslo','Zbytek je na nás.']],
-               en:[['Reception','Right inside the door. This is where we welcome you.'],['Main floor','Three chairs by the tall windows.'],['Wash area','Two wash chairs just behind the main floor.'],['Skin-care room','A quiet room off the corridor, on the right.'],['Restroom','At the end of the corridor.'],['Your chair','The rest is on us.']],
-               vi:[['Quầy lễ tân','Ngay sau cửa. Chúng tôi đón bạn ở đây.'],['Sảnh chính','Ba chiếc ghế bên những ô cửa sổ lớn.'],['Khu gội','Hai ghế gội ngay sau sảnh chính.'],['Phòng chăm sóc da','Căn phòng yên tĩnh bên phải hành lang.'],['Nhà vệ sinh','Ở cuối hành lang.'],['Ghế của bạn','Phần còn lại để chúng tôi lo.']]};
+               en:[['Reception','Right inside the door. This is where we welcome you.'],['Main floor','Three chairs by the tall windows.'],['Wash area','Two wash chairs just behind the main floor.'],['Skin-care room','A quiet room off the corridor, on the right.'],['Restroom','At the end of the corridor.'],['Your chair','The rest is on us.']]};
     var PTS=[[520,670],[525,560],[220,525],[180,345],[378,330],[378,165],[545,175],[378,165],[335,75],[378,165],[378,330],[180,345],[220,525]], STOP=[1,2,3,6,8,12], MARKS=5, N=STOP.length;
     var LBL=[[565,575],[150,575],[90,330],[560,110],[270,55]];
     var segLen=[],cum=[0]; for(var i=1;i<PTS.length;i++){ var l=Math.hypot(PTS[i][0]-PTS[i-1][0],PTS[i][1]-PTS[i-1][1]); segLen.push(l); cum.push(cum[i-1]+l); }
