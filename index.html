@@ -293,9 +293,10 @@ h2.lined.in::after{transform:scaleX(1)}
 .studio-open{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(6rem,11vw,9.5rem) clamp(4rem,7vw,6rem);color:var(--bone)}
 .studio-open::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/walk-2.webp) center 45%/cover no-repeat;opacity:.5}
 .studio-open::after{content:"";position:absolute;inset:0;z-index:-1;background:
-  linear-gradient(180deg,var(--ink) 0%,rgba(8,7,6,.4) 24%,rgba(8,7,6,.5) 70%,#080706 100%),
+  radial-gradient(42% 46% at 50% 38%,rgba(8,7,6,.62) 0%,rgba(8,7,6,.38) 60%,transparent 100%),
+  linear-gradient(180deg,var(--ink) 0%,rgba(8,7,6,.4) 24%,rgba(8,7,6,.55) 70%,#080706 100%),
   radial-gradient(70% 70% at 50% 45%,transparent 25%,rgba(8,7,6,.8) 100%)}
-:root[data-mode="light"] .studio-open::after{background:linear-gradient(180deg,#f0e9dd 0%,rgba(8,7,6,.45) 22%,rgba(8,7,6,.5) 70%,#080706 100%),radial-gradient(70% 70% at 50% 45%,transparent 25%,rgba(8,7,6,.8) 100%)}
+:root[data-mode="light"] .studio-open::after{background:radial-gradient(42% 46% at 50% 38%,rgba(8,7,6,.62) 0%,rgba(8,7,6,.38) 60%,transparent 100%),linear-gradient(180deg,#f0e9dd 0%,rgba(8,7,6,.45) 22%,rgba(8,7,6,.5) 70%,#080706 100%),radial-gradient(70% 70% at 50% 45%,transparent 25%,rgba(8,7,6,.8) 100%)}
 .about{display:grid;justify-items:center;text-align:center}
 .emblem{margin:0;width:100%;max-width:150px;aspect-ratio:1}
 .emblem svg{width:100%;height:auto;overflow:visible}
@@ -304,13 +305,13 @@ h2.lined.in::after{transform:scaleX(1)}
 .emblem .em-pin{stroke:var(--amber)}
 .emblem g:last-of-type :is(rect,path:first-of-type,circle){fill:var(--ink)}
 .about blockquote{margin:2rem 0 0;font-size:clamp(2.6rem,1.4rem + 5vw,5.4rem);line-height:1;letter-spacing:-.015em;max-width:14ch;text-wrap:balance}
-.motto{margin-top:1rem;font-style:italic;color:var(--sand);font-size:1.15rem;letter-spacing:.01em}
+.motto{margin-top:1rem;font-style:italic;color:#e9dcc6;font-size:1.2rem;letter-spacing:.01em;text-shadow:0 1px 14px rgba(0,0,0,.85)}
 html[lang=en] .motto{display:none}   /* in English the wall sign already says it */
-.about-p{margin-top:1.6rem;max-width:52ch;color:var(--sand);font-size:1.12rem}
+.about-p{margin-top:1.6rem;max-width:52ch;color:#ece4d6;font-size:1.15rem;text-shadow:0 1px 14px rgba(0,0,0,.85)}
 .tenets{list-style:none;margin:4rem 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2.6rem;width:100%;text-align:left}
 .tenets li{padding-top:1.2rem;border-top:1px solid var(--line);display:grid;gap:.45rem;align-content:start}
 .tenets h3{font-size:1.4rem;line-height:1.2}
-.tenets p{color:var(--sand)}
+.tenets p{color:#cfc3af;text-shadow:0 1px 10px rgba(0,0,0,.7)}
 @media (max-width:820px){.emblem{max-width:110px}.tenets{grid-template-columns:1fr;gap:1.8rem;margin-top:3rem}}
 @media (prefers-reduced-motion:no-preference){
   @supports ((animation-timeline: view()) and (animation-range: entry)){
@@ -318,7 +319,7 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
     .emblem :is(rect,path,circle){animation:drawLine linear both;animation-timeline:--pic;animation-range:entry 10% cover 50%}
     @keyframes drawLine{from{stroke-dashoffset:1}}
     .about blockquote.fill-text{color:transparent;-webkit-background-clip:text;background-clip:text;
-      background-image:linear-gradient(90deg,var(--neon) 0 50%,rgba(236,228,214,.18) 50% 100%);background-size:200% 100%;background-position:100% 0;
+      background-image:linear-gradient(90deg,var(--neon) 0 50%,rgba(236,228,214,.4) 50% 100%);background-size:200% 100%;background-position:100% 0;
       animation:fillText linear both;animation-timeline:view();animation-range:cover 10% cover 45%}
     @keyframes fillText{to{background-position:0 0}}
   }
