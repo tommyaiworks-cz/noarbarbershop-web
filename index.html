@@ -207,19 +207,24 @@ html.intro .hero::after{opacity:0}
   .hero::after{background:
     radial-gradient(ellipse 70% 60% at 50% 100%,rgba(8,7,6,.94) 0%,rgba(8,7,6,.8) 38%,rgba(8,7,6,.3) 64%,rgba(8,7,6,0) 85%),
     linear-gradient(180deg,rgba(8,7,6,.55) 0%,rgba(8,7,6,0) 16%,rgba(8,7,6,0) 44%,rgba(8,7,6,.16) 56%,rgba(8,7,6,.4) 68%,rgba(8,7,6,.66) 79%,rgba(8,7,6,.87) 90%,var(--ink) 100%)}
-  .hero .wrap{padding-block:clamp(144px,62svh,670px) clamp(2rem,5svh,3.6rem)}   /* the sign ends about 62% down the picture */
+  .hero .wrap{padding-block:clamp(144px,75svh,860px) clamp(1.6rem,4svh,3rem)}   /* the film ends with the sign centred and BARBERSHOP about 70% down: the buttons sit below it */
   .hero .lede{font-size:clamp(1.2rem,1.5vw,1.45rem);text-shadow:0 1px 18px rgba(8,7,6,.8)}
   .hero .cta{margin-top:1.6rem}
 }
 /* short laptop screens: the buttons sit lower so nothing sits on the sign */
-@media (min-width:821px) and (max-height:760px){
-  .hero .wrap{padding-top:clamp(144px,76svh,670px);padding-bottom:1.4rem}
+@media (min-width:821px) and (max-height:800px){
+  .hero .wrap{padding-top:clamp(144px,77svh,860px);padding-bottom:1.2rem}
   .hero .lede{display:none}
   .hero .cta{margin-top:0}
   .hero .proof{margin-top:.8rem}
 }
 /* upright screens (phones, iPad held upright) get their own tall film, shot for that shape. The NØÁR logo sits in
    the middle of both films, so every screen crops evenly around the centre and the logo stays in the middle */
+/* large tablets held upright (iPad Pro): full screen like phones, buttons low and clear of the sign */
+@media (min-width:821px) and (orientation:portrait){
+  .hero{min-height:100vh;min-height:100svh}
+  .hero .wrap{padding-top:clamp(144px,76svh,1200px)}
+}
 /* phones and small tablets: full screen like the desktop, copy over the dark lower part of the picture */
 @media (max-width:820px){
   .hero{min-height:100vh;min-height:100svh;background:var(--ink)}
