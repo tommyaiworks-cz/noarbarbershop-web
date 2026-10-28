@@ -1387,13 +1387,13 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
        3. H.264 downloaded whole and played from memory. Safari will not play a video whose server ignores
           byte-range requests; a file held in memory needs no ranges, so this always works if the download does. */
     var stages=[], stage=-1;
-    /* 0. a true 4K film, only for wide screens of at least 2560 real pixels whose hardware decodes 4K AV1 smoothly */
+    /* 0. a true 4K film (wide or tall), only for screens of at least 2560 real pixels whose hardware decodes 4K AV1 smoothly */
     function pickStages(cb){
       var h264={url:base+'.mp4'}, mem={url:base+'.mp4', mem:true};
       var mc=navigator.mediaCapabilities, av='video/mp4; codecs="av01.0.09M.08"';
       var cfg={type:'file', video:{contentType:av, width:1920, height:1080, bitrate:2700000, framerate:60}};
-      var cfg4={type:'file', video:{contentType:'video/mp4; codecs="av01.0.13M.08"', width:3840, height:2160, bitrate:14000000, framerate:60}};
-      var big = !mqPortrait.matches && Math.max(screen.width, screen.height) * (window.devicePixelRatio||1) >= 2560;
+      var cfg4={type:'file', video:{contentType:'video/mp4; codecs="av01.0.13M.08"', width:mqPortrait.matches?2160:3840, height:mqPortrait.matches?3840:2160, bitrate:14000000, framerate:60}};
+      var big = Math.max(screen.width, screen.height) * (window.devicePixelRatio||1) >= 2560;
       var ok=function(r){ return !!(r && r.supported && r.smooth && r.powerEfficient); };
       var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'}]:[]).concat(av1?[{url:base+'-av1.mp4'}]:[]).concat([h264, mem])); };
       if(mc && mc.decodingInfo){
@@ -1464,7 +1464,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       if(nb===base) return;
       base=nb;
       /* the 4K cut exists only for the wide film: an upright screen takes the tall film instead */
-      stages = stages.map(function(x){ return {url:x.url.replace(/img\/film(-p)?(-4k)?/, function(m,p,k){ return nb + (k && nb==='img/film' ? '-4k' : ''); }), mem:x.mem}; });
+      stages = stages.map(function(x){ return {url:x.url.replace(/img\/film(-p)?(-4k)?/, function(m,p,k){ return nb + (k ? '-4k' : ''); }), mem:x.mem}; });
       if(vdone || !hasSrc || stage<0 || stages[stage].mem) return;   /* the end still, or a film held in memory, stays as it is */
       var at=hv.currentTime, wasPlaying=!hv.paused;
       var resume=function(){ hv.removeEventListener('loadedmetadata', resume); try{ hv.currentTime=at; }catch(e){} if(wasPlaying){ var q=hv.play(); if(q&&q.catch) q.catch(function(){}); } };
