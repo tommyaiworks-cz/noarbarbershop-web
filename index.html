@@ -51,6 +51,7 @@
   --veil:rgba(8,7,6,.66);
   --serif:"EB Garamond",Garamond,"Times New Roman",serif;
   --mono:"Roboto Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --display:var(--serif);
   --sat:env(safe-area-inset-top,0px);   /* the notch / status bar on phones */
   --gutter-l:max(20px,env(safe-area-inset-left,0px));
   --gutter-r:max(20px,env(safe-area-inset-right,0px));
@@ -85,7 +86,8 @@ a{color:inherit}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
 :focus-visible{outline:2px solid var(--amber);outline-offset:4px;border-radius:2px}
 ::selection{background:rgba(201,166,107,.35);color:var(--bone)}
-h1,h2,h3,h4{font-family:var(--serif);font-weight:400;margin:0;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
+h1,h2,h3,h4,.about blockquote,.member .mn,.sk-name{font-family:var(--display);}
+h1,h2,h3,h4{font-weight:400;margin:0;line-height:1.1;letter-spacing:-.005em;text-wrap:balance}
 p{margin:0}
 [hidden]{display:none!important}
 .wrap{padding-left:var(--gutter-l);padding-right:var(--gutter-r);max-width:1240px;margin-inline:auto}
@@ -141,6 +143,12 @@ p{margin:0}
 .mode:hover{color:var(--bone);background:var(--wash)}
 .mode svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round}
 .mode .i-moon{display:none}
+/* touch screens: every small control gets a hit area of at least 44 x 44 px, without changing how it looks */
+@media (pointer:coarse){
+  :is(.brand,.mode,.lang,.link,.copy,.way .v,.nav-links a,.foot .legal a,.foot .legal .cookie-link,.consent-act .link){position:relative}
+  :is(.brand,.mode,.lang,.link,.copy,.way .v,.nav-links a,.foot .legal a,.foot .legal .cookie-link,.consent-act .link)::after{
+    content:"";position:absolute;left:50%;top:50%;width:max(100%,44px);height:max(100%,44px);transform:translate(-50%,-50%)}
+}
 :root[data-mode="light"] .mode .i-sun{display:none}
 :root[data-mode="light"] .mode .i-moon{display:block}
 html.intro .nav{opacity:0;pointer-events:none}
@@ -271,26 +279,35 @@ h2.lined.in::after{transform:scaleX(1)}
 @media (prefers-reduced-motion:reduce){h2.lined::after{transform:none;transition:none}}
 
 /* ---------- price list: every row opens the online booking ---------- */
-#cenik{background:radial-gradient(50% 35% at 85% 0%,rgba(201,166,107,.05),transparent 70%);padding-top:clamp(2.6rem,5vw,4.2rem)}
+#cenik{background:none;padding-top:clamp(2.6rem,5vw,4.2rem)}
 .menu-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(3rem,6vw,6rem);align-items:start}
-.mg + .mg{margin-top:2.6rem}
-.mg h3{display:flex;align-items:center;gap:1rem;margin-bottom:.4rem}
-.mg h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.mg + .mg{margin-top:3rem}
+.mg h3{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem;font-size:1.25rem}
+.mg h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--amber) 45%,transparent),transparent)}
 .mg ul{list-style:none;margin:0;padding:0}
-.mg li + li{border-top:1px solid var(--line)}
-.mi{text-decoration:none;display:grid;grid-template-columns:minmax(0,1fr) auto auto;grid-template-areas:"n t p" "d t p";gap:.15rem 1.6rem;align-items:baseline;width:100%;padding:1rem 0;color:var(--bone)}
-.mi-n{grid-area:n;font-size:1.4rem;line-height:1.2;transition:translate .35s var(--ease),color .25s}
-.mi-d{grid-area:d;font-size:.95rem;color:var(--muted);line-height:1.4}
+/* a classic barber's price board: name, a dotted leader, the price; time and notes on a quiet second line */
+.mi{text-decoration:none;display:grid;grid-template-columns:minmax(0,max-content) minmax(1.4rem,1fr) auto;grid-template-areas:"n l p" "m m m";
+  column-gap:.85rem;row-gap:.3rem;align-items:baseline;width:100%;padding:1.05rem 0;color:var(--bone)}
+.mi-n{grid-area:n;font-family:var(--display);font-size:1.42rem;line-height:1.2;transition:translate .35s var(--ease),color .25s}
+.mi-l{grid-area:l;align-self:end;margin-bottom:.42em;border-bottom:1px dotted color-mix(in srgb,var(--bone) 30%,transparent);transition:border-color .3s}
+.mi-p{grid-area:p;text-align:right;white-space:nowrap;transition:color .25s}
+.mi .mi-p.num{font-size:.98rem;letter-spacing:-.01em}
+.mi-m{grid-area:m;display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline;color:var(--muted);font-size:.92rem}
+.mi-t.num{font-size:.82em;color:var(--sand)}
 .mi-d:empty{display:none}
 .mg.promo .mi-n{color:var(--neon)}
-.mg.promo .mi-d{color:var(--amber)}
-.mi-t{grid-area:t;color:var(--muted);white-space:nowrap;align-self:center}
-.mi-p{grid-area:p;min-width:6.2ch;text-align:right;font-size:.98rem;white-space:nowrap;align-self:center;transition:color .25s}
-@media (hover:hover){.mi:hover .mi-n,.mi:focus-visible .mi-n{translate:.35rem 0}.mi:hover .mi-p,.mi:focus-visible .mi-p{color:var(--amber)}}
+.mg.promo .mi-d{color:var(--amber);font-style:italic}
+.mg.promo .mi-l{border-bottom-color:color-mix(in srgb,var(--amber) 55%,transparent)}
+.mg.promo .mi-p{color:var(--amber)}
+@media (hover:hover){
+  .mi:hover .mi-n,.mi:focus-visible .mi-n{translate:.35rem 0}
+  .mi:hover .mi-p,.mi:focus-visible .mi-p{color:var(--amber)}
+  .mi:hover .mi-l,.mi:focus-visible .mi-l{border-bottom-color:var(--amber)}
+}
 .menu-foot{margin-top:2.8rem;display:flex;flex-wrap:wrap;gap:1rem 2.4rem;align-items:baseline;justify-content:space-between}
 .menu-foot .note{color:var(--muted);font-size:.95rem}
 @media (max-width:820px){.menu-cols{grid-template-columns:1fr}.menu-cols > div + div{margin-top:2.6rem}}
-@media (max-width:480px){.mi{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"n p" "d t";column-gap:1rem}.mi-n{font-size:1.28rem}.mi-t{justify-self:end;align-self:start;font-size:.78em}}
+@media (max-width:480px){.mi{column-gap:.6rem}.mi-n{font-size:1.24rem}.mi-l{min-width:1rem}}
 @media (prefers-reduced-motion:reduce){.mi-n{transition:none}}
 
 /* ---------- studio: the quote over the photo opens the walk-through ---------- */
@@ -383,7 +400,7 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 @media (prefers-reduced-motion:reduce){.walk-frame img{transition:none}}
 
 /* ---------- team ---------- */
-#tym{background:radial-gradient(50% 40% at 90% 30%,rgba(201,166,107,.06),transparent 70%)}
+#tym{background:none}
 .team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem;max-width:820px}
 .member{display:grid;gap:.2rem;align-content:start}
 .m-photo{width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:1rem;filter:brightness(.95)}
@@ -394,7 +411,7 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 .member .link{margin-top:1rem;justify-self:start}
 @media (max-width:560px){.team{grid-template-columns:1fr 1fr;gap:1.6rem 1rem}.m-mono{height:7rem;font-size:5rem}.member .mn{font-size:1.45rem}.member .mt{font-size:.92rem}.member .link{font-size:.95rem}}
 
-#darky{background:radial-gradient(45% 45% at 25% 45%,rgba(201,166,107,.06),transparent 70%)}
+#darky{background:none}
 .gifts{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3rem clamp(3rem,6vw,6rem);align-items:center}
 .g-stage{perspective:1200px;display:grid;justify-items:center}
 .g-copy p{margin-top:1.2rem;color:var(--sand);max-width:44ch}
@@ -434,7 +451,16 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 @media (prefers-reduced-motion:reduce){.voucher{transition:none}}
 
 /* ---------- visit: address, hours, sketch and questions in one place ---------- */
-#navsteva{background:radial-gradient(50% 40% at 15% 10%,rgba(201,166,107,.06),transparent 70%)}
+#navsteva{background:none}
+/* soft brass light behind some sections: drawn on a layer that reaches past the section and fades out top and
+   bottom, so no section ever shows a straight edge where its background stops */
+#cenik,#tym,#darky,#navsteva{position:relative;isolation:isolate}
+#cenik::before,#tym::before,#darky::before,#navsteva::before{content:"";position:absolute;left:0;right:0;top:-10rem;bottom:-10rem;z-index:-1;pointer-events:none;
+  -webkit-mask:linear-gradient(180deg,transparent 0,#000 10rem,#000 calc(100% - 10rem),transparent 100%);mask:linear-gradient(180deg,transparent 0,#000 10rem,#000 calc(100% - 10rem),transparent 100%)}
+#cenik::before{background:radial-gradient(48% 30% at 85% 22%,rgba(201,166,107,.055),transparent 70%)}
+#tym::before{background:radial-gradient(48% 34% at 88% 40%,rgba(201,166,107,.06),transparent 70%)}
+#darky::before{background:radial-gradient(44% 38% at 25% 48%,rgba(201,166,107,.06),transparent 70%)}
+#navsteva::before{background:radial-gradient(48% 30% at 15% 26%,rgba(201,166,107,.06),transparent 70%)}
 .visit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:3.4rem clamp(3rem,6vw,6rem)}
 .visit > *{min-width:0}
 .addr{font-size:1.35rem;margin-top:1.8rem;line-height:1.45}
@@ -451,24 +477,30 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 .v-note{margin-top:1rem;color:var(--muted);font-size:.95rem;max-width:48ch}
 .sketch{margin:0;max-width:520px}
 .sk{width:100%;height:auto;display:block;overflow:visible}
-.sk-main path{fill:none;stroke:var(--sand);stroke-width:3;opacity:.55;stroke-linecap:round}
-.sk-wide{fill:none;stroke:var(--sand);stroke-width:9;opacity:.18;stroke-linecap:round}
-.sk-side path{fill:none;stroke:var(--sand);stroke-width:2;opacity:.45;stroke-linecap:round}
-.sk-labels text{fill:var(--sand);font:400 16px var(--serif)}
-.sk-labels text{opacity:.9}
+.sk-main path{fill:none;stroke:var(--bone);stroke-width:4;opacity:.78;stroke-linecap:round}
+.sk-wide{fill:none;stroke:var(--sand);stroke-width:12;opacity:.32;stroke-linecap:round}
+.sk-side path{fill:none;stroke:var(--bone);stroke-width:2.6;opacity:.6;stroke-linecap:round}
+.sk-labels text{fill:var(--bone);font:400 17px var(--serif);opacity:.88}
 .sk-no{fill:var(--amber);font:500 13px var(--mono)}
-.sk-marks circle{fill:none;stroke:var(--sand);stroke-width:1.5;opacity:.7}
-.sk-marks text{fill:var(--muted);font:italic 400 14px var(--serif)}
-.sk-route{fill:none;stroke:var(--amber);stroke-width:2.2;stroke-dasharray:1 7;stroke-linecap:round;opacity:.85}
-.sk-m circle{fill:var(--ink);stroke:var(--bone);stroke-width:1.6}
+.sk-marks circle{fill:var(--ink);stroke:var(--bone);stroke-width:1.6;opacity:.9}
+.sk-marks text{fill:var(--sand);font:italic 400 15px var(--serif)}
+.sk-route{fill:none;stroke:var(--amber);stroke-width:3.2;stroke-dasharray:2 7;stroke-linecap:round;opacity:1;filter:drop-shadow(0 0 3px rgba(201,166,107,.45))}
+.sk-m circle{fill:var(--ink);stroke:var(--bone);stroke-width:1.8}
 .sk-m text{fill:var(--bone);font:500 12px var(--serif)}
-.sk-m .sk-tram{stroke:var(--sand)}
-.sk-stop text{fill:var(--bone);font:400 17px var(--serif)}
-.sk-line{fill:var(--amber);font-size:14px}
-.sk-halo{fill:none;stroke:var(--amber);stroke-width:1.2;opacity:.45}
-.sk-name{fill:var(--neon);font:500 21px var(--serif);letter-spacing:.06em}
-.sk-addr{fill:var(--bone);font:400 16px var(--serif)}
+.sk-m .sk-tram{stroke:var(--bone);stroke-width:2}
+.sk-stop text{fill:var(--bone);font:500 18px var(--serif)}
+.sk-line{fill:var(--amber);font-size:15px}
+.sk-halo{fill:rgba(201,166,107,.12);stroke:var(--amber);stroke-width:1.6;opacity:.85}
+.sk-name{fill:var(--neon);font:600 23px var(--serif);letter-spacing:.06em}
+.sk-addr{fill:var(--bone);font:400 17px var(--serif)}
 .sk-home .sk-no{font:500 14px var(--mono);fill:var(--amber)}
+/* phones: the sketch is drawn about two thirds of its size, so its lettering grows to stay readable */
+@media (max-width:560px){
+  .sk-labels text{font-size:19px}.sk-marks text{display:none}   /* the caption names the landmarks; on a phone their labels would collide */
+  .sk-stop text{font-size:21px}.sk-line{font-size:17px}
+  .sk-name{font-size:27px}.sk-addr{font-size:20px}.sk-home .sk-no{font-size:17px}.sk-m text{font-size:14px}
+  .sk-main path{stroke-width:5}.sk-side path{stroke-width:3.2}.sk-route{stroke-width:4}
+}
 .sketch figcaption{margin-top:1rem;font-size:.95rem;color:var(--muted);max-width:52ch}
 .visit .map{margin-top:1.2rem}
 .faq-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem clamp(3rem,6vw,6rem);margin-top:clamp(4rem,8vw,6rem);padding-top:clamp(2.4rem,4vw,3.4rem);border-top:1px solid var(--line)}
@@ -649,7 +681,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       <h2 data-t="menu.h2">Služby a ceny.</h2>
       <p data-t="menu.p">Vyberte si službu a rezervujte termín online. Rezervace se otevře v novém okně.</p>
     </div>
-    <div class="menu-cols" id="menuList"><!-- written out so the prices show even where scripts do not run; the script redraws it from SERVICES --><!--static--><div><div class="mg promo"><h3 class="kicker">Otevírací akce</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Otevírací akce: střih a vousy</span><span class="mi-d">2. až 30. 11. 2026</span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">600&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div><div class="mg"><h3 class="kicker">Střihy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pánský střih</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">650&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Dlouhé vlasy jen nůžkami</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">700&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pravidelný střih každé 2 týdny</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">560&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Studentský střih</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">550&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><div><div class="mg"><h3 class="kicker">Vousy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a zarovnání vousů</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">800&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a úprava vousů</span><span class="mi-d"></span><span class="mi-t num">60&nbsp;min</span><span class="mi-p num">950&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Do hola a úprava vousů</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">650&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Vousy</span><span class="mi-d"></span><span class="mi-t num">30&nbsp;min</span><span class="mi-p num">480&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Premium servis, vlasy a vousy</span><span class="mi-d"></span><span class="mi-t num">60&nbsp;min</span><span class="mi-p num">1&nbsp;100&nbsp;Kč</span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><!--/static--></div>
+    <div class="menu-cols" id="menuList"><!-- written out so the prices show even where scripts do not run; the script redraws it from SERVICES --><!--static--><div><div class="mg promo"><h3 class="kicker">Otevírací akce</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Otevírací akce: střih a vousy</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">600&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d">2. až 30. 11. 2026</span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div><div class="mg"><h3 class="kicker">Střihy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pánský střih</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">650&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Dlouhé vlasy jen nůžkami</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">700&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Pravidelný střih každé 2 týdny</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">560&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Studentský střih</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">550&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><div><div class="mg"><h3 class="kicker">Vousy</h3><ul><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a zarovnání vousů</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">800&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Střih a úprava vousů</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">950&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">60&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Do hola a úprava vousů</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">650&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Vousy</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">480&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">30&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li><li><a class="mi" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener"><span class="mi-n">Premium servis, vlasy a vousy</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">1&nbsp;100&nbsp;Kč</span><span class="mi-m"><span class="mi-t num">60&nbsp;min</span><span class="mi-d"></span></span><span class="vh">, Rezervovat, otevře se v novém okně</span></a></li></ul></div></div><!--/static--></div>
     <div class="menu-foot">
       <p class="note" data-t="menu.note">Platíte až u nás. Rezervaci můžete zdarma zrušit nejpozději 2 hodiny předem.</p>
     </div>
@@ -799,8 +831,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
               <text transform="translate(60 196) rotate(71.7)" text-anchor="middle">Václavské nám.</text>
             </g>
             <g class="sk-marks">
-              <circle cx="174" cy="128" r="3.5"/><text x="164" y="133" text-anchor="end">Muchovo muzeum</text>
-              <circle cx="430" cy="209" r="3.5"/><text x="430" y="233" text-anchor="middle">Jindřišská věž</text>
+              <circle cx="174" cy="128" r="3.5"/><text x="164" y="122" text-anchor="end"><tspan>Muchovo</tspan><tspan x="152" dy="16">muzeum</tspan></text>
+              <circle cx="430" cy="209" r="3.5"/><text x="438" y="194" text-anchor="middle">Jindřišská věž</text>
             </g>
             <g class="sk-m">
               <circle cx="40" cy="110" r="10"/><text x="40" y="114" text-anchor="middle">M</text>
@@ -1130,8 +1162,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var html='<div class="mg'+(gid==='promo'?' promo':'')+'"><h3 class="kicker">'+esc(name(g))+'</h3><ul>';
     list.forEach(function(s){
       var sub = s.sub ? (s.sub[lang]!=null ? s.sub[lang] : s.sub.cs) : '';
-      html+='<li><a class="mi" href="'+SLOTIO+'" target="_blank" rel="noopener"><span class="mi-n">'+esc(name(s))+'</span><span class="mi-d">'+esc(sub)+'</span>'+
-        '<span class="mi-t num">'+s.min+'\u00a0'+esc(t('min'))+'</span><span class="mi-p num">'+kc(s.price)+'</span><span class="vh">, '+esc(t('nav.book'))+esc(t('book.newTab'))+'</span></a></li>';
+      html+='<li><a class="mi" href="'+SLOTIO+'" target="_blank" rel="noopener"><span class="mi-n">'+esc(name(s))+'</span><span class="mi-l" aria-hidden="true"></span><span class="mi-p num">'+kc(s.price)+'</span>'+
+        '<span class="mi-m"><span class="mi-t num">'+s.min+'\u00a0'+esc(t('min'))+'</span><span class="mi-d">'+esc(sub)+'</span></span><span class="vh">, '+esc(t('nav.book'))+esc(t('book.newTab'))+'</span></a></li>';
     });
     return html+'</ul></div>';
   }
