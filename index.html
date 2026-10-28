@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Roboto+Mono:wght@400;500&display=swap">
-<script>try{if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&sessionStorage.getItem("noar-intro")!=="1")document.documentElement.classList.add("intro")}catch(e){}</script>
+<script>try{var d=document.documentElement,c=navigator.connection||{};if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&!c.saveData&&sessionStorage.getItem("noar-intro")!=="1")d.classList.add("intro","loading")}catch(e){}</script>
 <script>try{if(localStorage.getItem("noar-mode")==="light")document.documentElement.setAttribute("data-mode","light");}catch(e){}</script>
 <style>
 /* NØÁR. One dark room: espresso and brass, ivory for the things you press.
@@ -93,6 +93,10 @@ p{margin:0}
 .wrap{padding-left:var(--gutter-l);padding-right:var(--gutter-r);max-width:1240px;margin-inline:auto}
 .num{font-family:var(--mono);font-size:.84em;font-weight:400;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
 .muted{color:var(--muted)}
+/* skip link: completely invisible until a keyboard user presses Tab, then it shows under the menu */
+.skip:not(:focus){position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip:focus{position:fixed;left:max(16px,env(safe-area-inset-left));top:calc(var(--sat,0px) + var(--navh,72px) + 10px);z-index:100;padding:.4rem 0;color:var(--bone);font-size:1.05rem;
+  text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:.3em;text-shadow:0 1px 12px rgba(0,0,0,.95);outline:none}
 .vh{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;clip-path:inset(50%)!important;white-space:nowrap!important}
 /* small italic heading in brass: service groups, opening hours, the collection */
 .kicker{font-style:italic;font-size:1.15rem;color:var(--amber);line-height:1.3}
@@ -172,6 +176,17 @@ html.intro .nav{opacity:0;pointer-events:none}
 .hero-img picture{display:contents}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;transform:scale(1.04);animation:drift 14s ease-out forwards}
 @keyframes drift{to{transform:scale(1)}}
+.loader{display:none}
+/* loading screen: the NØÁR logo on black and a thin brass line that fills while the film downloads.
+   It only appears if loading takes longer than a blink, and it can never stay: it fades out by itself after 7 s */
+html.loading .loader{display:grid;position:fixed;inset:0;z-index:200;place-items:center;align-content:center;gap:1.6rem;background:#080706;
+  opacity:0;animation:ldIn .5s ease .5s forwards,ldOut .6s ease 7s forwards;pointer-events:none}
+.loader img{width:clamp(150px,22vw,230px);height:auto;opacity:.95}
+.ld-line{display:block;width:clamp(110px,14vw,160px);height:1px;background:rgba(236,228,214,.14);overflow:hidden}
+.ld-line i{display:block;height:100%;background:#c9a66b;transform-origin:0 50%;transform:scaleX(var(--p,0));transition:transform .35s ease;box-shadow:0 0 8px rgba(201,166,107,.7)}
+html.loading.loaded .loader{animation:ldOut .6s ease forwards}
+@keyframes ldIn{to{opacity:1}}
+@keyframes ldOut{from{opacity:var(--o,1)}to{opacity:0;visibility:hidden}}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;opacity:0;transition:opacity .3s ease}
 .hero-video.ready{opacity:1}
 .hero.playing:not(.copy-on) .hero-img img{opacity:0}
@@ -211,17 +226,17 @@ html.intro .hero :is(.lede,.cta,.proof){opacity:0!important;animation-play-state
 html.intro .hero .hero-img img{opacity:0}
 html.intro .hero::after{opacity:0}
 @media (min-width:821px){
-  .hero{min-height:min(100svh,1080px)}
+  .hero{min-height:100vh;min-height:100svh}
   .hero::after{background:
     radial-gradient(ellipse 70% 60% at 50% 100%,rgba(8,7,6,.94) 0%,rgba(8,7,6,.8) 38%,rgba(8,7,6,.3) 64%,rgba(8,7,6,0) 85%),
     linear-gradient(180deg,rgba(8,7,6,.55) 0%,rgba(8,7,6,0) 16%,rgba(8,7,6,0) 44%,rgba(8,7,6,.16) 56%,rgba(8,7,6,.4) 68%,rgba(8,7,6,.66) 79%,rgba(8,7,6,.87) 90%,var(--ink) 100%)}
-  .hero .wrap{padding-block:clamp(144px,75svh,860px) clamp(1.6rem,4svh,3rem)}   /* the film ends with the sign centred and BARBERSHOP about 70% down: the buttons sit below it */
+  .hero .wrap{padding-block:clamp(144px,75vh,2400px) clamp(1.6rem,4vh,3rem);padding-block:clamp(144px,75svh,2400px) clamp(1.6rem,4svh,3rem)}   /* the film ends with the sign centred and BARBERSHOP about 70% down: the buttons sit below it */
   .hero .lede{font-size:clamp(1.2rem,1.5vw,1.45rem);text-shadow:0 1px 18px rgba(8,7,6,.8)}
   .hero .cta{margin-top:1.6rem}
 }
 /* short laptop screens: the buttons sit lower so nothing sits on the sign */
 @media (min-width:821px) and (max-height:800px){
-  .hero .wrap{padding-top:clamp(144px,77svh,860px);padding-bottom:1.2rem}
+  .hero .wrap{padding-top:clamp(144px,77vh,2400px);padding-top:clamp(144px,77svh,2400px);padding-bottom:1.2rem}
   .hero .lede{display:none}
   .hero .cta{margin-top:0}
   .hero .proof{margin-top:.8rem}
@@ -231,7 +246,7 @@ html.intro .hero::after{opacity:0}
 /* large tablets held upright (iPad Pro): full screen like phones, buttons low and clear of the sign */
 @media (min-width:821px) and (orientation:portrait){
   .hero{min-height:100vh;min-height:100svh}
-  .hero .wrap{padding-top:clamp(144px,76svh,1200px)}
+  .hero .wrap{padding-top:clamp(144px,76vh,1200px);padding-top:clamp(144px,76svh,1200px)}
 }
 /* phones and small tablets: full screen like the desktop, copy over the dark lower part of the picture */
 @media (max-width:820px){
@@ -246,7 +261,7 @@ html.intro .hero::after{opacity:0}
 .hero .cta{margin-top:0!important}
 /* phones held sideways: a smaller button in one row with the prices link, set low and clear of the lettering in the middle */
 @media (orientation:landscape) and (max-height:500px){
-  .hero .wrap{justify-content:flex-end;padding-top:clamp(144px,83svh,670px);padding-bottom:calc(.7rem + env(safe-area-inset-bottom,0px))}
+  .hero .wrap{justify-content:flex-end;padding-top:clamp(144px,83vh,670px);padding-top:clamp(144px,83svh,670px);padding-bottom:calc(.7rem + env(safe-area-inset-bottom,0px))}
   .hero .cta .btn{font-size:1rem;padding:.72em 1.8em;width:auto}
   .hero .proof{margin-top:.4rem}
 }
@@ -283,13 +298,13 @@ h2.lined.in::after{transform:scaleX(1)}
 .menu-cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(3rem,6vw,6rem);align-items:start}
 .mg + .mg{margin-top:3rem}
 .mg h3{display:flex;align-items:center;gap:1rem;margin-bottom:.6rem;font-size:1.25rem}
-.mg h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,color-mix(in srgb,var(--amber) 45%,transparent),transparent)}
+.mg h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,rgba(201,166,107,.45),transparent);background:linear-gradient(90deg,color-mix(in srgb,var(--amber) 45%,transparent),transparent)}
 .mg ul{list-style:none;margin:0;padding:0}
 /* a classic barber's price board: name, a dotted leader, the price; time and notes on a quiet second line */
 .mi{text-decoration:none;display:grid;grid-template-columns:minmax(0,max-content) minmax(1.4rem,1fr) auto;grid-template-areas:"n l p" "m m m";
-  column-gap:.85rem;row-gap:.3rem;align-items:baseline;width:100%;padding:1.05rem 0;color:var(--bone)}
+  column-gap:.85rem;row-gap:.3rem;align-items:baseline;align-items:last baseline;width:100%;padding:1.05rem 0;color:var(--bone)}
 .mi-n{grid-area:n;font-family:var(--display);font-size:1.42rem;line-height:1.2;transition:translate .35s var(--ease),color .25s}
-.mi-l{grid-area:l;align-self:end;margin-bottom:.42em;border-bottom:1px dotted color-mix(in srgb,var(--bone) 30%,transparent);transition:border-color .3s}
+.mi-l{grid-area:l;align-self:end;margin-bottom:.42em;border-bottom:1px dotted rgba(236,228,214,.3);border-bottom:1px dotted color-mix(in srgb,var(--bone) 30%,transparent);transition:border-color .3s}
 .mi-p{grid-area:p;text-align:right;white-space:nowrap;transition:color .25s}
 .mi .mi-p.num{font-size:.98rem;letter-spacing:-.01em}
 .mi-m{grid-area:m;display:flex;flex-wrap:wrap;gap:.25rem 1rem;align-items:baseline;color:var(--muted);font-size:.92rem}
@@ -361,6 +376,7 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 .pl-done{fill:none;stroke:var(--amber);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
 .pl-dot{fill:var(--amber);filter:drop-shadow(0 0 10px rgba(201,166,107,.8))}
 .pl-stops a{cursor:pointer;text-decoration:none}
+.pl-stops .pl-hit{fill:transparent;stroke:none;pointer-events:all}
 .pl-stops circle{fill:#080706;stroke:var(--amber);stroke-width:2.5}
 .pl-stops text{fill:var(--sand);font:400 32px var(--serif)}
 .pl-stops a[aria-current] text{fill:var(--bone)}
@@ -390,18 +406,18 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
   .walk-lede{grid-column:1;margin:0;font-size:.95rem}
   .walk-plan{grid-column:2;grid-row:1 / span 2;max-width:140px}
   .pl-stops text{font-size:40px}
-  .walk-frame{aspect-ratio:auto;height:min(100vw,56svh,calc(100svh - var(--sat) - var(--navh,150px) - 14rem));margin-inline:calc(-1 * var(--gutter-l))}
+  .walk-frame{aspect-ratio:auto;height:min(100vw,56vh,calc(100vh - var(--sat) - var(--navh,150px) - 14rem));height:min(100vw,56svh,calc(100svh - var(--sat) - var(--navh,150px) - 14rem));margin-inline:calc(-1 * var(--gutter-l))}
   .walk-cap{min-height:0}
   .walk-cap p{display:none}
 }
 @media (max-width:820px) and (max-height:700px){.walk-lede{display:none}}
-@media (max-width:820px) and (max-height:600px){.walk-side{grid-template-columns:minmax(0,1fr) 116px}.walk-plan{max-width:116px}.walk-frame{height:calc(100svh - var(--sat) - var(--navh,150px) - 12rem)}}
+@media (max-width:820px) and (max-height:600px){.walk-side{grid-template-columns:minmax(0,1fr) 116px}.walk-plan{max-width:116px}.walk-frame{height:calc(100vh - var(--sat) - var(--navh,150px) - 12rem);height:calc(100svh - var(--sat) - var(--navh,150px) - 12rem)}}
 @media (max-height:620px) and (min-width:821px){.walk-frame{aspect-ratio:16/10}}
 @media (prefers-reduced-motion:reduce){.walk-frame img{transition:none}}
 
 /* ---------- team ---------- */
 #tym{background:none}
-.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem;max-width:820px}
+.team{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3rem clamp(3rem,6vw,5rem);max-width:980px;margin-inline:auto}
 .member{display:grid;gap:.2rem;align-content:start}
 .m-photo{width:100%;aspect-ratio:1;object-fit:cover;margin-bottom:1rem;filter:brightness(.95)}
 .m-mono{height:9.5rem;display:flex;align-items:flex-end;margin-bottom:.8rem;font-size:6.5rem;line-height:.8;color:var(--amber);letter-spacing:-.02em;
@@ -633,11 +649,13 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
 .m-done{color:var(--sand);max-width:52ch}
 </style>
 
+<div class="loader" id="loader" aria-hidden="true"><img src="img/logo.webp" alt="" width="1200" height="435" decoding="async"><span class="ld-line"><i id="ldBar"></i></span></div>
+<a class="skip" href="#cenik" data-t="skip">Přeskočit na obsah</a>
 </head>
 <body>
 <nav class="nav" id="nav" aria-label="Hlavní navigace">
   <div class="nav-in">
-    <a class="brand" href="#top" aria-label="NØÁR Barbershop"><img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435"></a>
+    <a class="brand" href="#top" aria-label="NØÁR Barbershop"><img src="img/logo.webp" alt="NØÁR Barbershop" width="1200" height="435"></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#cenik" data-t="nav.services">Ceník</a></li>
       <li><a href="#studio" data-t="nav.studio">Studio</a></li>
@@ -688,7 +706,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   </div>
 </section>
 
-<section id="studio">
+<section id="studio" aria-labelledby="studioH">
+  <h2 class="vh" id="studioH" data-t="studio.h2">Studio</h2>
   <div class="studio-open">
     <div class="wrap about">
       <figure class="emblem" aria-hidden="true">
@@ -769,7 +788,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     <div class="g-stage" id="gStage">
       <div class="voucher" id="gCard">
         <div class="v-glare"></div>
-        <div class="v-top"><img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
+        <div class="v-top"><img src="img/logo.webp" alt="NØÁR Barbershop" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
         <div class="v-mid"><div class="v-value" data-t="v.teaser">Hodina v křesle</div></div>
         <div class="v-foot"><span data-t="v.valid12">Platí 12 měsíců</span></div>
       </div>
@@ -787,8 +806,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
         <p data-t="m.short">Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.</p>
       </div>
       <div class="g-items">
-          <button class="g-item" type="button" data-merch="tee"><img src="img/tee.jpg" alt="" width="1600" height="725" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.tee">Tričko NØÁR</span><span class="num">890&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
-          <button class="g-item" type="button" data-merch="hoodie"><img src="img/hoodie.jpg" alt="" width="1600" height="916" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.hoodie">Mikina NØÁR</span><span class="num">1&nbsp;690&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
+          <button class="g-item" type="button" data-merch="tee"><img src="img/tee.webp" alt="" width="1600" height="725" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.tee">Tričko NØÁR</span><span class="num">890&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
+          <button class="g-item" type="button" data-merch="hoodie"><img src="img/hoodie.webp" alt="" width="1600" height="916" loading="lazy" decoding="async"><span class="gi-row"><span data-t="m.hoodie">Mikina NØÁR</span><span class="num">1&nbsp;690&nbsp;Kč</span></span><span class="act" data-t="m.reserve">Odložit k vyzvednutí</span></button>
       </div>
     </div>
   </div>
@@ -884,7 +903,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
 
 <footer>
   <div class="wrap foot">
-    <img src="img/logo.png" alt="NØÁR Barbershop" width="1200" height="435">
+    <img src="img/logo.webp" alt="NØÁR Barbershop" width="1200" height="435">
     <div class="social">
       <a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
     </div>
@@ -915,7 +934,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       <div class="v-stage" id="vStage">
         <div class="voucher" id="voucher" role="img" aria-label="Náhled poukazu">
           <div class="v-glare"></div>
-          <div class="v-top"><img src="img/logo.png" alt="" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
+          <div class="v-top"><img src="img/logo.webp" alt="" width="1200" height="435"><span class="v-kind" data-t="v.kind">Dárkový poukaz</span></div>
           <div class="v-mid"><div class="v-value" id="vcValue"></div><div class="v-for" id="vcFor"></div><p class="v-msg" id="vcMsg"></p></div>
           <div class="v-foot"><span id="vcFrom"></span><span id="vcValid"></span><span id="vcCode" class="num"></span></div>
         </div>
@@ -947,7 +966,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     <div data-view="merch" hidden>
       <div class="m-view">
         <div><span class="q-label" data-t="m.item">Kousek</span><div class="chips" id="mItems"></div></div>
-        <div class="m-hero"><img id="mImg" src="img/tee.jpg" alt="" width="1600" height="725"><div><p data-t="m.p">Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.</p></div></div>
+        <div class="m-hero"><img id="mImg" src="img/tee.webp" alt="" width="1600" height="725"><div><p data-t="m.p">Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.</p></div></div>
         <div><span class="q-label" id="mSizeLabel" data-t="m.size">Velikost</span><div class="chips m-sizes" id="mSizes"></div></div>
         <div id="mFormWrap">
           <p class="finder-p" data-t="m.formP">Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.</p>
@@ -1003,7 +1022,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     {id:'ben',   nick:'Ben',   gen:'Bena',  full:'Viet Anh',        mono:'B', photo:'img/team-ben.webp'},
     {id:'honza', nick:'Honza', gen:'Honzy', full:'Hoan Anh Nguyen', mono:'H', photo:'img/team-honza.webp'}   /* gen: the Czech form after "u" (Rezervovat u Honzy) */
   ];
-  var MERCH = {tee:{key:'m.tee', price:890, img:'img/tee.jpg'}, hoodie:{key:'m.hoodie', price:1690, img:'img/hoodie.jpg'}};
+  var MERCH = {tee:{key:'m.tee', price:890, img:'img/tee.webp'}, hoodie:{key:'m.hoodie', price:1690, img:'img/hoodie.webp'}};
   var T = {
     cs:{
       'k.everyDay':'Každý den',
@@ -1022,7 +1041,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       'walk.h2':'Jak to u nás vypadá.','walk.p':'Posouvejte stránku a projděte si salon od dveří až dozadu.','walk.plan':'Půdorys salonu','walk.wip':'Připravujeme',
       'team.h2':'Kdo vás bude stříhat.','team.p':'Rezervovat můžete u konkrétního holiče, nebo u toho, kdo má zrovna volno.','team.book':'Rezervovat u','team.today':'Dnes volno','team.tomorrow':'Zítra volno','team.dayFree':'{day} volno',
       'm.h3':'Kolekce NØÁR','m.short':'Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.','m.panel':'Kolekce NØÁR','m.item':'Kousek','m.p':'Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.','m.tee':'Tričko NØÁR','m.hoodie':'Mikina NØÁR','m.size':'Velikost','m.reserve':'Odložit k vyzvednutí','m.formP':'Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.','m.submit':'Odložit k vyzvednutí','m.pickSize':'Nejdřív vyberte velikost.','m.doneH':'Odloženo','m.again':'Odložit další kousek','m.done':'{item} ve velikosti {size} na vás čeká na recepci do {date}. Potvrzení jsme poslali na {phone}.','m.title':'{item}, velikost {size}',
-      'k.h2':'Najdete nás v Nekázance.','k.phone':'Telefon','k.mail':'E-mail','lg.privacy':'Ochrana osobních údajů','lg.terms':'Podmínky dárkových poukazů','lg.cookies':'Nastavení cookies','lg.ico':'IČO','lg.reg':'Zapsaná u Městského soudu v Praze, oddíl C, vložka','cc.text':'Smíme měřit návštěvnost přes Google Analytics? Reklamní cookies nepoužíváme.','cc.more':'Více o cookies','cc.yes':'Povolit','cc.no':'Odmítnout','v.agree1':'Zaplacením souhlasíte s','v.agreeT':'podmínkami dárkových poukazů','v.agree2':'. Údaje zpracujeme podle','v.agreeP':'zásad ochrany osobních údajů','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
+      'k.h2':'Najdete nás v Nekázance.','skip':'Přeskočit na obsah','studio.h2':'Studio','k.phone':'Telefon','k.mail':'E-mail','lg.privacy':'Ochrana osobních údajů','lg.terms':'Podmínky dárkových poukazů','lg.cookies':'Nastavení cookies','lg.ico':'IČO','lg.reg':'Zapsaná u Městského soudu v Praze, oddíl C, vložka','cc.text':'Smíme měřit návštěvnost přes Google Analytics? Reklamní cookies nepoužíváme.','cc.more':'Více o cookies','cc.yes':'Povolit','cc.no':'Odmítnout','v.agree1':'Zaplacením souhlasíte s','v.agreeT':'podmínkami dárkových poukazů','v.agree2':'. Údaje zpracujeme podle','v.agreeP':'zásad ochrany osobních údajů','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
       'faq.h2':'Než přijdete.','faq.p':'Na co se nás ptáte nejčastěji. Cokoli dalšího vám rádi řekneme po telefonu.',
       'faq.q1':'Musím se objednat předem?','faq.a1':'Doporučujeme to, večery a soboty bývají plné. Bez objednání vás ale vezmeme vždy, když je volné křeslo. Stačí zavolat nebo se zastavit.',
       'faq.q2':'Jak se u vás platí?','faq.a2':'Kartou, Apple Pay, Google Pay nebo hotově. Dárkové poukazy platí 12 měsíců.',
@@ -1056,7 +1075,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       'walk.h2':'Have a look around.','walk.p':'Scroll to walk through the shop, from the door to the back room.','walk.plan':'Floor plan of the shop','walk.wip':'In progress',
       'team.h2':'Who will cut your hair.','team.p':'Book with a specific barber, or with whoever is free first.','team.book':'Book with','team.today':'Free today','team.tomorrow':'Free tomorrow','team.dayFree':'Free {day}',
       'm.h3':'The NØÁR collection','m.short':'Only at the shop. Pick a size and we will hold it for you for three days.','m.panel':'NØÁR collection','m.item':'Piece','m.p':'A small run, only at the shop. Heavy cotton and an embroidered logo.','m.tee':'NØÁR T-shirt','m.hoodie':'NØÁR hoodie','m.size':'Size','m.reserve':'Hold for pickup','m.formP':'We hold it for three days. You pay at the shop, by card or cash, and we text you a confirmation.','m.submit':'Hold for pickup','m.pickSize':'Choose a size first.','m.doneH':'Held for you','m.again':'Hold another piece','m.done':'{item} in size {size} is waiting for you at reception until {date}. We sent a confirmation to {phone}.','m.title':'{item}, size {size}',
-      'k.h2':'Find us on Nekázanka.','k.phone':'Phone','k.mail':'Email','lg.privacy':'Privacy policy','lg.terms':'Gift card terms','lg.cookies':'Cookie settings','lg.ico':'Company ID','lg.reg':'Registered at the Municipal Court in Prague, section C, file','cc.text':'May we measure visits with Google Analytics? We use no advertising cookies.','cc.more':'About cookies','cc.yes':'Allow','cc.no':'Decline','v.agree1':'By paying you agree to the','v.agreeT':'gift card terms','v.agree2':'. We handle your details under our','v.agreeP':'privacy policy','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
+      'k.h2':'Find us on Nekázanka.','skip':'Skip to content','studio.h2':'Studio','k.phone':'Phone','k.mail':'Email','lg.privacy':'Privacy policy','lg.terms':'Gift card terms','lg.cookies':'Cookie settings','lg.ico':'Company ID','lg.reg':'Registered at the Municipal Court in Prague, section C, file','cc.text':'May we measure visits with Google Analytics? We use no advertising cookies.','cc.more':'About cookies','cc.yes':'Allow','cc.no':'Decline','v.agree1':'By paying you agree to the','v.agreeT':'gift card terms','v.agree2':'. We handle your details under our','v.agreeP':'privacy policy','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
       'faq.h2':'Before you come.','faq.p':'What we get asked most. For anything else, call us.',
       'faq.q1':'Do I need to book?','faq.a1':'We recommend it: evenings and Saturdays fill up fast. Walk-ins are welcome whenever a chair is free. Just call or drop by.',
       'faq.q2':'How can I pay?','faq.a2':'Card, Apple Pay, Google Pay or cash. Gift cards are valid for 12 months.',
@@ -1234,7 +1253,9 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
 
   /* ---------- form checks shared by the gift card and merch forms ---------- */
   function validPhone(v){ var d=v.replace(/[^\d+]/g,''); return /^\+?\d{9,15}$/.test(d); }
-  function check(id, ok){ $(id).closest('.field').classList.toggle('invalid', !ok); return ok; }
+  function check(id, ok){ var el=$(id), f=el.closest('.field'); f.classList.toggle('invalid', !ok); el.setAttribute('aria-invalid', String(!ok)); return ok; }
+  /* every error message is tied to its field, so a screen reader reads it when the field gets focus */
+  [].forEach.call(document.querySelectorAll('.field'), function(f){ var i=f.querySelector('input,textarea,select'), e=f.querySelector('.err'); if(i&&e){ if(!e.id) e.id=i.id+'Err'; i.setAttribute('aria-describedby', e.id); } });
   ['mName','mPhone'].forEach(function(id){ $(id).addEventListener('input', function(){ $(id).closest('.field').classList.remove('invalid'); }); });
 
   /* ---------- merch: hold for pickup (demo) ---------- */
@@ -1377,27 +1398,33 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   var hero=$('top'), hv=$('heroVideo'), root=document.documentElement, INTRO_END=2.4;
   function copyOn(){ hero.classList.add('copy-on'); root.classList.remove('intro'); }
   try{
-  if(hv && !REDUCED){
+  var NET=navigator.connection||{}, SAVE=!!NET.saveData || /(^|-)2g$/.test(NET.effectiveType||'');
+  if(hv && !REDUCED && !SAVE){
+    /* loading screen: shown while the film downloads; the page appears at the latest after 4.5 s */
+    var ld=$('loader'), bar=$('ldBar'), revealed=!root.classList.contains('loading'), shownP=0;
+    var setP=function(p){ shownP=Math.max(shownP, Math.min(1,p)); if(bar) bar.style.setProperty('--p', shownP.toFixed(3)); };
+    var reveal=function(){ if(revealed) return; revealed=true; clearTimeout(capT);
+      try{ ld.style.setProperty('--o', getComputedStyle(ld).opacity); }catch(e){}
+      root.classList.add('loaded'); setTimeout(function(){ root.classList.remove('loading','loaded'); }, 700); };
+    var capT=revealed ? 0 : setTimeout(function(){ reveal(); showStill(); }, 4500);
     var seen=false; try{ seen = sessionStorage.getItem('noar-intro')==='1'; sessionStorage.setItem('noar-intro','1'); }catch(e){}
     if(seen) copyOn(); else root.classList.add('intro');
     var vdone=false, started=false, guard=0, stageTimer=0, stillReady=false, hasSrc=false, blobUrl=null;
     var mqPortrait = window.matchMedia('(orientation: portrait)');
     var base = mqPortrait.matches ? 'img/film-p' : 'img/film';   /* tall film for upright screens, wide film for the rest */
-    /* Sources are tried in order until one plays:
-       1. AV1, only where the device decodes it in hardware (about half the size)
-       2. H.264, streamed the normal way
-       3. H.264 downloaded whole and played from memory. Safari will not play a video whose server ignores
-          byte-range requests; a file held in memory needs no ranges, so this always works if the download does. */
+    /* Sources are tried in order until one plays: 4K AV1 (big screens with hardware 4K decode),
+       AV1 1080p (hardware AV1, about a third of the H.264 size), H.264 1080p (everything else).
+       Each film is downloaded whole and played from memory, so playback can never outrun the download. */
     var stages=[], stage=-1;
     /* 0. a true 4K film (wide or tall), only for screens of at least 2560 real pixels whose hardware decodes 4K AV1 smoothly */
     function pickStages(cb){
-      var h264={url:base+'.mp4'}, mem={url:base+'.mp4', mem:true};
+      var h264={url:base+'.mp4'};
       var mc=navigator.mediaCapabilities, av='video/mp4; codecs="av01.0.09M.08"';
       var cfg={type:'file', video:{contentType:av, width:1920, height:1080, bitrate:2700000, framerate:60}};
       var cfg4={type:'file', video:{contentType:'video/mp4; codecs="av01.0.13M.08"', width:mqPortrait.matches?2160:3840, height:mqPortrait.matches?3840:2160, bitrate:14000000, framerate:60}};
       var big = Math.max(screen.width, screen.height) * (window.devicePixelRatio||1) >= 2560;
       var ok=function(r){ return !!(r && r.supported && r.smooth && r.powerEfficient); };
-      var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'}]:[]).concat(av1?[{url:base+'-av1.mp4'}]:[]).concat([h264, mem])); };
+      var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'}]:[]).concat(av1?[{url:base+'-av1.mp4'}]:[]).concat([h264])); };
       if(mc && mc.decodingInfo){
         mc.decodingInfo(cfg).then(function(r){
           var a=ok(r); if(!a || !big){ done(a,false); return; }
@@ -1407,22 +1434,36 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       else done(false,false);
     }
     function startStage(i){
-      if(started || i>=stages.length){ if(!started) showStill(); return; }
-      stage=i; clearTimeout(stageTimer); var st=stages[i];
-      if(st.mem){
-        if(!window.fetch || !window.URL || !URL.createObjectURL){ nextStage(); return; }
-        fetch(st.url).then(function(r){ if(!r.ok) throw new Error(r.status); return r.blob(); }).then(function(b){
-          if(started || stage!==i) return;
-          if(blobUrl) URL.revokeObjectURL(blobUrl);
-          blobUrl=URL.createObjectURL(b.type ? b : new Blob([b],{type:'video/mp4'}));
-          hasSrc=true; hv.src=blobUrl; hv.load(); tryPlay();
-        }).catch(function(){ if(stage===i) nextStage(); });
-        stageTimer=setTimeout(function(){ if(!started && stage===i) showStill(); }, 20000);
-      } else {
+      if(started || i>=stages.length){ if(!started){ showStill(); reveal(); } return; }
+      stage=i; clearTimeout(stageTimer); var st=stages[i], mine=i;
+      /* older browsers without download streams: the film streams the classic way */
+      if(!(window.fetch && window.URL && URL.createObjectURL && window.ReadableStream)){
         hasSrc=true; hv.src = st.url + (seen ? '#t='+INTRO_END : ''); hv.preload='auto'; hv.load(); tryPlay();
-        /* nothing decoded after 8 s: move on to the next source */
-        stageTimer=setTimeout(function(){ if(!started && stage===i && hv.readyState<2) nextStage(); }, 8000);
+        stageTimer=setTimeout(function(){ if(!started && stage===mine && hv.readyState<2) nextStage(); }, 8000);
+        return;
       }
+      /* download the whole film first (2.4 to 13 MB), showing progress on the loading line. If the 4K film
+         would take more than about 3 more seconds, drop it for the 1080p one (the only lighter step) */
+      var ctrl=window.AbortController ? new AbortController() : null, t0=Date.now(), got=0, total=0;
+      fetch(st.url, ctrl ? {signal:ctrl.signal} : {}).then(function(r){
+        if(!r.ok) throw new Error(r.status);
+        total=+r.headers.get('content-length')||0;
+        if(!r.body || !r.body.getReader) return r.blob();
+        var rd=r.body.getReader(), parts=[];
+        return (function pump(){ return rd.read().then(function(x){
+          if(x.done) return new Blob(parts, {type:'video/mp4'});
+          parts.push(x.value); got+=x.value.length;
+          if(total) setP(got/total);
+          var dt=(Date.now()-t0)/1000;
+          if(total && !revealed && dt>.7 && /-4k\.mp4$/.test(st.url) && mine<stages.length-1 && (total-got)/(got/dt) > 3){ if(ctrl) ctrl.abort(); throw new Error('slow'); }
+          return pump();
+        }); })();
+      }).then(function(b){
+        if(started || stage!==mine) return;
+        if(blobUrl) URL.revokeObjectURL(blobUrl);
+        blobUrl=URL.createObjectURL(b.type ? b : new Blob([b],{type:'video/mp4'}));
+        setP(1); hasSrc=true; hv.src=blobUrl; hv.load(); tryPlay();
+      }).catch(function(){ if(stage===mine && !started) nextStage(); });
     }
     function nextStage(){ if(!started) startStage(stage+1); }
     /* the room still and the copy show whenever the film is late; the film fades in over them once it runs */
@@ -1440,11 +1481,12 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     }
     /* a film that arrives after the copy is already showing skips the intro and starts at the window */
     hv.addEventListener('loadedmetadata', function(){ try{ if(!root.classList.contains('intro') && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){} });
-    hv.addEventListener('playing', function(){ started=true; clearTimeout(guard); clearTimeout(stageTimer); hv.classList.add('ready'); hero.classList.add('playing'); });
+    hv.addEventListener('playing', function(){ started=true; clearTimeout(guard); clearTimeout(stageTimer); hv.classList.add('ready'); hero.classList.add('playing'); reveal(); });
     hv.addEventListener('timeupdate', function(){ if(hv.currentTime >= INTRO_END-0.05) copyOn(); if(hv.duration && hv.currentTime > hv.duration-2.5) armStill(); });
     hv.addEventListener('ended', function(){ vdone=true; copyOn(); armStill(); hero.classList.add('rest'); });
     hv.addEventListener('error', function(){ if(!started && hasSrc && stage>=0) nextStage(); });
     var skip=function(){
+      reveal();
       if(!root.classList.contains('intro')) return;
       try{ if(hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
       copyOn();
@@ -1457,7 +1499,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
         try{ if(!root.classList.contains('intro') && hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
       }
       var q=hv.play();
-      if(q && q.catch) q.catch(function(err){ if(err && err.name==='NotAllowedError'){ showStill(); waitForTouch(); } });
+      if(q && q.catch) q.catch(function(err){ if(err && err.name==='NotAllowedError'){ showStill(); reveal(); waitForTouch(); } });
     };
     pickStages(function(list){ stages=list; startStage(0); });
     /* turning a phone or iPad: switch to the cut made for the new shape and carry on from the same moment */
@@ -1466,8 +1508,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       if(nb===base) return;
       base=nb;
       /* the 4K cut exists only for the wide film: an upright screen takes the tall film instead */
-      stages = stages.map(function(x){ return {url:x.url.replace(/img\/film(-p)?(-4k)?/, function(m,p,k){ return nb + (k ? '-4k' : ''); }), mem:x.mem}; });
-      if(vdone || !hasSrc || stage<0 || stages[stage].mem) return;   /* the end still, or a film held in memory, stays as it is */
+      stages = stages.map(function(x){ return {url:x.url.replace(/img\/film(-p)?(-4k)?/, function(m,p,k){ return nb + (k ? '-4k' : ''); })}; });
+      if(vdone || !hasSrc || stage<0) return;   /* the end still stays as it is */
       var at=hv.currentTime, wasPlaying=!hv.paused;
       var resume=function(){ hv.removeEventListener('loadedmetadata', resume); try{ hv.currentTime=at; }catch(e){} if(wasPlaying){ var q=hv.play(); if(q&&q.catch) q.catch(function(){}); } };
       hv.addEventListener('loadedmetadata', resume);
@@ -1478,6 +1520,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   } else {
     /* reduced motion or no video: the still the film ends on */
     if(hv){ hv.remove(); hv=null; }
+    root.classList.remove('loading');
     var hs0=hero.querySelector('.hero-img source'), hi0=hero.querySelector('.hero-img img');
     if(hs0) hs0.srcset='img/film-end-p.jpg'; if(hi0) hi0.src='img/film-end.jpg';
     copyOn();
@@ -1495,14 +1538,18 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var segLen=[],cum=[0]; for(var i=1;i<PTS.length;i++){ var l=Math.hypot(PTS[i][0]-PTS[i-1][0],PTS[i][1]-PTS[i-1][1]); segLen.push(l); cum.push(cum[i-1]+l); }
     function at(d){ for(var i=1;i<PTS.length;i++){ if(d<=cum[i]){ var k=(d-cum[i-1])/segLen[i-1]; return {x:PTS[i-1][0]+(PTS[i][0]-PTS[i-1][0])*k,y:PTS[i-1][1]+(PTS[i][1]-PTS[i-1][1])*k,i:i}; } } var L=PTS[PTS.length-1]; return {x:L[0],y:L[1],i:PTS.length}; }
     var NS='http://www.w3.org/2000/svg', links=[], cur=-1;
+    /* the tap area around each number is at least 44 css px whatever size the plan is drawn at */
+    function sizeHits(){ var w=stopsG.ownerSVGElement.getBoundingClientRect().width||300; var r=Math.max(34, 22*669/w); [].forEach.call(stopsG.querySelectorAll('.pl-hit'),function(h){ h.setAttribute('r',r.toFixed(1)); }); }
     STOP.slice(0,MARKS).forEach(function(si,n){
       var a=document.createElementNS(NS,'a'); a.setAttribute('href','#salon');
       var c=document.createElementNS(NS,'circle'); c.setAttribute('cx',PTS[si][0]); c.setAttribute('cy',PTS[si][1]); c.setAttribute('r',7);
       var tx=document.createElementNS(NS,'text'); tx.setAttribute('x',LBL[n][0]); tx.setAttribute('y',LBL[n][1]); tx.textContent=String(n+1);
       var ti=document.createElementNS(NS,'title');
-      a.appendChild(ti); a.appendChild(c); a.appendChild(tx); stopsG.appendChild(a); links.push(a);
+      var hit=document.createElementNS(NS,'circle'); hit.setAttribute('class','pl-hit'); hit.setAttribute('cx',LBL[n][0]+9); hit.setAttribute('cy',LBL[n][1]-11);
+      a.appendChild(ti); a.appendChild(hit); a.appendChild(c); a.appendChild(tx); stopsG.appendChild(a); links.push(a);
       a.addEventListener('click',function(e){ e.preventDefault(); var r=sec.getBoundingClientRect(), span=sec.offsetHeight-innerHeight; scrollTo({top:scrollY+r.top+span*((n+.55)/N),behavior:REDUCED?'auto':'smooth'}); });
     });
+    sizeHits(); addEventListener('resize', sizeHits);
     function setCap(n){
       var R=ROOMS[lang]||ROOMS.cs; $('walkName').textContent=R[n][0]; $('walkText').textContent=R[n][1];
       links.forEach(function(a,j){ if(j===n || (n===N-1 && j===1)) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); a.querySelector('title').textContent=R[j][0]; });
