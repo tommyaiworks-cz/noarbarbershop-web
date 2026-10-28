@@ -488,6 +488,19 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
 .foot img{height:32px;width:auto}
 .foot small{color:var(--muted);font-size:.9rem;max-width:52ch;line-height:1.5}
 .foot .social{display:flex;gap:1.8rem}
+.foot .legal{flex-basis:100%;display:flex;flex-wrap:wrap;align-items:baseline;gap:.5rem 1.8rem;font-size:.95rem}
+.foot .legal a,.foot .legal .cookie-link{color:var(--muted);text-decoration:none;font:inherit;background:none;border:0;padding:0;cursor:pointer}
+.foot .legal a:hover,.foot .legal .cookie-link:hover{color:var(--bone)}
+.foot .legal .co{flex-basis:100%;color:var(--muted);font-size:.85rem;max-width:none;margin-top:.4rem}
+.summary .fine.agree a{color:var(--muted);text-decoration:underline;text-decoration-color:var(--amber);text-underline-offset:.18em}
+/* cookie choice: a quiet line over a fade, no box */
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:2.2rem max(16px,env(safe-area-inset-left)) calc(1.1rem + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-right));
+  background:linear-gradient(to top,var(--ink) calc(100% - 2.2rem),transparent);display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:.6rem 2rem;font-size:.98rem}
+.consent p{margin:0;max-width:62ch;color:var(--bone)}
+.consent p a{color:var(--muted)}
+.consent-act{display:flex;gap:2rem}
+.consent-act .link{font:inherit;font-size:1.02rem;background:none;border:0;cursor:pointer}
+body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-events:none !important}
 /* at the end of the page, under the questions, the floating button lands in place and stops floating */
 .end-book{display:flex;justify-content:center;margin-top:clamp(3rem,6vw,4.5rem)}
 .end-book .btn{font-size:1.1rem;padding:1em 2.3em;
@@ -837,8 +850,20 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
     <div class="social">
       <a class="link" href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
     </div>
+    <div class="legal">
+      <a href="ochrana-osobnich-udaju.html" data-t="lg.privacy">Ochrana osobních údajů</a>
+      <a href="podminky-poukazu.html" data-t="lg.terms">Podmínky dárkových poukazů</a>
+      <button type="button" class="cookie-link" id="cookieLink" data-t="lg.cookies" hidden>Nastavení cookies</button>
+      <small class="co">NoarBarbershop s.r.o., <span data-t="lg.ico">IČO</span> <span class="num">30157706</span>, Školská <span class="num">1736/12</span>, <span class="num">110 00</span> Praha <span class="num">1</span>. <span data-t="lg.reg">Zapsaná u Městského soudu v Praze, oddíl C, vložka</span> <span class="num">458184</span>.</small>
+    </div>
   </div>
 </footer>
+
+<!-- cookie choice: shown only once an Analytics ID is set (GA_ID below). Nothing is measured before consent. -->
+<div class="consent" id="consent" role="region" aria-labelledby="consentText" hidden>
+  <p id="consentText"><span data-t="cc.text">Smíme měřit návštěvnost přes Google Analytics? Reklamní cookies nepoužíváme.</span> <a href="ochrana-osobnich-udaju.html" data-t="cc.more">Více o cookies</a></p>
+  <div class="consent-act"><button type="button" class="link" id="ccYes" data-t="cc.yes">Povolit</button><button type="button" class="link" id="ccNo" data-t="cc.no">Odmítnout</button></div>
+</div>
 
 <!-- the panel: gift card and merch open over the page and close back to where you were -->
 <dialog class="sheet" id="panel" aria-labelledby="panelH" closedby="any">
@@ -870,7 +895,7 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
         <div class="field" id="vMailWrap"><label for="vMail" data-t="v.mail">E-mail, kam poukaz pošleme</label><input id="vMail" type="email" inputmode="email" autocomplete="email"><span class="err" data-t="v.mailErr">Zkontrolujte prosím e-mail.</span></div>
         <div class="summary" style="margin-top:0">
           <div><div class="lines" id="vLines"></div><div class="total" id="vTotal"></div></div>
-          <div class="cta-col"><button class="btn" type="button" id="vSubmit" data-t="v.submit">Zaplatit kartou</button><p class="fine" data-t="v.fine">Karta, Apple Pay nebo Google Pay. Platnost 12 měsíců.</p></div>
+          <div class="cta-col"><button class="btn" type="button" id="vSubmit" data-t="v.submit">Zaplatit kartou</button><p class="fine" data-t="v.fine">Karta, Apple Pay nebo Google Pay. Platnost 12 měsíců.</p><p class="fine agree"><span data-t="v.agree1">Zaplacením souhlasíte s</span> <a href="podminky-poukazu.html" data-t="v.agreeT">podmínkami dárkových poukazů</a><span data-t="v.agree2">. Údaje zpracujeme podle</span> <a href="ochrana-osobnich-udaju.html" data-t="v.agreeP">zásad ochrany osobních údajů</a>.</p></div>
         </div>
       </form>
       <div class="v-done" id="vDone" hidden>
@@ -959,7 +984,7 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
       'walk.h2':'Jak to u nás vypadá.','walk.p':'Posouvejte stránku a projděte si salon od dveří až dozadu.','walk.plan':'Půdorys salonu','walk.wip':'Připravujeme',
       'team.h2':'Kdo vás bude stříhat.','team.p':'Rezervovat můžete u konkrétního holiče, nebo u toho, kdo má zrovna volno.','team.book':'Rezervovat u','team.today':'Dnes volno','team.tomorrow':'Zítra volno','team.dayFree':'{day} volno',
       'm.h3':'Kolekce NØÁR','m.short':'Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.','m.panel':'Kolekce NØÁR','m.item':'Kousek','m.p':'Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.','m.tee':'Tričko NØÁR','m.hoodie':'Mikina NØÁR','m.size':'Velikost','m.reserve':'Odložit k vyzvednutí','m.formP':'Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.','m.submit':'Odložit k vyzvednutí','m.pickSize':'Nejdřív vyberte velikost.','m.doneH':'Odloženo','m.again':'Odložit další kousek','m.done':'{item} ve velikosti {size} na vás čeká na recepci do {date}. Potvrzení jsme poslali na {phone}.','m.title':'{item}, velikost {size}',
-      'k.h2':'Najdete nás v Nekázance.','k.phone':'Telefon','k.mail':'E-mail','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
+      'k.h2':'Najdete nás v Nekázance.','k.phone':'Telefon','k.mail':'E-mail','lg.privacy':'Ochrana osobních údajů','lg.terms':'Podmínky dárkových poukazů','lg.cookies':'Nastavení cookies','lg.ico':'IČO','lg.reg':'Zapsaná u Městského soudu v Praze, oddíl C, vložka','cc.text':'Smíme měřit návštěvnost přes Google Analytics? Reklamní cookies nepoužíváme.','cc.more':'Více o cookies','cc.yes':'Povolit','cc.no':'Odmítnout','v.agree1':'Zaplacením souhlasíte s','v.agreeT':'podmínkami dárkových poukazů','v.agree2':'. Údaje zpracujeme podle','v.agreeP':'zásad ochrany osobních údajů','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
       'faq.h2':'Než přijdete.','faq.p':'Na co se nás ptáte nejčastěji. Cokoli dalšího vám rádi řekneme po telefonu.',
       'faq.q1':'Musím se objednat předem?','faq.a1':'Doporučujeme to, večery a soboty bývají plné. Bez objednání vás ale vezmeme vždy, když je volné křeslo. Stačí zavolat nebo se zastavit.',
       'faq.q2':'Jak se u vás platí?','faq.a2':'Kartou, Apple Pay, Google Pay nebo hotově. Dárkové poukazy platí 12 měsíců.',
@@ -993,7 +1018,7 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
       'walk.h2':'Have a look around.','walk.p':'Scroll to walk through the shop, from the door to the back room.','walk.plan':'Floor plan of the shop','walk.wip':'In progress',
       'team.h2':'Who will cut your hair.','team.p':'Book with a specific barber, or with whoever is free first.','team.book':'Book with','team.today':'Free today','team.tomorrow':'Free tomorrow','team.dayFree':'Free {day}',
       'm.h3':'The NØÁR collection','m.short':'Only at the shop. Pick a size and we will hold it for you for three days.','m.panel':'NØÁR collection','m.item':'Piece','m.p':'A small run, only at the shop. Heavy cotton and an embroidered logo.','m.tee':'NØÁR T-shirt','m.hoodie':'NØÁR hoodie','m.size':'Size','m.reserve':'Hold for pickup','m.formP':'We hold it for three days. You pay at the shop, by card or cash, and we text you a confirmation.','m.submit':'Hold for pickup','m.pickSize':'Choose a size first.','m.doneH':'Held for you','m.again':'Hold another piece','m.done':'{item} in size {size} is waiting for you at reception until {date}. We sent a confirmation to {phone}.','m.title':'{item}, size {size}',
-      'k.h2':'Find us on Nekázanka.','k.phone':'Phone','k.mail':'Email','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
+      'k.h2':'Find us on Nekázanka.','k.phone':'Phone','k.mail':'Email','lg.privacy':'Privacy policy','lg.terms':'Gift card terms','lg.cookies':'Cookie settings','lg.ico':'Company ID','lg.reg':'Registered at the Municipal Court in Prague, section C, file','cc.text':'May we measure visits with Google Analytics? We use no advertising cookies.','cc.more':'About cookies','cc.yes':'Allow','cc.no':'Decline','v.agree1':'By paying you agree to the','v.agreeT':'gift card terms','v.agree2':'. We handle your details under our','v.agreeP':'privacy policy','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
       'faq.h2':'Before you come.','faq.p':'What we get asked most. For anything else, call us.',
       'faq.q1':'Do I need to book?','faq.a1':'We recommend it: evenings and Saturdays fill up fast. Walk-ins are welcome whenever a chair is free. Just call or drop by.',
       'faq.q2':'How can I pay?','faq.a2':'Card, Apple Pay, Google Pay or cash. Gift cards are valid for 12 months.',
@@ -1027,7 +1052,7 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
       'walk.h2':'Tiệm trông như thế nào.','walk.p':'Cuộn trang để đi một vòng tiệm, từ cửa vào đến cuối.','walk.plan':'Sơ đồ tiệm','walk.wip':'Đang hoàn thiện',
       'team.h2':'Ai sẽ cắt tóc cho bạn.','team.p':'Bạn có thể đặt lịch với một thợ cụ thể, hoặc với người đang rảnh.','team.book':'Đặt lịch với','team.today':'Hôm nay còn trống','team.tomorrow':'Ngày mai còn trống','team.dayFree':'{day} còn trống',
       'm.h3':'Bộ sưu tập NØÁR','m.short':'Chỉ bán tại tiệm. Chọn kích cỡ, chúng tôi giữ hàng cho bạn ba ngày.','m.panel':'Bộ sưu tập NØÁR','m.item':'Sản phẩm','m.p':'Bộ sưu tập giới hạn, chỉ bán tại tiệm. Vải cotton dày, logo thêu.','m.tee':'Áo thun NØÁR','m.hoodie':'Áo hoodie NØÁR','m.size':'Kích cỡ','m.reserve':'Giữ hàng đến lấy','m.formP':'Chúng tôi giữ hàng cho bạn trong ba ngày. Thanh toán tại tiệm, bằng thẻ hoặc tiền mặt. Xác nhận qua SMS.','m.submit':'Giữ hàng','m.pickSize':'Vui lòng chọn kích cỡ trước.','m.doneH':'Đã giữ hàng','m.again':'Giữ thêm sản phẩm khác','m.done':'{item} cỡ {size} đang chờ bạn ở quầy lễ tân đến {date}. Chúng tôi đã gửi xác nhận đến {phone}.','m.title':'{item}, cỡ {size}',
-      'k.h2':'Tìm chúng tôi trên phố Nekázanka.','k.phone':'Điện thoại','k.mail':'E-mail','k.copy':'Sao chép','k.copied':'Đã sao chép','k.map':'Mở bản đồ','k.sketch':'Sơ đồ định hướng, không phải bản đồ. Đường chấm dẫn từ metro và tram đến tận cửa tiệm. Tiệm ở Nekázanka 12, ngay cạnh phố Panská có Bảo tàng Mucha, giữa Můstek và Náměstí Republiky. Trạm tram gần nhất là Jindřišská, đi bộ ba phút.','k.hours':'Giờ mở cửa','k.note':'Không đặt trước vẫn được phục vụ khi có ghế trống.',
+      'k.h2':'Tìm chúng tôi trên phố Nekázanka.','k.phone':'Điện thoại','k.mail':'E-mail','lg.privacy':'Bảo vệ dữ liệu cá nhân','lg.terms':'Điều kiện phiếu quà tặng','lg.cookies':'Cài đặt cookie','lg.ico':'Mã số doanh nghiệp','lg.reg':'Đăng ký tại Tòa án thành phố Praha, mục C, số hồ sơ','cc.text':'Chúng tôi có thể đo lượt truy cập bằng Google Analytics không? Chúng tôi không dùng cookie quảng cáo.','cc.more':'Tìm hiểu về cookie','cc.yes':'Cho phép','cc.no':'Từ chối','v.agree1':'Khi thanh toán, quý khách đồng ý với','v.agreeT':'điều kiện phiếu quà tặng','v.agree2':'. Dữ liệu được xử lý theo','v.agreeP':'chính sách bảo vệ dữ liệu cá nhân','k.copy':'Sao chép','k.copied':'Đã sao chép','k.map':'Mở bản đồ','k.sketch':'Sơ đồ định hướng, không phải bản đồ. Đường chấm dẫn từ metro và tram đến tận cửa tiệm. Tiệm ở Nekázanka 12, ngay cạnh phố Panská có Bảo tàng Mucha, giữa Můstek và Náměstí Republiky. Trạm tram gần nhất là Jindřišská, đi bộ ba phút.','k.hours':'Giờ mở cửa','k.note':'Không đặt trước vẫn được phục vụ khi có ghế trống.',
       'faq.h2':'Trước khi bạn đến.','faq.p':'Những câu hỏi chúng tôi hay gặp nhất. Còn gì khác, cứ gọi cho chúng tôi.',
       'faq.q1':'Có cần đặt lịch trước không?','faq.a1':'Nên đặt trước, buổi tối và thứ bảy thường kín. Không đặt trước, chúng tôi vẫn phục vụ khi có ghế trống. Chỉ cần gọi hoặc ghé qua.',
       'faq.q2':'Thanh toán bằng cách nào?','faq.a2':'Thẻ, Apple Pay, Google Pay hoặc tiền mặt. Phiếu quà tặng có giá trị 12 tháng.',
@@ -1516,6 +1541,36 @@ footer{padding:3rem 0 3.5rem;border-top:1px solid var(--line)}
   }catch(e){ if(window.console) console.error(e); }
 
   walkLang();
+})();
+</script>
+<script>
+/* Google Analytics 4 with consent: nothing loads and no cookie is set until the visitor allows it.
+   Set GA_ID to the property's Measurement ID (G-...) to switch the cookie choice on. */
+(function(){
+  var GA_ID = '';
+  if(!GA_ID) return;
+  var bar=document.getElementById('consent'), link=document.getElementById('cookieLink'), KEY='noar-consent', loaded=false;
+  window.dataLayer=window.dataLayer||[]; window.gtag=function(){ dataLayer.push(arguments); };
+  gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied'});
+  function load(){
+    if(loaded) return; loaded=true;
+    gtag('consent','update',{analytics_storage:'granted'});
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID; document.head.appendChild(s);
+    gtag('js',new Date()); gtag('config',GA_ID,{anonymize_ip:true});
+  }
+  function clear(){
+    gtag('consent','update',{analytics_storage:'denied'});
+    document.cookie.split(';').forEach(function(c){ var n=c.split('=')[0].trim(); if(/^_ga/.test(n)){
+      ['', location.hostname, '.'+location.hostname.replace(/^www\./,'')].forEach(function(d){ document.cookie=n+'=; Max-Age=0; path=/'+(d?'; domain='+d:''); }); } });
+  }
+  function show(on){ bar.hidden=!on; document.body.classList.toggle('cc-open', on); }
+  function choose(yes){ try{ localStorage.setItem(KEY, yes?'yes':'no'); }catch(e){} show(false); if(yes) load(); else { clear(); if(loaded) location.reload(); } }
+  var c=null; try{ c=localStorage.getItem(KEY); }catch(e){}
+  link.hidden=false;
+  link.addEventListener('click', function(){ show(true); document.getElementById('ccYes').focus(); });
+  document.getElementById('ccYes').addEventListener('click', function(){ choose(true); });
+  document.getElementById('ccNo').addEventListener('click', function(){ choose(false); });
+  if(c==='yes') load(); else if(c!=='no') show(true);
 })();
 </script>
 
