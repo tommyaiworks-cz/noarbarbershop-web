@@ -1438,7 +1438,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       stage=i; clearTimeout(stageTimer); var st=stages[i], mine=i;
       /* older browsers without download streams: the film streams the classic way */
       if(!(window.fetch && window.URL && URL.createObjectURL && window.ReadableStream)){
-        hasSrc=true; hv.src = st.url + (seen ? '#t='+INTRO_END : ''); hv.preload='auto'; hv.load(); tryPlay();
+        hasSrc=true; hv.src = st.url; hv.preload='auto'; hv.load(); tryPlay();
         stageTimer=setTimeout(function(){ if(!started && stage===mine && hv.readyState<2) nextStage(); }, 8000);
         return;
       }
@@ -1479,8 +1479,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       var hs=hero.querySelector('.hero-img source'), hi=hero.querySelector('.hero-img img');
       var pre=new Image(); pre.onload=function(){ if(hs) hs.srcset='img/film-end-p.jpg'; if(hi) hi.src='img/film-end.jpg'; }; pre.src = mqPortrait.matches ? 'img/film-end-p.jpg' : 'img/film-end.jpg';
     }
-    /* a film that arrives after the copy is already showing skips the intro and starts at the window */
-    hv.addEventListener('loadedmetadata', function(){ try{ if(!root.classList.contains('intro') && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){} });
+    /* the film always starts on its first frame, which is the still underneath, so it fades in without a jump;
+       a repeat visit or a skip only brings the text in early, the camera never cuts mid-move */
     hv.addEventListener('playing', function(){ started=true; clearTimeout(guard); clearTimeout(stageTimer); hv.classList.add('ready'); hero.classList.add('playing'); reveal(); });
     hv.addEventListener('timeupdate', function(){ if(hv.currentTime >= INTRO_END-0.05) copyOn(); if(hv.duration && hv.currentTime > hv.duration-2.5) armStill(); });
     hv.addEventListener('ended', function(){ vdone=true; copyOn(); armStill(); hero.classList.add('rest'); });
@@ -1488,7 +1488,6 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var skip=function(){
       reveal();
       if(!root.classList.contains('intro')) return;
-      try{ if(hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
       copyOn();
     };
     ['wheel','touchstart','pointerdown','keydown','scroll'].forEach(function(ev){ window.addEventListener(ev, skip, {passive:true}); });
@@ -1496,7 +1495,6 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       if(vdone || !hasSrc) return;
       if(!started){
         hero.classList.add('playing'); clearTimeout(guard); guard=setTimeout(showStill, 2500);
-        try{ if(!root.classList.contains('intro') && hv.readyState>=1 && hv.currentTime < INTRO_END) hv.currentTime = INTRO_END; }catch(e){}
       }
       var q=hv.play();
       if(q && q.catch) q.catch(function(err){ if(err && err.name==='NotAllowedError'){ showStill(); reveal(); waitForTouch(); } });
