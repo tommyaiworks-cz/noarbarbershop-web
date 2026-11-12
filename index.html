@@ -344,7 +344,7 @@ h2.lined.in::after{transform:scaleX(1)}
 /* ---------- studio: the quote over the photo opens the walk-through ---------- */
 #studio{padding-block:0}
 .studio-open{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(6rem,11vw,9.5rem) clamp(4rem,7vw,6rem);color:var(--bone)}
-.studio-open::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/walk-2.webp) center 45%/cover no-repeat;opacity:.5}
+.studio-open::before{content:"";position:absolute;inset:0;z-index:-2;background:url(img/walk-floor.webp) center 45%/cover no-repeat;opacity:.5}
 .studio-open::after{content:"";position:absolute;inset:0;z-index:-1;background:
   radial-gradient(42% 46% at 50% 38%,rgba(8,7,6,.62) 0%,rgba(8,7,6,.38) 60%,transparent 100%),
   linear-gradient(180deg,var(--ink) 0%,rgba(8,7,6,.4) 24%,rgba(8,7,6,.55) 70%,#080706 100%),
@@ -379,7 +379,7 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
 }
 
 /* salon walk-through: the page pins, scrolling steps through the rooms; a dot on the hand-drawn plan shows where you are */
-.walk{position:relative;height:300vh;background:#080706;color:var(--bone)}
+.walk{position:relative;height:267vh;background:#080706;color:var(--bone)}
 .walk-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden;padding-top:72px}
 .walk-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(2rem,5vw,5rem);align-items:center;width:100%}
 .walk-side h2{margin:0 0 .9rem;font-size:clamp(1.8rem,1.2rem + 1.8vw,2.6rem)}
@@ -404,11 +404,6 @@ html[lang=en] .motto{display:none}   /* in English the wall sign already says it
   mask-composite:intersect}
 .walk-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease;transform-origin:50% 50%;will-change:opacity,transform}
 .walk-frame img.on{opacity:1}
-/* the salon is not finished yet: every room photo is grey under a dark veil with a quiet "in progress" over it */
-.walk-frame img{filter:grayscale(1) brightness(.8)}
-.walk-wip{position:absolute;inset:0;margin:0;display:grid;place-items:center;background:rgba(14,13,12,.6);pointer-events:none}
-.walk-wip span{font-style:italic;font-size:clamp(1.6rem,1.1rem + 2vw,2.6rem);color:var(--bone);letter-spacing:.02em;padding-bottom:.5rem;
-  background:linear-gradient(90deg,transparent,var(--amber),transparent) center bottom/100% 1px no-repeat;text-shadow:0 2px 24px rgba(0,0,0,.6)}
 .walk-cap{text-align:center;margin-top:-.4rem;min-height:4.4em}
 .walk-cap h3{margin:0 0 .2rem;font-size:1.45rem}
 .walk-cap p{color:var(--sand)}
@@ -776,7 +771,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
             </g>
             <path class="pl-dash" d="M30 405H330"/>
             <path class="pl-door" d="M500 670a40 40 0 0 1 40 -40M360 135a45 45 0 0 1 45 -45"/>
-            <polyline class="pl-route" points="520,670 525,560 220,525 180,345 378,330 378,165 545,175 378,165 335,75"/>
+            <polyline class="pl-route" points="520,670 525,560 480,465 330,480 180,345 330,480 378,410 378,165 335,75 378,165 378,410 330,480 255,600"/>
             <polyline class="pl-done" id="walkDone" points="520,670"/>
             <g class="pl-stops" id="walkStops"></g>
             <circle class="pl-dot" id="walkDot" r="11" cx="520" cy="670"/>
@@ -784,13 +779,11 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
         </div>
         <div class="walk-view">
           <div class="walk-frame" id="walkFrame">
-            <img src="img/walk-1.webp" alt="" width="1400" height="1235" loading="lazy" decoding="async">
-            <img src="img/walk-2.webp" alt="" width="1400" height="1255" loading="lazy" decoding="async">
-            <img src="img/walk-4.webp" alt="" width="1400" height="1479" loading="lazy" decoding="async">
-            <img src="img/walk-3.webp" alt="" width="1400" height="1487" loading="lazy" decoding="async">
-            <img src="img/walk-5.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
-            <img src="img/walk-6.webp" alt="" width="1600" height="1411" loading="lazy" decoding="async">
-            <p class="walk-wip"><span data-t="walk.wip">Připravujeme</span></p>
+            <img src="img/walk-reception.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
+            <img src="img/walk-floor.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
+            <img src="img/walk-wash.webp" alt="" width="1400" height="1479" loading="lazy" decoding="async">
+            <img src="img/walk-restroom.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
+            <img src="img/walk-chair.webp" alt="" width="1400" height="1120" loading="lazy" decoding="async">
           </div>
           <div class="walk-cap" aria-live="polite"><h3 id="walkName"></h3><p id="walkText"></p><p class="walk-cta" id="walkCta" hidden><a class="link" href="https://noar-barber.slotio.cloud/#/booking" target="_blank" rel="noopener" data-t="hero.cta">Rezervovat termín</a></p></div>
         </div>
@@ -1065,7 +1058,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       'v.type':'Typ poukazu','v.to':'Pro koho','v.toErr':'Napište jméno obdarovaného.','v.from':'Od koho','v.fromErr':'Napište, od koho poukaz je.','v.msg':'Věnování (nepovinné)','v.del':'Doručení','v.mail':'E-mail, kam poukaz pošleme','v.mailErr':'Zkontrolujte prosím e-mail.','v.submit':'Zaplatit kartou','v.fine':'Karta, Apple Pay nebo Google Pay. Platnost 12 měsíců.','v.doneEyebrow':'Ukázka platby','v.doneH':'Tady se otevře platební brána.','v.again':'Objednat další poukaz','v.kind':'Dárkový poukaz','v.hint':'Náhled se mění podle toho, co vyplníte.',
       'ab.motto':'Disciplína dává svobodu.','ab.body':'Disciplína je naše část dohody. Svoboda je ta vaše: sednete si, a o zbytek se postaráme my.',
       'ab.t1':'Žádné čekání','ab.s1':'Termín platí na minutu. Přijdete, sednete si, začínáme.','ab.t2':'Nejdřív rozhovor, pak nůžky','ab.s2':'Pět minut o vašich vlasech a o tom, kolik času jim ráno dáváte.','ab.t3':'Rituál, ne rychlovka','ab.s3':'Horký ručník, břitva, tonikum a balzám. Všechno v ceně.',
-      'walk.h2':'Jak to u nás vypadá.','walk.p':'Posouvejte stránku a projděte si salon od dveří až dozadu.','walk.plan':'Půdorys salonu','walk.wip':'Připravujeme',
+      'walk.h2':'Jak to u nás vypadá.','walk.p':'Posouvejte stránku a projděte si salon od dveří až ke křeslu.','walk.plan':'Půdorys salonu',
       'team.h2':'Kdo vás bude stříhat.','team.p':'Rezervovat můžete u konkrétního holiče, nebo u toho, kdo má zrovna volno.','team.book':'Rezervovat u','team.today':'Dnes volno','team.tomorrow':'Zítra volno','team.dayFree':'{day} volno',
       'm.h3':'Kolekce NØÁR','m.short':'Jen u nás v salonu. Vyberte velikost a my vám ho na tři dny odložíme.','m.panel':'Kolekce NØÁR','m.item':'Kousek','m.p':'Limitovaná kolekce, k dostání jen u nás v salonu. Těžká bavlna a vyšívané logo.','m.tee':'Tričko NØÁR','m.hoodie':'Mikina NØÁR','m.size':'Velikost','m.reserve':'Odložit k vyzvednutí','m.formP':'Odložíme vám ho na tři dny. Zaplatíte až u nás, kartou nebo hotově. Potvrzení pošleme SMS.','m.submit':'Odložit k vyzvednutí','m.pickSize':'Nejdřív vyberte velikost.','m.doneH':'Odloženo','m.again':'Odložit další kousek','m.done':'{item} ve velikosti {size} na vás čeká na recepci do {date}. Potvrzení jsme poslali na {phone}.','m.title':'{item}, velikost {size}',
       'k.h2':'Najdete nás v Nekázance.','skip':'Přeskočit na obsah','studio.h2':'Studio','k.phone':'Telefon','k.mail':'E-mail','lg.privacy':'Ochrana osobních údajů','lg.terms':'Podmínky dárkových poukazů','lg.cookies':'Nastavení cookies','lg.ico':'IČO','lg.made':'Web vytvořil','lg.reg':'Zapsaná u Městského soudu v Praze, oddíl C, vložka','cc.text':'Smíme měřit návštěvnost přes Google Analytics? Reklamní cookies nepoužíváme.','cc.more':'Více o cookies','cc.yes':'Povolit','cc.no':'Odmítnout','v.agree1':'Zaplacením souhlasíte s','v.agreeT':'podmínkami dárkových poukazů','v.agree2':'. Údaje zpracujeme podle','v.agreeP':'zásad ochrany osobních údajů','k.copy':'Kopírovat','k.copied':'Zkopírováno','k.map':'Otevřít v mapách','k.sketch':'Orientační náčrt, ne mapa. Tečkovaná čára vede od metra a tramvaje až k nám. Jsme v Nekázance 12, v ulici hned vedle Panské s Muchovým muzeem, na půl cesty mezi Můstkem a Náměstím Republiky. Nejbližší tramvaj je Jindřišská, tři minuty pěšky.','k.hours':'Otevírací doba','k.note':'Bez objednání vás vezmeme, kdykoli je volné křeslo.',
@@ -1099,7 +1092,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       'v.type':'Card type','v.to':'For','v.toErr':'Add the recipient’s name.','v.from':'From','v.fromErr':'Add who the card is from.','v.msg':'Message (optional)','v.del':'Delivery','v.mail':'Email to send the card to','v.mailErr':'Please check the email address.','v.submit':'Pay by card','v.fine':'Card, Apple Pay or Google Pay. Valid for 12 months.','v.doneEyebrow':'Payment preview','v.doneH':'This is where checkout opens.','v.again':'Order another card','v.kind':'Gift card','v.hint':'The preview updates as you type.',
       'ab.motto':'Discipline creates freedom.','ab.body':'Discipline is our side of the deal. Freedom is yours: you sit down, and we take care of the rest.',
       'ab.t1':'No waiting','ab.s1':'Your appointment starts on the minute. You arrive, you sit down, we begin.','ab.t2':'Talk first, then scissors','ab.s2':'Five minutes about your hair and how much time you give it in the morning.','ab.t3':'A ritual, not a rush','ab.s3':'Hot towel, straight razor, tonic and balm. All included.',
-      'walk.h2':'Have a look around.','walk.p':'Scroll to walk through the shop, from the door to the back room.','walk.plan':'Floor plan of the shop','walk.wip':'In progress',
+      'walk.h2':'Have a look around.','walk.p':'Scroll to walk through the shop, from the door to your chair.','walk.plan':'Floor plan of the shop',
       'team.h2':'Who will cut your hair.','team.p':'Book with a specific barber, or with whoever is free first.','team.book':'Book with','team.today':'Free today','team.tomorrow':'Free tomorrow','team.dayFree':'Free {day}',
       'm.h3':'The NØÁR collection','m.short':'Only at the shop. Pick a size and we will hold it for you for three days.','m.panel':'NØÁR collection','m.item':'Piece','m.p':'A small run, only at the shop. Heavy cotton and an embroidered logo.','m.tee':'NØÁR T-shirt','m.hoodie':'NØÁR hoodie','m.size':'Size','m.reserve':'Hold for pickup','m.formP':'We hold it for three days. You pay at the shop, by card or cash, and we text you a confirmation.','m.submit':'Hold for pickup','m.pickSize':'Choose a size first.','m.doneH':'Held for you','m.again':'Hold another piece','m.done':'{item} in size {size} is waiting for you at reception until {date}. We sent a confirmation to {phone}.','m.title':'{item}, size {size}',
       'k.h2':'Find us on Nekázanka.','skip':'Skip to content','studio.h2':'Studio','k.phone':'Phone','k.mail':'Email','lg.privacy':'Privacy policy','lg.terms':'Gift card terms','lg.cookies':'Cookie settings','lg.ico':'Company ID','lg.made':'Website by','lg.reg':'Registered at the Municipal Court in Prague, section C, file','cc.text':'May we measure visits with Google Analytics? We use no advertising cookies.','cc.more':'About cookies','cc.yes':'Allow','cc.no':'Decline','v.agree1':'By paying you agree to the','v.agreeT':'gift card terms','v.agree2':'. We handle your details under our','v.agreeP':'privacy policy','k.copy':'Copy','k.copied':'Copied','k.map':'Open in maps','k.sketch':'A sketch, not a map. The dotted line leads from the metro and the tram to our door. We are at Nekázanka 12, the street right next to Panská with the Mucha Museum, halfway between Můstek and Náměstí Republiky. The nearest tram stop is Jindřišská, three minutes on foot.','k.hours':'Opening hours','k.note':'Walk-ins are welcome whenever a chair is free.',
@@ -1558,10 +1551,12 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   try{ (function(){
     var sec=$('salon'); if(!sec) return;
     var imgs=[].slice.call(sec.querySelectorAll('.walk-frame img')), dot=$('walkDot'), doneLine=$('walkDone'), stopsG=$('walkStops');
-    var ROOMS={cs:[['Recepce','Hned za dveřmi. Tady vás přivítáme.'],['Hlavní sál','Tři křesla u velkých oken.'],['Mycí kout','Dvě mycí křesla hned za sálem.'],['Péče o pleť','Klidná místnost vpravo od chodby.'],['Toaleta','Na konci chodby.'],['Vaše křeslo','Zbytek je na nás.']],
-               en:[['Reception','Right inside the door. This is where we welcome you.'],['Main floor','Three chairs by the tall windows.'],['Wash area','Two wash chairs just behind the main floor.'],['Skin-care room','A quiet room off the corridor, on the right.'],['Restroom','At the end of the corridor.'],['Your chair','The rest is on us.']]};
-    var PTS=[[520,670],[525,560],[220,525],[180,345],[378,330],[378,165],[545,175],[378,165],[335,75],[378,165],[378,330],[180,345],[220,525]], STOP=[1,2,3,6,8,12], MARKS=5, N=STOP.length;
-    var LBL=[[565,575],[150,575],[90,330],[560,110],[270,55]];
+    var ROOMS={cs:[['Recepce','Hned za dveřmi. Tady vás přivítáme.'],['Hlavní sál','Tři křesla a vysoká okna do ulice.'],['Mycí kout','Dvě mycí křesla hned za sálem.'],['Toaleta','Na konci chodby.'],['Vaše křeslo','Zbytek je na nás.']],
+               en:[['Reception','Right inside the door. This is where we welcome you.'],['Main floor','Three chairs and tall windows onto the street.'],['Wash area','Two wash chairs just behind the main floor.'],['Restroom','At the end of the corridor.'],['Your chair','The rest is on us.']]};
+    /* the street door, the reception, through the black doorway into the main floor, the wash area behind it,
+       up the corridor to the restroom, and back to the chair by the window */
+    var PTS=[[520,670],[525,560],[480,465],[330,480],[180,345],[330,480],[378,410],[378,165],[335,75],[378,165],[378,410],[330,480],[255,600]], STOP=[1,3,4,8,12], MARKS=5, N=STOP.length;
+    var LBL=[[565,575],[350,530],[90,330],[270,55],[200,628]];
     var segLen=[],cum=[0]; for(var i=1;i<PTS.length;i++){ var l=Math.hypot(PTS[i][0]-PTS[i-1][0],PTS[i][1]-PTS[i-1][1]); segLen.push(l); cum.push(cum[i-1]+l); }
     function at(d){ for(var i=1;i<PTS.length;i++){ if(d<=cum[i]){ var k=(d-cum[i-1])/segLen[i-1]; return {x:PTS[i-1][0]+(PTS[i][0]-PTS[i-1][0])*k,y:PTS[i-1][1]+(PTS[i][1]-PTS[i-1][1])*k,i:i}; } } var L=PTS[PTS.length-1]; return {x:L[0],y:L[1],i:PTS.length}; }
     var NS='http://www.w3.org/2000/svg', links=[], cur=-1;
@@ -1579,7 +1574,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     sizeHits(); addEventListener('resize', sizeHits);
     function setCap(n){
       var R=ROOMS[lang]||ROOMS.cs; $('walkName').textContent=R[n][0]; $('walkText').textContent=R[n][1];
-      links.forEach(function(a,j){ if(j===n || (n===N-1 && j===1)) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); a.querySelector('title').textContent=R[j][0]; });
+      links.forEach(function(a,j){ if(j===n) a.setAttribute('aria-current','step'); else a.removeAttribute('aria-current'); a.querySelector('title').textContent=R[j][0]; });
       $('walkCta').hidden = n!==N-1;
     }
     walkLang=function(){ setCap(Math.max(cur,0)); };
@@ -1590,7 +1585,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
       /* the dot walks to this room during the first 45% of its scroll share, then rests */
       var from=seg?cum[STOP[seg-1]]:0, to=cum[STOP[seg]], k=Math.min(1,local/.45); k=k*k*(3-2*k);
       var q=at(from+(to-from)*k); dot.setAttribute('cx',q.x.toFixed(1)); dot.setAttribute('cy',q.y.toFixed(1));
-      var pts=PTS.slice(0,Math.min(q.i,9)).map(function(a){ return a.join(','); }); if(q.i<=9) pts.push(q.x.toFixed(1)+','+q.y.toFixed(1)); doneLine.setAttribute('points',pts.join(' '));
+      var pts=PTS.slice(0,q.i).map(function(a){ return a.join(','); }); pts.push(q.x.toFixed(1)+','+q.y.toFixed(1)); doneLine.setAttribute('points',pts.join(' '));
       if(!REDUCED) imgs[seg].style.transform='scale('+(1.07-.07*local).toFixed(4)+')';
     }
     var ticking=false; function onScrollW(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ ticking=false; update(); }); } }
