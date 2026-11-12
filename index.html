@@ -690,8 +690,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   <div class="lights" aria-hidden="true"></div>
   <div class="hero-img">
     <picture>
-      <source media="(orientation: portrait)" srcset="img/film-start-p.jpg">
-      <img src="img/film-start.jpg" alt="NØÁR Barbershop, Nekázanka 12" width="1920" height="1080" fetchpriority="high" decoding="async">
+      <source media="(orientation: portrait)" srcset="img/film-start-p.jpg?v=101">
+      <img src="img/film-start.jpg?v=101" alt="NØÁR Barbershop, Nekázanka 12" width="1920" height="1080" fetchpriority="high" decoding="async">
     </picture>
     <video class="hero-video" id="heroVideo" muted playsinline preload="none" aria-hidden="true"></video>
   </div>
@@ -1438,19 +1438,20 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var vdone=false, started=false, guard=0, stageTimer=0, stillReady=false, hasSrc=false, blobUrl=null;
     var mqPortrait = window.matchMedia('(orientation: portrait)');
     var base = mqPortrait.matches ? 'img/film-p' : 'img/film';   /* tall film for upright screens, wide film for the rest */
+    var FV = '?v=101';   /* film version: a new film never comes from an old cache */
     /* Sources are tried in order until one plays: 4K AV1 (big screens with hardware 4K decode),
        AV1 1080p (hardware AV1, about a third of the H.264 size), H.264 1080p (everything else).
        Each film is downloaded whole and played from memory, so playback can never outrun the download. */
     var stages=[], stage=-1;
     /* 0. a true 4K film (wide or tall), only for screens of at least 2560 real pixels whose hardware decodes 4K AV1 smoothly */
     function pickStages(cb){
-      var h264={url:base+'.mp4'};
+      var h264={url:base+'.mp4'+FV};
       var mc=navigator.mediaCapabilities, av='video/mp4; codecs="av01.0.09M.08"';
       var cfg={type:'file', video:{contentType:av, width:1920, height:1080, bitrate:2700000, framerate:60}};
       var cfg4={type:'file', video:{contentType:'video/mp4; codecs="av01.0.13M.08"', width:mqPortrait.matches?2160:3840, height:mqPortrait.matches?3840:2160, bitrate:14000000, framerate:60}};
       var big = Math.max(screen.width, screen.height) * (window.devicePixelRatio||1) >= 2560;
       var ok=function(r){ return !!(r && r.supported && r.smooth && r.powerEfficient); };
-      var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'}]:[]).concat(av1?[{url:base+'-av1.mp4'}]:[]).concat([h264])); };
+      var done=function(av1, k4){ cb((k4?[{url:base+'-4k.mp4'+FV}]:[]).concat(av1?[{url:base+'-av1.mp4'+FV}]:[]).concat([h264])); };
       if(mc && mc.decodingInfo){
         mc.decodingInfo(cfg).then(function(r){
           var a=ok(r); if(!a || !big){ done(a,false); return; }
@@ -1503,7 +1504,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     function armStill(){
       if(stillReady) return; stillReady=true;
       var hs=hero.querySelector('.hero-img source'), hi=hero.querySelector('.hero-img img');
-      var pre=new Image(); pre.onload=function(){ if(hs) hs.srcset='img/film-end-p.jpg'; if(hi) hi.src='img/film-end.jpg'; }; pre.src = mqPortrait.matches ? 'img/film-end-p.jpg' : 'img/film-end.jpg';
+      var pre=new Image(); pre.onload=function(){ if(hs) hs.srcset='img/film-end-p.jpg'+FV; if(hi) hi.src='img/film-end.jpg'+FV; }; pre.src = (mqPortrait.matches ? 'img/film-end-p.jpg' : 'img/film-end.jpg')+FV;
     }
     /* the film always starts on its first frame, which is the still underneath, so it fades in without a jump;
        a repeat visit or a skip only brings the text in early, the camera never cuts mid-move */
@@ -1546,7 +1547,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     if(hv){ hv.remove(); hv=null; }
     root.classList.remove('loading');
     var hs0=hero.querySelector('.hero-img source'), hi0=hero.querySelector('.hero-img img');
-    if(hs0) hs0.srcset='img/film-end-p.jpg'; if(hi0) hi0.src='img/film-end.jpg';
+    if(hs0) hs0.srcset='img/film-end-p.jpg?v=101'; if(hi0) hi0.src='img/film-end.jpg?v=101';
     copyOn();
   }
   }catch(e){ if(window.console) console.error(e); copyOn(); }   /* the film failed to set up: the still and the buttons show */
