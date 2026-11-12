@@ -282,6 +282,8 @@ html.intro .hero::after{opacity:0}
 }
 
 /* ---------- sections ---------- */
+/* nothing in the page may stick out sideways: on phones that would let the whole site be dragged left and right */
+main{overflow-x:clip}
 section{padding-block:clamp(4.5rem,8vw,7rem)}
 .sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:1.4rem 3rem;align-items:end;margin-bottom:clamp(2.6rem,5vw,4rem)}
 h2{font-size:clamp(2.1rem,1.3rem + 2.6vw,3.3rem);line-height:1.06}
@@ -325,7 +327,7 @@ h2.lined.in::after{transform:scaleX(1)}
 /* gold hairlines that fade out at both ends, and a warm glow behind the number: no box */
 .sale::before,.sale::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,166,107,.75) 18%,rgba(201,166,107,.75) 82%,transparent)}
 .sale::before{top:0}.sale::after{bottom:0}
-.sale-big{position:relative;margin:0;line-height:.9;color:var(--amber);white-space:nowrap;text-shadow:0 0 18px rgba(201,166,107,.45),0 0 42px rgba(201,166,107,.25)}
+.sale-big{position:relative;justify-self:start;margin:0;line-height:.9;color:var(--amber);white-space:nowrap;text-shadow:0 0 18px rgba(201,166,107,.45),0 0 42px rgba(201,166,107,.25)}
 .sale-big::before{content:"";position:absolute;inset:-60% -40%;z-index:-1;background:radial-gradient(closest-side,rgba(201,166,107,.18),transparent);pointer-events:none}
 .sale-big .num{font-size:clamp(3.6rem,8vw,6.2rem);letter-spacing:-.04em;font-weight:500}
 .sale-big .pct{font-family:var(--mono);font-size:clamp(1.8rem,3.6vw,2.8rem);margin-left:.12em;vertical-align:.9em}
