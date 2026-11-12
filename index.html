@@ -690,8 +690,8 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
   <div class="lights" aria-hidden="true"></div>
   <div class="hero-img">
     <picture>
-      <source media="(orientation: portrait)" srcset="img/film-start-p.jpg?v=101">
-      <img src="img/film-start.jpg?v=101" alt="NØÁR Barbershop, Nekázanka 12" width="1920" height="1080" fetchpriority="high" decoding="async">
+      <source media="(orientation: portrait)" srcset="img/film-start-p.jpg?v=102">
+      <img src="img/film-start.jpg?v=102" alt="NØÁR Barbershop, Nekázanka 12" width="1920" height="1080" fetchpriority="high" decoding="async">
     </picture>
     <video class="hero-video" id="heroVideo" muted playsinline preload="none" aria-hidden="true"></video>
   </div>
@@ -1438,7 +1438,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     var vdone=false, started=false, guard=0, stageTimer=0, stillReady=false, hasSrc=false, blobUrl=null;
     var mqPortrait = window.matchMedia('(orientation: portrait)');
     var base = mqPortrait.matches ? 'img/film-p' : 'img/film';   /* tall film for upright screens, wide film for the rest */
-    var FV = '?v=101';   /* film version: a new film never comes from an old cache */
+    var FV = '?v=102';   /* film version: a new film never comes from an old cache */
     /* Sources are tried in order until one plays: 4K AV1 (big screens with hardware 4K decode),
        AV1 1080p (hardware AV1, about a third of the H.264 size), H.264 1080p (everything else).
        Each film is downloaded whole and played from memory, so playback can never outrun the download. */
@@ -1547,7 +1547,7 @@ body.cc-open .dock{opacity:0 !important;visibility:hidden !important;pointer-eve
     if(hv){ hv.remove(); hv=null; }
     root.classList.remove('loading');
     var hs0=hero.querySelector('.hero-img source'), hi0=hero.querySelector('.hero-img img');
-    if(hs0) hs0.srcset='img/film-end-p.jpg?v=101'; if(hi0) hi0.src='img/film-end.jpg?v=101';
+    if(hs0) hs0.srcset='img/film-end-p.jpg?v=102'; if(hi0) hi0.src='img/film-end.jpg?v=102';
     copyOn();
   }
   }catch(e){ if(window.console) console.error(e); copyOn(); }   /* the film failed to set up: the still and the buttons show */
